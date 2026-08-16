@@ -25,14 +25,14 @@ export default function Packages() {
           </h2>
           <p className="text-xs sm:text-sm text-slate-400">
             <Balancer>
-              Gizli maliyet yok. İhtiyacınıza göre ölçeklenebilir 3 şeffaf çözüm.
+              Gizli maliyet yok. İhtiyacınıza göre ölçeklenebilir 3 şeffaf paket.
             </Balancer>
           </p>
         </div>
 
         {/* 3 Ultra-Clean Symmetrical Cards */}
         <div className="grid md:grid-cols-3 gap-6 items-stretch mb-8 w-full">
-          {/* Package 1: Standart */}
+          {/* Package 1: Standart Paket */}
           <div className="glass-box p-6 sm:p-7 flex flex-col justify-between h-full relative group">
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-2">
@@ -47,9 +47,14 @@ export default function Packages() {
                 <span className="text-xs font-bold text-slate-400">TL</span>
               </div>
 
-              <p className="text-xs text-slate-400 mb-5 leading-relaxed">
+              <p className="text-xs text-slate-400 mb-4 leading-relaxed">
                 Kafe, kuaför ve yerel işletmeler için hızlı, mobil uyumlu ve Google harita kayıtlı web sitesi.
               </p>
+
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-300 text-xs font-semibold mb-5 border border-blue-500/20">
+                <Clock className="w-3.5 h-3.5 text-blue-400" />
+                <span>48 Saatte (2 İş Günü) Yayında</span>
+              </div>
 
               {/* 4 Essential Core Features */}
               <ul className="space-y-3 text-xs text-slate-300 mb-6">
@@ -67,7 +72,7 @@ export default function Packages() {
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                  <span><strong>48 Saatte Teslim</strong> & 15 gün teknik destek</span>
+                  <span><strong>SSL Güvenlik</strong> & 15 gün teknik destek</span>
                 </li>
               </ul>
             </div>
@@ -76,11 +81,11 @@ export default function Packages() {
               href="#iletisim"
               className="w-full py-3 rounded-xl text-center text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 transition-all block mt-auto relative z-10"
             >
-              Teklif Al
+              Ücretsiz Teklif Al
             </Link>
           </div>
 
-          {/* Package 2: Kurumsal */}
+          {/* Package 2: Kurumsal Paket */}
           <div className="glass-box p-6 sm:p-7 flex flex-col justify-between h-full border-blue-500/40 bg-gradient-to-b from-blue-950/20 via-[#0E1526]/80 to-transparent relative shadow-2xl group">
             <div className="relative z-10">
               {/* Top Hype Bar */}
@@ -103,9 +108,14 @@ export default function Packages() {
                 <span className="text-xs font-bold text-slate-400">TL</span>
               </div>
 
-              <p className="text-xs text-slate-300 mb-5 leading-relaxed">
+              <p className="text-xs text-slate-300 mb-4 leading-relaxed">
                 Klinikler, oteller, hukuk büroları ve tadilat firmaları için randevu formlu, Google SEO odaklı sistem.
               </p>
+
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-500/20 text-blue-300 text-xs font-semibold mb-5 border border-blue-500/30">
+                <Clock className="w-3.5 h-3.5 text-blue-400" />
+                <span>3-5 İş Günü İçinde Teslim</span>
+              </div>
 
               {/* 5 Essential Core Features */}
               <ul className="space-y-3 text-xs text-slate-200 mb-6">
@@ -136,16 +146,16 @@ export default function Packages() {
               href="#iletisim"
               className="btn-shimmer w-full py-3 rounded-xl text-center text-xs font-bold text-white shadow-lg transition-all flex items-center justify-center gap-1.5 block mt-auto relative z-10"
             >
-              <span>Hemen Başlayın</span>
+              <span>Ücretsiz Teklif Al</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          {/* Package 3: Profesyonel */}
+          {/* Package 3: Profesyonel Paket */}
           <div className="glass-box p-6 sm:p-7 flex flex-col justify-between h-full relative group">
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-lg font-bold text-white">Profesyonel Portal</h3>
+                <h3 className="text-lg font-bold text-white">Profesyonel Paket</h3>
                 <span className="px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-300 font-mono text-[11px] font-semibold border border-blue-500/25">
                   Profesyonel
                 </span>
@@ -156,9 +166,14 @@ export default function Packages() {
                 <span className="text-xs font-bold text-slate-400">TL</span>
               </div>
 
-              <p className="text-xs text-slate-400 mb-5 leading-relaxed">
+              <p className="text-xs text-slate-400 mb-4 leading-relaxed">
                 Sağlık turizmi, e-ticaret ve çok şubeli markalar için 3D ödemeli, çok dilli tam dijital operasyon portalı.
               </p>
+
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-400 text-xs font-semibold mb-5 border border-blue-500/20">
+                <Clock className="w-3.5 h-3.5 text-blue-400" />
+                <span>7-12 İş Günü İçinde Teslim</span>
+              </div>
 
               {/* 5 Essential Core Features */}
               <ul className="space-y-3 text-xs text-slate-300 mb-6">
@@ -172,7 +187,7 @@ export default function Packages() {
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                  <span><strong>Özel Analiz / Hesaplayıcı Sihirbazı</strong></span>
+                  <span><strong>Özel Teklif / Analiz Modülü</strong></span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
@@ -189,7 +204,7 @@ export default function Packages() {
               href="#iletisim"
               className="w-full py-3 rounded-xl text-center text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 transition-all block mt-auto relative z-10"
             >
-              Projenizi Planlayalım
+              Ücretsiz Teklif Al
             </Link>
           </div>
         </div>

@@ -21,7 +21,7 @@ export default function Navbar() {
     { name: "Çözümler", href: "#cozumler" },
     { name: "Canlı Demolar", href: "#portfoy" },
     { name: "Paketler", href: "#paketler" },
-    { name: "48 Saat Süreç", href: "#surec" },
+    { name: "Süreç", href: "#surec" },
     { name: "SSS", href: "#sss" },
     { name: "İletişim", href: "#iletisim" },
   ];
@@ -57,7 +57,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Prominent & Modern Desktop Nav Links */}
+          {/* Prominent Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link, idx) => (
               <Link
@@ -71,21 +71,21 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right Action Button */}
+          {/* Right Action Button: Standardized CTA */}
           <div className="hidden sm:flex items-center gap-3">
             <a
-              href="https://wa.me/905070871789?text=Merhaba,%20web%20sitesi%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum."
+              href="https://wa.me/905070871789?text=Merhaba,%20web%20sitesi%20hakk%C4%B1nda%20teklif%20almak%20istiyorum."
               target="_blank"
               rel="noopener noreferrer"
               className="btn-shimmer px-4 py-2 rounded-xl text-xs font-bold text-white flex items-center gap-2 shadow-lg transition-all"
             >
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>Canlı Görüşme Başlat</span>
+              <span>Ücretsiz Teklif Al</span>
               <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
             </a>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-white focus:outline-none"
@@ -111,13 +111,13 @@ export default function Navbar() {
               ))}
               <div className="pt-2 border-t border-white/10">
                 <a
-                  href="https://wa.me/905070871789?text=Merhaba,%20web%20sitesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+                  href="https://wa.me/905070871789?text=Merhaba,%20web%20sitesi%20hakk%C4%B1nda%20teklif%20almak%20istiyorum."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-shimmer w-full py-2.5 rounded-xl text-xs font-bold text-white flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
-                  <span>WhatsApp Görüşme</span>
+                  <span>Ücretsiz Teklif Al</span>
                 </a>
               </div>
             </div>

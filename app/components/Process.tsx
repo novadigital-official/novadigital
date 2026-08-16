@@ -5,20 +5,20 @@ export default function Process() {
   const steps = [
     {
       icon: ClipboardList,
-      title: "1. Gün: Brief & Kurgu",
-      desc: "İşletme bilgilerinizi ve logonuzu alırız. Sektörünüze özel dönüşüm yapısını 2 saat içinde planlarız.",
+      title: "1. Adım: Brief & Planlama",
+      desc: "İşletme bilgilerinizi ve logonuzu alırız. Sektörünüze özel web kurgusunu 2 saat içinde planlarız.",
       tag: "Hızlı Başlangıç",
     },
     {
       icon: PenTool,
-      title: "2. Gün: Tasarım & Onay",
-      desc: "Web sitenizi canlı test ortamında kodlarız. İncelemenize sunar, onayınızı aldıktan sonra tamamlarız.",
+      title: "2. Adım: Tasarım & Canlı Test",
+      desc: "Web sitenizi canlı test ortamında kodlarız. İncelemenize sunar, onayınızı alana kadar revizyonları tamamlarız.",
       tag: "Onay Garantili",
     },
     {
       icon: Rocket,
-      title: "2. Gün: Yayın & Açılış",
-      desc: "Domain ve SSL kurulumunu bağlar, sitenizi alan adınızda yayına alır ve Google'a kaydederiz.",
+      title: "3. Adım: Yayın & Açılış",
+      desc: "Domain ve SSL kurulumunu bağlar, sitenizi alan adınızda yayına alır ve Google harita kaydını tamamlarız.",
       tag: "Anahtar Teslim",
     },
   ];
@@ -30,12 +30,12 @@ export default function Process() {
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-2">
             <Balancer>
-              2 Günde Web Siteniz <span className="text-shimmer">Nasıl Yayına Giriyor?</span>
+              Web Siteniz <span className="text-shimmer">Nasıl Yayına Giriyor?</span>
             </Balancer>
           </h2>
           <p className="text-xs sm:text-sm text-slate-400">
             <Balancer>
-              Haftalarca süren gereksiz toplantılar yok. 3 adımda sıfır risk ile siteniz canlıda.
+              Haftalarca süren gereksiz toplantılar yok. 3 adımda onay garantili şeffaf süreç.
             </Balancer>
           </p>
         </div>

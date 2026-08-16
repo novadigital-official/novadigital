@@ -19,18 +19,18 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Prestigious Institutional Positioning */}
+          {/* Left Column: Direct-Response Benefit-Driven Copy */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Live Trust Badge */}
+            {/* Honest Delivery Speed Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-medium tracking-wide mb-5 backdrop-blur-md">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              <span>Kurumsal Web Yazılım & Dijital Büyüme Stüdyosu</span>
+              <span>En Hızlı Pakette 48 Saatte Anahtar Teslim</span>
             </div>
 
-            {/* Prestigious Display Headline */}
+            {/* Benefit Display Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-[3.2rem] font-extrabold tracking-tight text-white leading-[1.14] mb-5">
               <Balancer>
                 İşletmenizin Dijital Gücünü ve{" "}
@@ -43,17 +43,17 @@ export default function Hero() {
             {/* Subtitle */}
             <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-xl mb-7">
               <Balancer>
-                Google SEO altyapısı, modern UI/UX mimarisi ve yüksek dönüşümlü web sistemleri ile markanızı internette sektör lideri konuma taşıyoruz.
+                Google SEO uyumlu, mobil açılış hızı 0.4 saniye olan ve doğrudan telefonunuzu çaldıran modern web sistemleri tasarlıyoruz.
               </Balancer>
             </p>
 
-            {/* Dual CTAs */}
+            {/* Standardized Dual CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-8">
               <Link
                 href="#iletisim"
                 className="btn-shimmer inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white shadow-xl transition-all"
               >
-                <span>Projenizi Birlikte Başlatalım</span>
+                <span>Ücretsiz Teklif Al</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
@@ -73,15 +73,15 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <Zap className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>48 Saatte Teslim</span>
+                <span>48s Hızlı Teslim</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>Google PageSpeed 98+</span>
+                <span>PageSpeed 98+</span>
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>Memnuniyet Garantisi</span>
+                <span>Onay Garantili</span>
               </div>
             </div>
           </div>

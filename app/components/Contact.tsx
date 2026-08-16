@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Balancer from "react-wrap-balancer";
-import { Phone, MessageSquare, Mail, MapPin, Send, CheckCircle2, AlertCircle, ShieldCheck } from "lucide-react";
+import { Phone, MessageSquare, Mail, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { LegalTab } from "./LegalModal";
 
 const formSchema = z.object({
@@ -33,7 +33,7 @@ export default function Contact({ onOpenLegal }: ContactProps) {
     defaultValues: {
       name: "",
       phone: "",
-      service: "Kurumsal Web Paketi (14.999 TL)",
+      service: "Kurumsal Paket (14.999 TL)",
       notes: "",
     },
   });
@@ -158,7 +158,7 @@ export default function Contact({ onOpenLegal }: ContactProps) {
                       type="tel"
                       {...register("phone")}
                       placeholder="05XX XXX XX XX"
-                      className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border text-white text-xs focus:outline-none focus:bg-slate-900 transition ${
+                      className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border text-white text-xs focus:outline-none focus:border-blue-500 transition ${
                         errors.phone ? "border-rose-500" : "border-white/10 focus:border-blue-500"
                       }`}
                     />
@@ -179,9 +179,9 @@ export default function Contact({ onOpenLegal }: ContactProps) {
                     {...register("service")}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-xs focus:outline-none focus:border-blue-500"
                   >
-                    <option value="Standart Web Paketi (4.999 TL)">Standart Web Paketi (4.999 TL)</option>
-                    <option value="Kurumsal Web Paketi (14.999 TL)">Kurumsal Web Paketi (14.999 TL)</option>
-                    <option value="Profesyonel E-Ticaret / Portal (39.999 TL)">Profesyonel E-Ticaret / Portal (39.999 TL)</option>
+                    <option value="Standart Paket (4.999 TL)">Standart Paket (4.999 TL)</option>
+                    <option value="Kurumsal Paket (14.999 TL)">Kurumsal Paket (14.999 TL)</option>
+                    <option value="Profesyonel Paket (39.999 TL)">Profesyonel Paket (39.999 TL)</option>
                     <option value="Google & Meta Reklam Yönetimi">Google & Meta Reklam Yönetimi</option>
                     <option value="Mobil Uygulama / Özel Yazılım">Mobil Uygulama / Özel Yazılım</option>
                   </select>
@@ -204,7 +204,7 @@ export default function Contact({ onOpenLegal }: ContactProps) {
                   className="btn-shimmer w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-white shadow-lg flex items-center justify-center gap-2 transition-all active:scale-[0.99]"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Teklif Al & Analiz Başlat</span>
+                  <span>Ücretsiz Teklif Al</span>
                 </button>
 
                 {/* KVKK Legal Micro-Copy */}
