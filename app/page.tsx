@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import ProvenResults from "./components/ProvenResults";
 import SectionDivider from "./components/SectionDivider";
 import Portfolio from "./components/Portfolio";
 import InteractiveSolutions from "./components/InteractiveSolutions";
@@ -10,8 +14,18 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import MobileStickyCTA from "./components/MobileStickyCTA";
+import LegalModal, { LegalTab } from "./components/LegalModal";
+import CookieBanner from "./components/CookieBanner";
 
 export default function Home() {
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [legalTab, setLegalTab] = useState<LegalTab>("kvkk");
+
+  const handleOpenLegal = (tab: LegalTab = "kvkk") => {
+    setLegalTab(tab);
+    setLegalModalOpen(true);
+  };
+
   return (
     <main className="min-h-screen relative pb-16 md:pb-0 overflow-x-hidden w-full max-w-full">
       {/* Fixed Ambient 3D Aurora Cones */}
@@ -22,7 +36,8 @@ export default function Home() {
 
       <Navbar />
       <Hero />
-      
+      <ProvenResults />
+
       <SectionDivider />
       <Portfolio />
 
@@ -39,11 +54,22 @@ export default function Home() {
       <FAQ />
 
       <SectionDivider />
-      <Contact />
+      <Contact onOpenLegal={handleOpenLegal} />
 
-      <Footer />
+      <Footer onOpenLegal={handleOpenLegal} />
       <FloatingWhatsApp />
       <MobileStickyCTA />
+
+      {/* Global Legal & KVKK Modal */}
+      <LegalModal
+        isOpen={legalModalOpen}
+        activeTab={legalTab}
+        onClose={() => setLegalModalOpen(false)}
+        onTabChange={setLegalTab}
+      />
+
+      {/* Lightweight Cookie Consent Toast */}
+      <CookieBanner onOpenLegal={() => handleOpenLegal("cerez")} />
     </main>
   );
 }

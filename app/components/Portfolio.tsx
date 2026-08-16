@@ -33,7 +33,7 @@ export default function Portfolio() {
       title: "Antalya DHI Saç Ekimi & Sağlık",
       category: "profesyonel",
       tag: "Sağlık & Medikal",
-      badge: "39.999 TL",
+      badge: "Profesyonel",
       image: "/images/sacekimi-preview.png",
       desc: "Çok dilli Norwood saç analiz sihirbazı ve medikal turizm dönüşüm altyapısı.",
       url: "https://antalya-dhi.vercel.app",
@@ -42,7 +42,7 @@ export default function Portfolio() {
       title: "Netero Giyim E-Ticaret Mağazası",
       category: "profesyonel",
       tag: "E-Ticaret & İyzico",
-      badge: "39.999 TL",
+      badge: "Profesyonel",
       image: "/images/eticaret-ui-preview.jpg",
       desc: "İyzico 3D güvenli ödeme, anlık stok takibi ve admin yönetim paneli.",
       url: "https://novaeticaret.vercel.app/",
@@ -51,7 +51,7 @@ export default function Portfolio() {
       title: "Antalya'da Tadilat & Villa Renovasyonu",
       category: "kurumsal",
       tag: "Mimarlık & Tadilat",
-      badge: "14.999 TL",
+      badge: "Kurumsal",
       image: "/images/tadilat-preview.jpg",
       desc: "Anahtar teslim villa tadilatı ve 10 saniyede keşif hesaplama sihirbazı.",
       url: "https://antalyadatadilat.com.tr",
@@ -60,7 +60,7 @@ export default function Portfolio() {
       title: "Antalya Epoksi Zemin Kaplama",
       category: "kurumsal",
       tag: "Endüstriyel Zemin",
-      badge: "14.999 TL",
+      badge: "Kurumsal",
       image: "/images/nova-epoksi-preview.jpg",
       desc: "Fabrikalar için epoksi kaplama, m² bütçe sihirbazı ve teklif altyapısı.",
       url: "https://antalyaepoksizemin.com.tr",
@@ -69,7 +69,7 @@ export default function Portfolio() {
       title: "Nova Emlak & Gayrimenkul Portalı",
       category: "kurumsal",
       tag: "Gayrimenkul & Portföy",
-      badge: "14.999 TL",
+      badge: "Kurumsal",
       image: "/images/gayrimenkul-ui-preview.jpg",
       desc: "Lüks konut portföyü, m² değerleme sihirbazı ve dinamik vitrin sistemi.",
       url: "https://nova-emlak.vercel.app/",
@@ -78,7 +78,7 @@ export default function Portfolio() {
       title: "Kocaeli Kelebek Mobilya",
       category: "kurumsal",
       tag: "Mobilya & Mağaza",
-      badge: "14.999 TL",
+      badge: "Kurumsal",
       image: "/images/kocaelikelebek.png",
       desc: "Özel koleksiyon sergileme ve kurumsal mağaza tanıtım sistemi.",
       url: "https://kocaeli-kelebek.vercel.app",
@@ -87,7 +87,7 @@ export default function Portfolio() {
       title: "Nova Estetik & Güzellik Merkezi",
       category: "kurumsal",
       tag: "Güzellik & Estetik",
-      badge: "14.999 TL",
+      badge: "Kurumsal",
       image: "/images/guzellik-preview.png",
       desc: "7/24 online randevu altyapısı ve teyitli salon web altyapısı.",
       url: "https://nova-guzellik-phi.vercel.app/",
@@ -96,7 +96,7 @@ export default function Portfolio() {
       title: "Antalya'da Nakliyat & Lojistik",
       category: "standart",
       tag: "Nakliyat & Taşıma",
-      badge: "4.999 TL",
+      badge: "Standart",
       image: "/images/nakliyat-preview.png",
       desc: "Sigortalı ve asansörlü evden eve nakliyat dönüşüm altyapısı.",
       url: "https://antalyadanakliyat.com.tr",
@@ -105,7 +105,7 @@ export default function Portfolio() {
       title: "Antalya'da Klima Servisi",
       category: "standart",
       tag: "İklimlendirme & Servis",
-      badge: "4.999 TL",
+      badge: "Standart",
       image: "/images/klima-preview.png",
       desc: "30 dakikada acil servis çağrısı ve kimyasal klima bakım altyapısı.",
       url: "https://antalyadaklimaservisi.com.tr",
@@ -114,7 +114,7 @@ export default function Portfolio() {
       title: "Nova Cafe & Bistro Restoran",
       category: "standart",
       tag: "Restoran & Kafe",
-      badge: "4.999 TL",
+      badge: "Standart",
       image: "/images/restoran.png",
       desc: "Online masa rezervasyonu, QR menü ve anlık WhatsApp siparişi.",
       url: "https://nova-cafe-one.vercel.app/",
@@ -147,7 +147,7 @@ export default function Portfolio() {
   return (
     <section id="portfoy" className="py-12 sm:py-14 relative bg-transparent">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header & Controls Row */}
+        {/* Header & Integrated Controls Row */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
@@ -157,69 +157,66 @@ export default function Portfolio() {
             </h2>
           </div>
 
-          {/* Categories & Navigation Controls */}
-          <div className="flex items-center gap-3 flex-wrap">
-            {/* Filter Tabs */}
-            <div className="flex items-center gap-1 p-1 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold">
-              <button
-                onClick={() => setFilter("all")}
-                className={`px-3 py-1.5 rounded-lg transition-all ${
-                  filter === "all"
-                    ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                Tümü ({projects.length})
-              </button>
-              <button
-                onClick={() => setFilter("standart")}
-                className={`px-2.5 py-1.5 rounded-lg transition-all ${
-                  filter === "standart"
-                    ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                4.999 TL
-              </button>
-              <button
-                onClick={() => setFilter("kurumsal")}
-                className={`px-2.5 py-1.5 rounded-lg transition-all ${
-                  filter === "kurumsal"
-                    ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                14.999 TL
-              </button>
-              <button
-                onClick={() => setFilter("profesyonel")}
-                className={`px-2.5 py-1.5 rounded-lg transition-all ${
-                  filter === "profesyonel"
-                    ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                39.999 TL
-              </button>
-            </div>
+          {/* Integrated Compact Filter Bar + Arrow Navigation */}
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold overflow-x-auto no-scrollbar w-full sm:w-auto">
+            <button
+              onClick={() => setFilter("all")}
+              className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap shrink-0 ${
+                filter === "all"
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                  : "text-slate-400 hover:text-white"
+              }`}
+            >
+              Tümü ({projects.length})
+            </button>
+            <button
+              onClick={() => setFilter("standart")}
+              className={`px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap shrink-0 ${
+                filter === "standart"
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                  : "text-slate-400 hover:text-white"
+              }`}
+            >
+              Standart
+            </button>
+            <button
+              onClick={() => setFilter("kurumsal")}
+              className={`px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap shrink-0 ${
+                filter === "kurumsal"
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                  : "text-slate-400 hover:text-white"
+              }`}
+            >
+              Kurumsal
+            </button>
+            <button
+              onClick={() => setFilter("profesyonel")}
+              className={`px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap shrink-0 ${
+                filter === "profesyonel"
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                  : "text-slate-400 hover:text-white"
+              }`}
+            >
+              Profesyonel
+            </button>
 
-            {/* Arrows */}
-            <div className="flex items-center gap-1.5">
+            {/* Compact Arrows right beside filter tabs */}
+            <div className="flex items-center gap-1 pl-1 ml-auto sm:ml-1 border-l border-white/10 shrink-0">
               <button
                 onClick={scrollPrev}
                 disabled={prevBtnDisabled}
                 aria-label="Önceki"
-                className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white transition active:scale-95 border border-white/10 disabled:opacity-30 disabled:pointer-events-none"
+                className="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-white transition active:scale-95 disabled:opacity-30 disabled:pointer-events-none"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-3.5 h-3.5" />
               </button>
               <button
                 onClick={scrollNext}
                 disabled={nextBtnDisabled}
                 aria-label="Sonraki"
-                className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white transition active:scale-95 border border-white/10 disabled:opacity-30 disabled:pointer-events-none"
+                className="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-white transition active:scale-95 disabled:opacity-30 disabled:pointer-events-none"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>

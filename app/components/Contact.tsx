@@ -5,7 +5,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Balancer from "react-wrap-balancer";
-import { Phone, MessageSquare, Mail, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Phone, MessageSquare, Mail, MapPin, Send, CheckCircle2, AlertCircle, ShieldCheck } from "lucide-react";
+import { LegalTab } from "./LegalModal";
 
 const formSchema = z.object({
   name: z.string().min(2, "Ad Soyad en az 2 karakter olmalıdır"),
@@ -16,7 +17,11 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function Contact() {
+interface ContactProps {
+  onOpenLegal?: (tab: LegalTab) => void;
+}
+
+export default function Contact({ onOpenLegal }: ContactProps) {
   const [submitted, setSubmitted] = useState(false);
 
   const {
@@ -174,7 +179,7 @@ export default function Contact() {
                     {...register("service")}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-xs focus:outline-none focus:border-blue-500"
                   >
-                    <option value="Başlangıç Web Sitesi (4.999 TL)">Başlangıç Web Sitesi (4.999 TL)</option>
+                    <option value="Standart Web Paketi (4.999 TL)">Standart Web Paketi (4.999 TL)</option>
                     <option value="Kurumsal Web Paketi (14.999 TL)">Kurumsal Web Paketi (14.999 TL)</option>
                     <option value="Profesyonel E-Ticaret / Portal (39.999 TL)">Profesyonel E-Ticaret / Portal (39.999 TL)</option>
                     <option value="Google & Meta Reklam Yönetimi">Google & Meta Reklam Yönetimi</option>
@@ -201,6 +206,19 @@ export default function Contact() {
                   <Send className="w-4 h-4" />
                   <span>Teklif Al & Analiz Başlat</span>
                 </button>
+
+                {/* KVKK Legal Micro-Copy */}
+                <p className="text-[10px] text-slate-400 text-center pt-1 leading-relaxed">
+                  Formu ileterek{" "}
+                  <button
+                    type="button"
+                    onClick={() => onOpenLegal && onOpenLegal("kvkk")}
+                    className="text-blue-400 underline hover:text-blue-300 transition"
+                  >
+                    KVKK Aydınlatma Metni
+                  </button>
+                  ’ni okuduğunuzu ve teklif süreçleri kapsamında iletişime geçilmesini kabul etmiş olursunuz.
+                </p>
               </form>
             )}
           </div>

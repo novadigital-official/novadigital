@@ -1,109 +1,83 @@
-import Link from "next/link";
+"use client";
+
 import Image from "next/image";
-import { Phone, Mail, MapPin, Globe } from "lucide-react";
+import Link from "next/link";
+import { LegalTab } from "./LegalModal";
 
-export default function Footer() {
+interface FooterProps {
+  onOpenLegal?: (tab: LegalTab) => void;
+}
+
+export default function Footer({ onOpenLegal }: FooterProps) {
+  const links = [
+    { name: "Çözümler", href: "#cozumler" },
+    { name: "Canlı Demolar", href: "#portfoy" },
+    { name: "Paketler", href: "#paketler" },
+    { name: "48 Saat Süreç", href: "#surec" },
+    { name: "SSS", href: "#sss" },
+    { name: "İletişim", href: "#iletisim" },
+  ];
+
   return (
-    <footer className="bg-transparent text-slate-400 pt-16 pb-10 relative z-10 text-xs border-t border-white/10">
+    <footer className="relative bg-transparent border-t border-white/10 pt-8 pb-24 md:pb-8 text-xs text-slate-400">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
-          {/* Col 1: Brand */}
-          <div className="lg:col-span-2 space-y-3">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-8 h-8 rounded-lg overflow-hidden ring-1 ring-blue-500/30">
-                <Image
-                  src="/images/logo-nova-digital.png"
-                  alt="Nova Digital"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <span className="font-extrabold text-base text-white tracking-tight">
-                NOVA <span className="text-blue-500">DIGITAL</span>
-              </span>
-            </Link>
-            <p className="text-slate-400 leading-relaxed max-w-sm text-xs">
-              Antalya ve Türkiye genelinde işletmeler için 2 günde yayına alınan,
-              Google Ads & Meta reklamlarıyla tam entegre modern web yazılımları
-              ve dijital dönüşüm sistemleri.
-            </p>
-            <div className="flex items-center gap-2 pt-1">
-              <a
-                href="https://instagram.com/novadigitalllll"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/5 transition"
-                aria-label="Instagram"
-              >
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                </svg>
-              </a>
-              <a
-                href="https://threads.net/@novadigitalllll"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/5 transition"
-                aria-label="Threads"
-              >
-                <Globe className="w-3.5 h-3.5" />
-              </a>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-4">
+          {/* Brand Logo & Name */}
+          <div className="flex items-center gap-2.5">
+            <div className="relative w-7 h-7 rounded-lg overflow-hidden border border-white/15 shadow-sm shrink-0">
+              <Image
+                src="/images/logo-nova-digital.png"
+                alt="Nova Digital Logo"
+                fill
+                className="object-cover"
+              />
             </div>
+            <span className="font-extrabold text-sm tracking-tight text-white font-mono">
+              NOVA DIGITAL
+            </span>
           </div>
 
-          {/* Col 2: Menü */}
-          <div>
-            <h4 className="font-bold text-white text-xs uppercase tracking-wider mb-3">Hızlı Menü</h4>
-            <ul className="space-y-2">
-              <li><Link href="#cozumler" className="hover:text-white transition">Çözümler</Link></li>
-              <li><Link href="#portfoy" className="hover:text-white transition">Canlı Demolar</Link></li>
-              <li><Link href="#paketler" className="hover:text-white transition">Web Paketleri</Link></li>
-              <li><Link href="#surec" className="hover:text-white transition">48 Saat Süreç</Link></li>
-              <li><Link href="#sss" className="hover:text-white transition">SSS</Link></li>
-            </ul>
+          {/* Clean Symmetrical Nav Links */}
+          <div className="grid grid-cols-3 sm:flex sm:items-center sm:justify-center gap-x-5 gap-y-2 text-center text-xs font-medium text-slate-300">
+            {links.map((link, idx) => (
+              <Link
+                key={idx}
+                href={link.href}
+                className="hover:text-white transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
 
-          {/* Col 3: Paketler */}
-          <div>
-            <h4 className="font-bold text-white text-xs uppercase tracking-wider mb-3">Paketler</h4>
-            <ul className="space-y-2">
-              <li><Link href="#paketler" className="hover:text-white transition">Başlangıç (4.999 TL)</Link></li>
-              <li><Link href="#paketler" className="hover:text-white transition">Kurumsal (14.999 TL)</Link></li>
-              <li><Link href="#paketler" className="hover:text-white transition">Profesyonel (39.999 TL)</Link></li>
-              <li><Link href="#cozumler" className="hover:text-white transition">Google Ads Yönetimi</Link></li>
-              <li><Link href="#cozumler" className="hover:text-white transition">Mobil Yazılım</Link></li>
-            </ul>
-          </div>
-
-          {/* Col 4: İletişim */}
-          <div>
-            <h4 className="font-bold text-white text-xs uppercase tracking-wider mb-3">İletişim</h4>
-            <ul className="space-y-2.5">
-              <li className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                <a href="tel:05070871789" className="hover:text-white transition">0507 087 17 89</a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                <a href="mailto:info@novadigital.com.tr" className="hover:text-white transition">info@novadigital.com.tr</a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
-                <span>Kepez / Antalya</span>
-              </li>
-            </ul>
+          {/* Clickable Legal Policies Trigger */}
+          <div className="flex items-center justify-center gap-3 text-[11px] text-slate-400">
+            <button
+              onClick={() => onOpenLegal && onOpenLegal("kvkk")}
+              className="hover:text-slate-200 transition underline-offset-2 hover:underline"
+            >
+              KVKK
+            </button>
+            <span>•</span>
+            <button
+              onClick={() => onOpenLegal && onOpenLegal("gizlilik")}
+              className="hover:text-slate-200 transition underline-offset-2 hover:underline"
+            >
+              Gizlilik
+            </button>
+            <span>•</span>
+            <button
+              onClick={() => onOpenLegal && onOpenLegal("cerez")}
+              className="hover:text-slate-200 transition underline-offset-2 hover:underline"
+            >
+              Şartlar
+            </button>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
-          <p>© 2026 Nova Digital Software & Studio. Tüm hakları saklıdır.</p>
-          <div className="flex items-center gap-4">
-            <span>KVKK Aydınlatma Metni</span>
-            <span>Gizlilik Politikası</span>
-          </div>
+        {/* Bottom 1-Line Copyright */}
+        <div className="pt-3 border-t border-white/5 text-[10px] text-slate-500 text-center">
+          © 2026 Nova Digital Web Tasarım & Yazılım Stüdyosu. Tüm hakları saklıdır.
         </div>
       </div>
     </footer>
