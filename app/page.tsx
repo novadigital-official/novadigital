@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen relative pb-16 md:pb-0 overflow-x-hidden w-full max-w-full">
+    <main className="min-h-screen relative overflow-x-hidden w-full max-w-full">
       {/* Fixed Ambient 3D Aurora Cones */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 w-full max-w-full">
         <div className="aurora-cone-1 -top-[10%] -left-[10%]" />

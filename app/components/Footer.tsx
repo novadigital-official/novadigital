@@ -19,7 +19,7 @@ export default function Footer({ onOpenLegal }: FooterProps) {
   ];
 
   return (
-    <footer className="relative bg-transparent border-t border-white/10 pt-8 pb-24 md:pb-8 text-xs text-slate-400">
+    <footer className="relative bg-transparent border-t border-white/10 pt-8 pb-14 md:pb-8 text-xs text-slate-400">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-4">
           {/* Brand Logo & Name */}
