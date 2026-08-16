@@ -4,21 +4,18 @@ import { ClipboardList, PenTool, Rocket, CheckCircle2 } from "lucide-react";
 export default function Process() {
   const steps = [
     {
-      num: "01",
       icon: ClipboardList,
       title: "1. Gün: Brief & Kurgu",
       desc: "İşletme bilgilerinizi ve logonuzu alırız. Sektörünüze özel dönüşüm yapısını 2 saat içinde planlarız.",
       tag: "Hızlı Başlangıç",
     },
     {
-      num: "02",
       icon: PenTool,
       title: "2. Gün: Tasarım & Onay",
       desc: "Web sitenizi canlı test ortamında kodlarız. İncelemenize sunar, onayınızı aldıktan sonra tamamlarız.",
       tag: "Onay Garantili",
     },
     {
-      num: "03",
       icon: Rocket,
       title: "2. Gün: Yayın & Açılış",
       desc: "Domain ve SSL kurulumunu bağlar, sitenizi alan adınızda yayına alır ve Google'a kaydederiz.",
@@ -43,7 +40,7 @@ export default function Process() {
           </p>
         </div>
 
-        {/* 3 Step Cards */}
+        {/* 3 Step Cards - Clean and Clutter-Free */}
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, idx) => {
             const Icon = step.icon;
@@ -54,12 +51,12 @@ export default function Process() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-3xl font-extrabold font-mono text-white/20">
-                      {step.num}
-                    </span>
-                    <div className="p-2.5 rounded-xl bg-blue-600/20 text-blue-400 border border-blue-500/30">
-                      <Icon className="w-5 h-5" />
+                    <div className="p-3 rounded-xl bg-blue-600/20 text-blue-300 border border-blue-500/30 shadow-md">
+                      <Icon className="w-5 h-5 text-blue-400" />
                     </div>
+                    <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300">
+                      Adım {idx + 1}
+                    </span>
                   </div>
 
                   <h3 className="text-base font-bold text-white mb-2">{step.title}</h3>
@@ -69,8 +66,8 @@ export default function Process() {
                 </div>
 
                 <div className="pt-3 border-t border-white/5">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
                     <span>{step.tag}</span>
                   </span>
                 </div>
