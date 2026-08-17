@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import {
-  Check, Clock, ArrowRight, Flame, X, MessageSquare, Users, Zap,
-  Globe, BarChart3, CreditCard, Database, Headphones, Sparkles,
+  Check, Clock, ArrowRight, X, MessageSquare, Users, Zap,
+  Globe, BarChart3, CreditCard, Database, Headphones,
 } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import Balancer from "react-wrap-balancer";
@@ -43,7 +43,7 @@ const packages: PackageDetail[] = [
     desc: "Yerel işletmeler için 48 saatte yayına giren, Google ve WhatsApp uyumlu hazır web sitesi.",
     cta: "Standart Paketi İncele",
     highlight: false,
-    badge: "🔥 Lansman Fırsatı (İlk 50)",
+    badge: null,
     summaryFeatures: [
       { text: "Mobil ve tablet uyumlu modern tasarım", bold: true },
       { text: "Google Haritalar ve yerel arama kurulumu", bold: true },
@@ -92,7 +92,7 @@ const packages: PackageDetail[] = [
         ],
       },
     ],
-    waText: "Merhaba, Lansmana Özel Standart Paket (1.999 TL) hakkında bilgi almak istiyorum.",
+    waText: "Merhaba, Standart Paket (1.999 TL) hakkında bilgi almak istiyorum.",
   },
   {
     id: "kurumsal",
@@ -104,7 +104,7 @@ const packages: PackageDetail[] = [
     desc: "Klinik, otel ve hizmet firmaları için randevudan WhatsApp'a tam müşteri sistemi.",
     cta: "Kurumsal Paketi İncele",
     highlight: true,
-    badge: "⭐ En Çok Tercih Edilen",
+    badge: "En Çok Tercih Edilen",
     summaryFeatures: [
       { text: "Gelişmiş Google arama ve harita optimizasyonu", bold: true },
       { text: "Online randevu ve keşif talep formu", bold: true },
@@ -166,7 +166,7 @@ const packages: PackageDetail[] = [
     desc: "Sağlık turizmi ve e-ticaret için çok dilli, 3D güvenli ödemeli tam dijital operasyon.",
     cta: "Profesyonel Paketi İncele",
     highlight: false,
-    badge: "🚀 Full Dijital Operasyon",
+    badge: null,
     summaryFeatures: [
       { text: "3D güvenli sanal POS ve online ödeme", bold: true },
       { text: "Çoklu dil desteği (Türkçe, İngilizce, Almanca)", bold: true },
@@ -261,8 +261,7 @@ function PackageModal({
         <div className="sticky top-0 z-10 px-5 sm:px-6 py-4 border-b border-slate-800 flex items-start justify-between gap-4 backdrop-blur-xl bg-[#0c1324]/95">
           <div>
             {pkg.badge && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-wider mb-2">
-                <Flame className="w-2.5 h-2.5 text-cyan-400" />
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-wider mb-2">
                 {pkg.badge}
               </span>
             )}
@@ -382,7 +381,7 @@ export default function Packages() {
         
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}
-          <div ref={ref} className={`mb-10 text-center max-w-2xl mx-auto ${isVisible ? "reveal-up in-view" : "reveal-up"}`}>
+          <div ref={ref} className={`mb-12 text-center max-w-2xl mx-auto ${isVisible ? "reveal-up in-view" : "reveal-up"}`}>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
               <Balancer>
                 İhtiyacınıza Göre <span className="text-shimmer">3 Net Paket</span>
@@ -393,30 +392,27 @@ export default function Packages() {
             </p>
           </div>
 
-          {/* Cards */}
-          <div className="grid md:grid-cols-3 gap-6 items-center">
+          {/* Cards Grid */}
+          <div className="grid md:grid-cols-3 gap-6 items-center pt-2">
             {packages.map((pkg, idx) => (
               <div
                 key={pkg.id}
-                className={`rounded-2xl flex flex-col h-full relative p-6 sm:p-7 transition-all duration-300 overflow-hidden ${
+                className={`rounded-2xl flex flex-col h-full relative p-6 sm:p-7 transition-all duration-300 ${
                   pkg.highlight
                     ? "bg-gradient-to-b from-[#16274a] via-[#101e3a] to-[#0b162b] border-2 border-cyan-400/90 ring-4 ring-cyan-500/25 shadow-[0_20px_60px_-15px_rgba(6,182,212,0.30)] md:scale-105 z-10"
                     : "bg-gradient-to-b from-[#13203c] via-[#0e182e] to-[#091325] border border-slate-600/80 hover:border-cyan-400/80 shadow-[0_16px_45px_-10px_rgba(0,0,0,0.85)] hover:shadow-cyan-500/15 md:scale-[0.99]"
                 } ${isVisible ? `reveal-up in-view stagger-${idx + 1}` : "reveal-up"}`}
               >
-                {/* Subtle Top Glass Reflection Line */}
-                <div className={`absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent ${pkg.highlight ? "via-cyan-300/80" : "via-white/30"} to-transparent`} />
-
+                {/* Clean Top Badge without Emojis or Clipping */}
                 {pkg.badge && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap z-20">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-cyan-500/30">
-                      <Flame className="w-3 h-3 fill-cyan-200 text-cyan-200" />
+                    <span className="px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-[10px] font-bold uppercase tracking-wider shadow-md shadow-cyan-500/25">
                       {pkg.badge}
                     </span>
                   </div>
                 )}
 
-                <div className={pkg.badge ? "mt-2" : ""}>
+                <div className={pkg.badge ? "mt-1.5" : ""}>
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-[11px] font-mono font-extrabold tracking-[0.22em] text-cyan-400 uppercase">
                       {pkg.name}
