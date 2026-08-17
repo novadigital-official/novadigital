@@ -46,6 +46,7 @@ export default function Preloader() {
               src="/images/logo-nova-digital.png"
               alt="Nova Digital Logo"
               fill
+              sizes="96px"
               className="object-cover"
               priority
             />

@@ -23,20 +23,21 @@
     scroll-behavior: smooth;
     background-color: #090D18;
     color: var(--text-body);
-    overflow-x: hidden;
-    max-width: 100vw;
+    overflow-x: clip;
     width: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     background-color: #090D18;
     color: var(--text-body);
     font-family: var(--font-sans), sans-serif;
-    overflow-x: hidden;
-    max-width: 100vw;
+    overflow-x: clip;
     width: 100%;
     position: relative;
     -webkit-font-smoothing: antialiased;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
