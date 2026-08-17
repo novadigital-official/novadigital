@@ -3,12 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Lightweight IntersectionObserver hook for scroll-reveal animations.
- * Returns a ref and whether the element is visible.
+ * Lightweight IntersectionObserver hook for instant rendering with gentle entrance.
  */
 export function useScrollReveal(options?: IntersectionObserverInit) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Default true so content is never hidden
 
   useEffect(() => {
     const el = ref.current;
@@ -18,15 +17,15 @@ export function useScrollReveal(options?: IntersectionObserverInit) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Fire once
+          observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px", ...options }
+      { threshold: 0.05, rootMargin: "50px", ...options }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [options]);
 
   return { ref, isVisible };
 }
@@ -34,7 +33,7 @@ export function useScrollReveal(options?: IntersectionObserverInit) {
 /**
  * Animated counter hook — counts from 0 to target when triggered.
  */
-export function useCounter(target: number, duration = 1400, trigger = false) {
+export function useCounter(target: number, duration = 1200, trigger = true) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
