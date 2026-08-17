@@ -41,7 +41,7 @@ export default function Contact({ onOpenLegal }: ContactProps) {
     defaultValues: {
       name: "",
       phone: "",
-      service: "Growth Paket (14.999 TL)",
+      service: "Kurumsal Paket (14.999 TL)",
       notes: "",
     },
   });
@@ -54,80 +54,80 @@ export default function Contact({ onOpenLegal }: ContactProps) {
   };
 
   return (
-    <section id="iletisim" className="py-14 sm:py-16 relative bg-transparent">
+    <section id="iletisim" className="py-16 md:py-24 relative bg-[#0f172a] overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header — Final CTA copy per expert */}
-        <div className="max-w-2xl mb-10">
-          <p className="text-[11px] font-mono font-bold tracking-[0.2em] text-blue-400 uppercase mb-3">
-            İletişim
+        {/* Header */}
+        <div className="max-w-2xl mb-12">
+          <p className="text-[11px] font-mono font-bold tracking-[0.2em] text-cyan-400 uppercase mb-2">
+            Doğrudan İletişim
           </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             <Balancer>
-              İşletmenizin dijital müşteri sistemini{" "}
-              <span className="text-shimmer">birlikte kuralım.</span>
+              İşletmenizin Dijital Müşteri Sistemini{" "}
+              <span className="text-shimmer">Birlikte Kuralım</span>
             </Balancer>
           </h2>
-          <p className="text-sm text-slate-400 mt-3">
-            10 dakika görüşme. Ücretsiz ön analiz. Satış baskısı yok.
+          <p className="text-xs sm:text-sm text-slate-400 mt-2.5">
+            10 dakika görüşme, ücretsiz ön analiz. Satış baskısı yok.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-6 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Left */}
           <div className="lg:col-span-5 space-y-4">
             <a
               href="https://wa.me/905070871789?text=Merhaba%2C%20%C3%BCcretsiz%20dijital%20analiz%20almak%20istiyorum."
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-box p-5 rounded-2xl flex items-center gap-4 border-emerald-500/25 bg-emerald-950/15 hover:scale-[1.02] transition-all block"
+              className="p-5 rounded-2xl flex items-center gap-4 border border-emerald-500/30 bg-emerald-950/20 hover:border-emerald-500/50 hover:bg-emerald-950/30 transition-all duration-300 block shadow-lg shadow-emerald-950/30"
             >
               <div className="p-3.5 rounded-xl bg-emerald-500/15 text-emerald-400">
                 <MessageSquare className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 mb-0.5">
-                  En Hızlı Yanıt
+                  En Hızlı Yanıt (7/24)
                 </p>
-                <h3 className="text-sm font-bold text-white">WhatsApp ile Yazın</h3>
+                <h3 className="text-sm font-extrabold text-white">WhatsApp ile Yazın</h3>
                 <p className="text-xs text-slate-400">Anında ücretsiz dijital analiz</p>
               </div>
             </a>
 
             <a
               href="tel:05070871789"
-              className="glass-box p-5 rounded-2xl flex items-center gap-4 border-blue-500/25 bg-blue-950/15 hover:scale-[1.02] transition-all block"
+              className="p-5 rounded-2xl flex items-center gap-4 border border-cyan-500/30 bg-cyan-950/20 hover:border-cyan-500/50 hover:bg-cyan-950/30 transition-all duration-300 block shadow-lg shadow-cyan-950/30"
             >
-              <div className="p-3.5 rounded-xl bg-blue-500/15 text-blue-400">
+              <div className="p-3.5 rounded-xl bg-cyan-500/15 text-cyan-400">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-blue-400 mb-0.5">
-                  Telefon Hattı
+                <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400 mb-0.5">
+                  Doğrudan Telefon Hattı
                 </p>
-                <h3 className="text-sm font-bold text-white">0507 087 17 89</h3>
+                <h3 className="text-sm font-extrabold text-white">0507 087 17 89</h3>
                 <p className="text-xs text-slate-400">09:00 – 20:00 Doğrudan Arama</p>
               </div>
             </a>
 
-            <div className="glass-box p-4 rounded-2xl text-xs text-slate-300 space-y-2">
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-slate-500 shrink-0" />
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-3">
+              <div className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
                 <span>info@novadigital.com.tr</span>
               </div>
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                 <span>Kültür Mah. 3856 Sok. Kepez / Antalya</span>
               </div>
             </div>
           </div>
 
           {/* Right — form */}
-          <div className="lg:col-span-7 glass-box p-6 sm:p-7">
-            <h3 className="text-base font-bold text-white mb-1">
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-2xl">
+            <h3 className="text-base font-extrabold text-white mb-1 tracking-tight">
               Ücretsiz Teklif Al
             </h3>
-            <p className="text-xs text-slate-400 mb-5">
-              Projenizi WhatsApp üzerinden anında iletelim.
+            <p className="text-xs text-slate-400 mb-6">
+              Projenizi doğrudan WhatsApp üzerinden iletelim.
             </p>
 
             {submitted ? (
@@ -139,20 +139,20 @@ export default function Contact({ onOpenLegal }: ContactProps) {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-3.5">
-                <div className="grid sm:grid-cols-2 gap-3">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1">
+                    <label className="block text-xs font-bold text-slate-300 mb-1.5">
                       Adınız Soyadınız *
                     </label>
                     <input
                       type="text"
                       {...register("name")}
                       placeholder="Örn: Ahmet Yılmaz"
-                      className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border text-white text-xs focus:outline-none focus:bg-slate-900 transition ${
+                      className={`w-full px-4 py-3 rounded-xl bg-slate-950 border text-white text-xs focus:outline-none focus:bg-slate-950 transition ${
                         errors.name
                           ? "border-rose-500"
-                          : "border-white/10 focus:border-blue-500"
+                          : "border-slate-800 focus:border-cyan-500"
                       }`}
                     />
                     {errors.name && (
@@ -163,17 +163,17 @@ export default function Contact({ onOpenLegal }: ContactProps) {
                     )}
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1">
+                    <label className="block text-xs font-bold text-slate-300 mb-1.5">
                       Telefon / WhatsApp *
                     </label>
                     <input
                       type="tel"
                       {...register("phone")}
                       placeholder="05XX XXX XX XX"
-                      className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border text-white text-xs focus:outline-none focus:border-blue-500 transition ${
+                      className={`w-full px-4 py-3 rounded-xl bg-slate-950 border text-white text-xs focus:outline-none focus:border-cyan-500 transition ${
                         errors.phone
                           ? "border-rose-500"
-                          : "border-white/10 focus:border-blue-500"
+                          : "border-slate-800 focus:border-cyan-500"
                       }`}
                     />
                     {errors.phone && (
@@ -186,12 +186,12 @@ export default function Contact({ onOpenLegal }: ContactProps) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
                     İlgilendiğiniz Paket
                   </label>
                   <select
                     {...register("service")}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-xs focus:outline-none focus:border-blue-500"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500"
                   >
                     <option value="Standart Paket (4.999 TL)">Standart Paket (4.999 TL)</option>
                     <option value="Kurumsal Paket (14.999 TL)">Kurumsal Paket (14.999 TL) ⭐</option>
@@ -202,20 +202,20 @@ export default function Contact({ onOpenLegal }: ContactProps) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
                     Kısa Not (Opsiyonel)
                   </label>
                   <textarea
                     rows={2}
                     {...register("notes")}
                     placeholder="Sektörünüz veya özel talepleriniz..."
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-xs focus:outline-none focus:border-blue-500 resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="btn-shimmer w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-white shadow-lg flex items-center justify-center gap-2 transition-all active:scale-[0.99]"
+                  className="w-full py-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.99]"
                 >
                   <Send className="w-4 h-4" />
                   <span>Ücretsiz Teklif Al</span>
@@ -226,7 +226,7 @@ export default function Contact({ onOpenLegal }: ContactProps) {
                   <button
                     type="button"
                     onClick={() => onOpenLegal && onOpenLegal("kvkk")}
-                    className="text-blue-400 underline hover:text-blue-300 transition"
+                    className="text-cyan-400 underline hover:text-cyan-300 transition"
                   >
                     KVKK Aydınlatma Metni
                   </button>

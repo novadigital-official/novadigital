@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Preloader from "./components/Preloader";
+import AmbientAurora from "./components/AmbientAurora";
+import ScrollProgressBar from "./components/ScrollProgressBar";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ProvenResults from "./components/ProvenResults";
@@ -28,11 +31,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative overflow-x-hidden w-full max-w-full">
-      {/* Fixed Ambient Aurora */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="aurora-cone-1 -top-[10%] -left-[10%]" />
-        <div className="aurora-cone-2 -bottom-[10%] -right-[10%]" />
-      </div>
+      {/* 🚀 1. Açılış Logosu (Preloader) */}
+      <Preloader />
+
+      {/* 📏 2. Ekran Tepesinde İnce İlerleme Çizgisi */}
+      <ScrollProgressBar />
+
+      {/* 🌌 3. Yaşayan Arka Plan: Kayan Canlı Aurora Dalgaları + İlk 4 Saniye Sahne Işığı */}
+      <AmbientAurora />
 
       <Navbar />
 
