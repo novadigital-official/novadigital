@@ -156,9 +156,6 @@ export default function Portfolio() {
         {/* Header & Integrated Controls Row */}
         <div ref={ref} className={`flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 ${isVisible ? "reveal-up in-view" : "reveal-up"}`}>
           <div>
-            <p className="text-[11px] font-mono font-bold tracking-[0.2em] text-cyan-400 uppercase mb-2">
-              Canlı Proje Vitrini
-            </p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
               <Balancer>
                 Sektörünüze Özel <span className="text-shimmer">Canlı Demolar</span>

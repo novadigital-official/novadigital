@@ -383,10 +383,6 @@ export default function Packages() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}
           <div ref={ref} className={`mb-10 text-center max-w-2xl mx-auto ${isVisible ? "reveal-up in-view" : "reveal-up"}`}>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[11px] font-mono font-bold tracking-wider uppercase mb-3">
-              <Sparkles className="w-3 h-3 text-cyan-400" />
-              2026 LANSMAN FIRSATI — İLK 50 İŞLETME
-            </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
               <Balancer>
                 İhtiyacınıza Göre <span className="text-shimmer">3 Net Paket</span>

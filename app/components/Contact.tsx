@@ -58,9 +58,6 @@ export default function Contact({ onOpenLegal }: ContactProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-2xl mb-12">
-          <p className="text-[11px] font-mono font-bold tracking-[0.2em] text-cyan-400 uppercase mb-2">
-            Doğrudan İletişim
-          </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             <Balancer>
               İşletmenizin Dijital Müşteri Sistemini{" "}

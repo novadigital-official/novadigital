@@ -116,9 +116,6 @@ export default function InteractiveSolutions() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="mb-8">
-          <p className="text-[11px] font-mono font-bold tracking-[0.2em] text-blue-400 uppercase mb-3">
-            Dijital Çözümler
-          </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white max-w-2xl">
             İşletmeniz için{" "}
             <span className="text-shimmer">hangi sistem?</span>

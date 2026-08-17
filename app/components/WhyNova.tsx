@@ -39,9 +39,6 @@ export default function WhyNova() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div ref={ref} className={`mb-12 text-center max-w-2xl mx-auto ${isVisible ? "reveal-up in-view" : "reveal-up"}`}>
-          <p className="text-[11px] font-mono font-bold tracking-[0.2em] text-cyan-400 uppercase mb-2">
-            Farklılaştırıcımız
-          </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             Neden <span className="text-shimmer">Nova Digital?</span>
           </h2>
