@@ -41,7 +41,7 @@ export default function Contact({ onOpenLegal }: ContactProps) {
     defaultValues: {
       name: "",
       phone: "",
-      service: "Kurumsal Paket (14.999 TL)",
+      service: "Kurumsal Paket (9.999 TL)",
       notes: "",
     },
   });
@@ -193,9 +193,9 @@ export default function Contact({ onOpenLegal }: ContactProps) {
                     {...register("service")}
                     className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500"
                   >
-                    <option value="Standart Paket (4.999 TL)">Standart Paket (4.999 TL)</option>
-                    <option value="Kurumsal Paket (14.999 TL)">Kurumsal Paket (14.999 TL) ⭐</option>
-                    <option value="Profesyonel Paket (39.999 TL)">Profesyonel Paket (39.999 TL)</option>
+                    <option value="Standart Paket (1.999 TL) — Lansman">Standart Paket (1.999 TL) 🔥 Lansman</option>
+                    <option value="Kurumsal Paket (9.999 TL)">Kurumsal Paket (9.999 TL) ⭐</option>
+                    <option value="Profesyonel Paket (19.999 TL)">Profesyonel Paket (19.999 TL)</option>
                     <option value="Google & Meta Reklam Yönetimi">Google & Meta Reklam Yönetimi</option>
                     <option value="Özel Yazılım / CRM">Özel Yazılım / CRM</option>
                   </select>

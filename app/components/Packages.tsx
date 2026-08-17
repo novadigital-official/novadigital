@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
   Check, Clock, ArrowRight, Flame, X, MessageSquare, Users, Zap,
-  Globe, BarChart3, CreditCard, Database, Headphones,
+  Globe, BarChart3, CreditCard, Database, Headphones, Sparkles,
 } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import Balancer from "react-wrap-balancer";
@@ -20,6 +20,7 @@ interface PackageDetail {
   name: string;
   tagline: string;
   price: string;
+  oldPrice?: string;
   delivery: string;
   desc: string;
   cta: string;
@@ -36,12 +37,13 @@ const packages: PackageDetail[] = [
     id: "standart",
     name: "Standart",
     tagline: "Kurumsal Web Sitesi",
-    price: "4.999",
+    price: "1.999",
+    oldPrice: "4.999",
     delivery: "48 Saat",
-    desc: "Yerel hizmet işletmeleri için hızlı yayına giren, Google uyumlu site.",
+    desc: "Yerel işletmeler için 48 saatte yayına giren, Google ve WhatsApp uyumlu hazır web sitesi.",
     cta: "Standart Paketi İncele",
     highlight: false,
-    badge: null,
+    badge: "🔥 Lansman Fırsatı (İlk 50)",
     summaryFeatures: [
       { text: "Mobil ve tablet uyumlu modern tasarım", bold: true },
       { text: "Google Haritalar ve yerel arama kurulumu", bold: true },
@@ -54,7 +56,7 @@ const packages: PackageDetail[] = [
         label: "Tasarım ve Altyapı",
         icon: Globe,
         items: [
-          "5–8 sayfalık mobil uyumlu modern web sitesi",
+          "Mobil uyumlu yüksek dönüşümlü web sitesi",
           "Markanıza özel renk paleti ve tipografi",
           "SSL güvenlik sertifikası ve sunucu kurulumu",
           "Alan adı (Domain) bağlantısı ve yayına alma",
@@ -81,27 +83,28 @@ const packages: PackageDetail[] = [
         ],
       },
       {
-        label: "Teknik Destek",
+        label: "Teknik Destek & Şartlar",
         icon: Headphones,
         items: [
           "15 gün ücretsiz teknik destek",
-          "Kolay içerik yönetim paneli (metin ve fotoğraf)",
-          "Tasarım revizyon ve onay garantisi",
+          "Maksimum 2 tur revizyon hakkı",
+          "Tasarım onay garantisi",
         ],
       },
     ],
-    waText: "Merhaba, Standart Paket (4.999 TL) hakkında bilgi almak istiyorum.",
+    waText: "Merhaba, Lansmana Özel Standart Paket (1.999 TL) hakkında bilgi almak istiyorum.",
   },
   {
     id: "kurumsal",
     name: "Kurumsal",
     tagline: "Web + Arama + Müşteri Akışı",
-    price: "14.999",
+    price: "9.999",
+    oldPrice: "14.999",
     delivery: "3–5 Gün",
     desc: "Klinik, otel ve hizmet firmaları için randevudan WhatsApp'a tam müşteri sistemi.",
     cta: "Kurumsal Paketi İncele",
     highlight: true,
-    badge: "Çoğu işletme için önerilir",
+    badge: "⭐ En Çok Tercih Edilen",
     summaryFeatures: [
       { text: "Gelişmiş Google arama ve harita optimizasyonu", bold: true },
       { text: "Online randevu ve keşif talep formu", bold: true },
@@ -151,18 +154,19 @@ const packages: PackageDetail[] = [
         ],
       },
     ],
-    waText: "Merhaba, Kurumsal Paket (14.999 TL) hakkında bilgi almak istiyorum.",
+    waText: "Merhaba, Kurumsal Paket (9.999 TL) hakkında bilgi almak istiyorum.",
   },
   {
     id: "profesyonel",
     name: "Profesyonel",
     tagline: "Web + E-Ticaret + Otomasyon",
-    price: "39.999",
+    price: "19.999",
+    oldPrice: "39.999",
     delivery: "7–12 Gün",
     desc: "Sağlık turizmi ve e-ticaret için çok dilli, 3D güvenli ödemeli tam dijital operasyon.",
     cta: "Profesyonel Paketi İncele",
     highlight: false,
-    badge: null,
+    badge: "🚀 Full Dijital Operasyon",
     summaryFeatures: [
       { text: "3D güvenli sanal POS ve online ödeme", bold: true },
       { text: "Çoklu dil desteği (Türkçe, İngilizce, Almanca)", bold: true },
@@ -212,7 +216,7 @@ const packages: PackageDetail[] = [
         ],
       },
     ],
-    waText: "Merhaba, Profesyonel Paket (39.999 TL) hakkında bilgi almak istiyorum.",
+    waText: "Merhaba, Profesyonel Paket (19.999 TL) hakkında bilgi almak istiyorum.",
   },
 ];
 
@@ -270,6 +274,11 @@ function PackageModal({
               <span className="text-sm font-bold text-white">{pkg.tagline}</span>
             </div>
             <div className="flex items-baseline gap-1 mt-1">
+              {pkg.oldPrice && (
+                <span className="text-sm text-slate-500 line-through font-mono mr-1.5">
+                  {pkg.oldPrice} TL
+                </span>
+              )}
               <span className={`text-2xl font-extrabold font-mono ${pkg.highlight ? "text-cyan-400" : "text-white"}`}>
                 {pkg.price}
               </span>
@@ -374,9 +383,10 @@ export default function Packages() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}
           <div ref={ref} className={`mb-10 text-center max-w-2xl mx-auto ${isVisible ? "reveal-up in-view" : "reveal-up"}`}>
-            <p className="text-[11px] font-mono font-bold tracking-[0.2em] text-cyan-400 uppercase mb-2">
-              Şeffaf Fiyatlandırma
-            </p>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[11px] font-mono font-bold tracking-wider uppercase mb-3">
+              <Sparkles className="w-3 h-3 text-cyan-400" />
+              2026 LANSMAN FIRSATI — İLK 50 İŞLETME
+            </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
               <Balancer>
                 İhtiyacınıza Göre <span className="text-shimmer">3 Net Paket</span>
@@ -419,7 +429,12 @@ export default function Packages() {
                     {pkg.tagline}
                   </h3>
 
-                  <div className="flex items-baseline gap-1.5 mb-2.5">
+                  <div className="flex items-baseline gap-2 mb-2.5">
+                    {pkg.oldPrice && (
+                      <span className="text-base sm:text-lg text-slate-500 line-through font-mono font-medium">
+                        {pkg.oldPrice} TL
+                      </span>
+                    )}
                     <span className={`text-3xl sm:text-4xl font-extrabold font-mono ${pkg.highlight ? "text-cyan-400" : "text-white"}`}>
                       {pkg.price}
                     </span>
