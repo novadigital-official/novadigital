@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const steps = [
   {
@@ -34,50 +35,52 @@ const steps = [
 ];
 
 export default function Process() {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section id="surec" className="py-14 sm:py-16 relative bg-transparent">
+    <section id="surec" className="py-12 sm:py-14 relative bg-transparent">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="mb-10">
+        <div ref={ref} className={isVisible ? "reveal-up in-view mb-8" : "reveal-up mb-8"}>
           <p className="text-[11px] font-mono font-bold tracking-[0.2em] text-blue-400 uppercase mb-3">
             Nasıl Çalışıyoruz?
           </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white max-w-2xl">
             5 adımda{" "}
-            <span className="text-shimmer">
-              dijital müşteri sisteminizi
-            </span>{" "}
+            <span className="text-shimmer">dijital müşteri sisteminizi</span>{" "}
             kuruyoruz.
           </h2>
           <p className="text-sm text-slate-400 mt-3 max-w-xl">
-            Haftalarca süren toplantı yok. Şeffaf süreç — her adımda tam kontrol sizde.
+            Haftalarca süren toplantı yok. Her adımda tam kontrol sizde.
           </p>
         </div>
 
-        {/* Desktop: horizontal timeline */}
+        {/* Desktop: horizontal timeline with animated connector */}
         <div className="hidden lg:block">
-          {/* Connector line */}
           <div className="relative">
-            <div className="absolute top-8 left-[6.5%] right-[6.5%] h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+            {/* Animated connector line */}
+            <div
+              className={`absolute top-8 left-[6.5%] right-[6.5%] h-px bg-gradient-to-r from-transparent via-blue-500/35 to-transparent ${
+                isVisible ? "timeline-line in-view" : "timeline-line"
+              }`}
+            />
             <div className="grid grid-cols-5 gap-4">
               {steps.map((step, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center group">
+                <div
+                  key={idx}
+                  className={`flex flex-col items-center text-center group ${
+                    isVisible ? `reveal-up in-view stagger-${idx + 1}` : "reveal-up"
+                  }`}
+                >
                   {/* Step circle */}
-                  <div className="relative mb-5">
-                    <div className="w-16 h-16 rounded-2xl glass-box border border-blue-500/25 flex flex-col items-center justify-center group-hover:border-blue-500/50 transition-colors">
-                      <span className="text-[10px] font-mono font-extrabold text-blue-400 tracking-widest">
-                        {step.num}
-                      </span>
-                    </div>
+                  <div className="w-16 h-16 rounded-2xl glass-box border border-blue-500/20 flex flex-col items-center justify-center mb-4 group-hover:border-blue-500/50 group-hover:bg-blue-900/20 transition-all duration-300">
+                    <span className="text-[10px] font-mono font-extrabold text-blue-400 tracking-widest">
+                      {step.num}
+                    </span>
                   </div>
 
-                  {/* Content */}
-                  <h3 className="text-sm font-bold text-white mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-slate-400 leading-relaxed mb-3">
-                    {step.desc}
-                  </p>
+                  <h3 className="text-sm font-bold text-white mb-1.5">{step.title}</h3>
+                  <p className="text-xs text-slate-400 leading-relaxed mb-2">{step.desc}</p>
                   <span className="inline-flex items-center gap-1 text-[10px] text-blue-400 font-semibold">
                     <CheckCircle2 className="w-3 h-3" />
                     {step.tag}
@@ -91,10 +94,9 @@ export default function Process() {
         {/* Mobile: vertical timeline */}
         <div className="lg:hidden space-y-0">
           {steps.map((step, idx) => (
-            <div key={idx} className="flex gap-4 group">
-              {/* Left: Number + Connector */}
+            <div key={idx} className="flex gap-4">
               <div className="flex flex-col items-center shrink-0">
-                <div className="w-10 h-10 rounded-xl glass-box border border-blue-500/25 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl glass-box border border-blue-500/20 flex items-center justify-center shrink-0">
                   <span className="text-[10px] font-mono font-extrabold text-blue-400 tracking-wider">
                     {step.num}
                   </span>
@@ -103,15 +105,9 @@ export default function Process() {
                   <div className="w-px flex-1 bg-gradient-to-b from-blue-500/25 to-transparent my-2 min-h-[2rem]" />
                 )}
               </div>
-
-              {/* Right: Content */}
-              <div className="pb-8">
-                <h3 className="text-sm font-bold text-white mb-1.5">
-                  {step.title}
-                </h3>
-                <p className="text-xs text-slate-400 leading-relaxed mb-2">
-                  {step.desc}
-                </p>
+              <div className="pb-7">
+                <h3 className="text-sm font-bold text-white mb-1.5">{step.title}</h3>
+                <p className="text-xs text-slate-400 leading-relaxed mb-2">{step.desc}</p>
                 <span className="inline-flex items-center gap-1 text-[10px] text-blue-400 font-semibold">
                   <CheckCircle2 className="w-3 h-3" />
                   {step.tag}

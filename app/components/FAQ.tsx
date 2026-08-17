@@ -2,15 +2,16 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const faqs = [
   {
     q: "Web sitem tam olarak kaç gün içinde yayına alınır?",
-    a: "Starter Paket 48 saat (2 iş günü), Growth Paket 3-5 iş günü, özel ödeme ve CRM entegrasyonlu Performance Paket ise 7-12 iş günü içerisinde anahtar teslim yayına alınır. Süre müşterinin logo, metin ve domain erişimini iletmesinin ardından başlar.",
+    a: "Standart Paket 48 saat, Kurumsal Paket 3-5 iş günü, Profesyonel Paket 7-12 iş günü içinde anahtar teslim yayına alınır. Süre müşterinin logo, metin ve domain erişimini iletmesinin ardından başlar.",
   },
   {
     q: "Memnuniyet garantisi ne anlama geliyor?",
-    a: "Web sitenizi alan adına bağlamadan önce canlı test ortamında beğeninize sunarız. Tasarım onayınızı alana kadar revizyonları eksiksiz yaparız. Siz onay vermeden siteyi yayına almayız.",
+    a: "Web sitenizi domain'e bağlamadan önce canlı test ortamında beğeninize sunarız. Tasarım onayınızı alana kadar revizyonları eksiksiz yaparız. Siz onay vermeden siteyi yayına almayız.",
   },
   {
     q: "Ödeme süreci nasıl işliyor?",
@@ -22,7 +23,7 @@ const faqs = [
   },
   {
     q: "Google Haritalar ve SEO kaydını siz mi yapıyorsunuz?",
-    a: "Evet. Growth ve Performance paketlerde Google Haritalar işletme kaydı, yerel anahtar kelime optimizasyonu ve harita etiketlemeleri ekibimizce tamamlanır.",
+    a: "Evet. Kurumsal ve Profesyonel paketlerde Google Haritalar işletme kaydı, yerel anahtar kelime optimizasyonu ve harita etiketlemeleri ekibimizce tamamlanır.",
   },
   {
     q: "NovaDigital neden kendi işletmelerini yönetiyor?",
@@ -32,12 +33,13 @@ const faqs = [
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="sss" className="py-14 sm:py-16 relative bg-transparent">
+    <section id="sss" className="py-12 sm:py-14 relative bg-transparent">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="mb-8">
+        <div ref={ref} className={isVisible ? "reveal-up in-view mb-7" : "reveal-up mb-7"}>
           <p className="text-[11px] font-mono font-bold tracking-[0.2em] text-blue-400 uppercase mb-3">
             Sık Sorulan Sorular
           </p>
@@ -47,39 +49,35 @@ export default function FAQ() {
           </h2>
         </div>
 
-        {/* Single-column accordion */}
-        <div className="space-y-2.5">
+        {/* Accordion */}
+        <div className="space-y-2">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                className={`rounded-xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? "border-blue-500/35 bg-[#0E1526]"
+                    ? "border-blue-500/30 bg-[#0E1526]"
                     : "border-white/8 glass-box"
-                }`}
+                } ${isVisible ? `reveal-up in-view stagger-${Math.min(idx + 1, 5)}` : "reveal-up"}`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full px-5 py-4 flex items-center justify-between gap-4 text-left focus:outline-none"
+                  className="w-full px-4 py-3.5 flex items-center justify-between gap-4 text-left focus:outline-none"
                 >
-                  <span className="font-semibold text-sm text-white leading-snug">
-                    {faq.q}
-                  </span>
+                  <span className="font-semibold text-sm text-white leading-snug">{faq.q}</span>
                   <div
                     className={`p-1.5 rounded-lg shrink-0 transition-all duration-200 ${
-                      isOpen
-                        ? "rotate-180 bg-blue-500/20 text-blue-300"
-                        : "bg-white/5 text-slate-400"
+                      isOpen ? "rotate-180 bg-blue-500/20 text-blue-300" : "bg-white/5 text-slate-400"
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-3.5 h-3.5" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs text-slate-300 leading-relaxed border-t border-white/5 animate-in fade-in duration-150">
+                  <div className="px-4 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
                     {faq.a}
                   </div>
                 )}

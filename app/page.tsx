@@ -4,7 +4,6 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ProvenResults from "./components/ProvenResults";
-import CaseStudies from "./components/CaseStudies";
 import WhyNova from "./components/WhyNova";
 import InteractiveSolutions from "./components/InteractiveSolutions";
 import Portfolio from "./components/Portfolio";
@@ -35,37 +34,33 @@ export default function Home() {
         <div className="aurora-cone-2 -bottom-[10%] -right-[10%]" />
       </div>
 
-      {/* ── Expert-Approved Page Order ── */}
       <Navbar />
 
-      {/* 1. Hero — New positioning */}
+      {/* 1. Hero */}
       <Hero />
 
-      {/* 2. Proof — Metrics from real own projects */}
+      {/* 2. Proof metrics */}
       <ProvenResults />
 
-      {/* 3. 4 Real Case Studies (own businesses — trust layer) */}
-      <CaseStudies />
-
-      {/* 4. Neden NovaDigital? — Differentiators */}
+      {/* 3. Neden NovaDigital? */}
       <WhyNova />
 
-      {/* 5. Interactive Solutions (CTA hierarchy) */}
-      <InteractiveSolutions />
-
-      {/* 6. Portfolio — Other client demos */}
-      <Portfolio />
-
-      {/* 7. Packages — STARTER / GROWTH / PERFORMANCE */}
+      {/* 4. Packages — fiyatlar erkenden gösterilir */}
       <Packages />
 
-      {/* 8. Process — 5 steps with timeline */}
+      {/* 5. Interactive Solutions */}
+      <InteractiveSolutions />
+
+      {/* 6. Portfolio — canlı demolar */}
+      <Portfolio />
+
+      {/* 7. Process */}
       <Process />
 
-      {/* 9. FAQ — Single column, 1 open */}
+      {/* 8. FAQ */}
       <FAQ />
 
-      {/* 10. Final CTA + Contact */}
+      {/* 9. Contact */}
       <Contact onOpenLegal={handleOpenLegal} />
 
       <Footer onOpenLegal={handleOpenLegal} />
