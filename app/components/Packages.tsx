@@ -398,12 +398,15 @@ export default function Packages() {
             {packages.map((pkg, idx) => (
               <div
                 key={pkg.id}
-                className={`rounded-2xl flex flex-col h-full relative p-6 sm:p-7 transition-all duration-300 ${
+                className={`rounded-2xl flex flex-col h-full relative p-6 sm:p-7 transition-all duration-300 overflow-hidden ${
                   pkg.highlight
-                    ? "bg-[#111d35] border-2 border-cyan-500/60 ring-4 ring-cyan-500/20 shadow-2xl shadow-cyan-500/15 md:scale-105 z-10"
-                    : "bg-[#0d182e]/80 border border-slate-800 hover:border-slate-700 md:scale-[0.98]"
+                    ? "bg-gradient-to-b from-[#16274a] via-[#101e3a] to-[#0b162b] border-2 border-cyan-400/90 ring-4 ring-cyan-500/25 shadow-[0_20px_60px_-15px_rgba(6,182,212,0.30)] md:scale-105 z-10"
+                    : "bg-gradient-to-b from-[#13203c] via-[#0e182e] to-[#091325] border border-slate-600/80 hover:border-cyan-400/80 shadow-[0_16px_45px_-10px_rgba(0,0,0,0.85)] hover:shadow-cyan-500/15 md:scale-[0.99]"
                 } ${isVisible ? `reveal-up in-view stagger-${idx + 1}` : "reveal-up"}`}
               >
+                {/* Subtle Top Glass Reflection Line */}
+                <div className={`absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent ${pkg.highlight ? "via-cyan-300/80" : "via-white/30"} to-transparent`} />
+
                 {pkg.badge && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap z-20">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-cyan-500/30">
