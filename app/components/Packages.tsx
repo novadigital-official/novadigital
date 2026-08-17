@@ -514,12 +514,6 @@ export default function Packages() {
               </div>
             ))}
           </div>
-
-          {/* 🚨 Şeffaflık & Dahil Değildir Notu */}
-          <p className="text-[11px] text-slate-500 text-center mt-8 max-w-2xl mx-auto leading-relaxed">
-            * Google &amp; Meta reklam harcama bütçesi ve aylık reklam yönetimi paketlere dahil değildir.
-            Alan adı (Domain) tescili, reklam harcamaları ve üçüncü taraf özel lisans ücretleri ayrıca faturalandırılır.
-          </p>
         </div>
       </section>
 

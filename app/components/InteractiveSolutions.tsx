@@ -115,13 +115,13 @@ export default function InteractiveSolutions() {
     <section id="cozumler" className="py-14 sm:py-16 relative bg-transparent">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white max-w-2xl">
-            İşletmeniz için{" "}
-            <span className="text-shimmer">hangi sistem?</span>
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+            İşletmeniz İçin{" "}
+            <span className="text-shimmer">Hangi Sistem?</span>
           </h2>
-          <p className="text-sm text-slate-400 mt-3 max-w-xl">
-            İhtiyacınıza uygun çözümü seçin, canlı demo üzerinden inceleyin.
+          <p className="text-xs sm:text-sm text-slate-400 mt-2.5">
+            İhtiyacınıza uygun çözümü seçin, özellikleri ve canlı demoları inceleyin.
           </p>
         </div>
 
@@ -171,8 +171,8 @@ export default function InteractiveSolutions() {
 
         {/* Desktop: interactive tabs */}
         <div className="hidden md:block">
-          {/* Tab bar */}
-          <div className="flex items-center gap-2 flex-wrap mb-6">
+          {/* Tab bar - 5 items balanced in 1 row on lg */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mb-6 w-full">
             {solutions.map((tab) => {
               const Icon = tab.icon;
               const isActive = tab.id === activeTab;
@@ -180,14 +180,14 @@ export default function InteractiveSolutions() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                  className={`flex items-center justify-center gap-2 px-3 py-3 rounded-xl text-xs font-bold transition-all text-center ${
                     isActive
-                      ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25"
-                      : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 border border-white/8"
+                      ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/25 border border-cyan-400/40"
+                      : "bg-slate-900/90 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
-                  <span>{tab.title}</span>
+                  <Icon className="w-4 h-4 shrink-0" />
+                  <span className="truncate">{tab.title}</span>
                 </button>
               );
             })}
