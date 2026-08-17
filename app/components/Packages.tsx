@@ -27,6 +27,7 @@ interface PackageDetail {
   badge: string | null;
   summaryFeatures: { text: string; bold: boolean }[];
   idealFor: string;
+  sectors: string[];
   groups: FeatureGroup[];
   waText: string;
 }
@@ -50,7 +51,17 @@ const packages: PackageDetail[] = [
       { text: "SSL güvenlik sertifikası + hızlı hosting", bold: false },
       { text: "15 gün teknik destek", bold: false },
     ],
-    idealFor: "Yeni web sitesi isteyen, Google'da profesyonel görünmek isteyen küçük işletmeler.",
+    idealFor: "Müşterinin doğrudan telefonla aradığı veya WhatsApp'tan hızlı fiyat ve konum sorduğu yerel esnaf ve acil hizmet işletmeleri.",
+    sectors: [
+      "Kafe & Restoran",
+      "Kuaför & Güzellik",
+      "Klima & Beyaz Eşya",
+      "Evden Eve Nakliyat",
+      "Oto Yıkama & Detailing",
+      "Tesisat & Elektrik",
+      "Butik Mağazalar",
+      "Temizlik Firmaları",
+    ],
     groups: [
       {
         label: "Tasarım ve Altyapı",
@@ -113,7 +124,17 @@ const packages: PackageDetail[] = [
       { text: "Google & Meta reklam ölçüm altyapısı", bold: false },
       { text: "30 gün öncelikli teknik destek", bold: false },
     ],
-    idealFor: "Google'dan ve sosyal medya reklamlarından düzenli sıcak müşteri almak isteyen işletmeler.",
+    idealFor: "Google aramasından ve reklamlardan düzenli randevu, keşif ve sıcak müşteri talebi toplamak isteyen işletmeler.",
+    sectors: [
+      "Diş & Sağlık Kliniği",
+      "Estetik & Saç Ekimi",
+      "Villa & Komple Tadilat",
+      "Mimarlık & İç Mimarlık",
+      "Hukuk & Avukatlık",
+      "Butik Otel & Pansiyon",
+      "Endüstriyel Epoksi & Zemin",
+      "Mali Müşavirlik",
+    ],
     groups: [
       {
         label: "Kurumsal Altyapı",
@@ -179,7 +200,17 @@ const packages: PackageDetail[] = [
       { text: "Google & Meta dönüşüm altyapısı", bold: false },
       { text: "60 gün teknik destek + garanti", bold: false },
     ],
-    idealFor: "Online satış yapan, sağlık turizmi yürüten veya iş operasyonunu dijitalleştirmek isteyen şirketler.",
+    idealFor: "7/24 online ödeme alan, çok dilli yabancı müşteri çeken, sipariş ve operasyonel süreçlerini otomatikleştiren şirketler.",
+    sectors: [
+      "E-Ticaret & Perakende",
+      "Sağlık Turizmi (Yurtdışı)",
+      "Otel Zinciri & Tatil Köyü",
+      "Gayrimenkul & Portföy",
+      "Yat & Tekne Kiralama",
+      "Fabrika & OSB Üreticisi",
+      "Güneş Enerjisi (GES)",
+      "Çok Şubeli Firmalar",
+    ],
     groups: [
       {
         label: "Platform ve Altyapı",
@@ -298,14 +329,33 @@ function PackageModal({
         </div>
 
         {/* Body */}
-        <div className="px-5 sm:px-6 py-5 space-y-6">
+        <div className="px-5 sm:px-6 py-5 space-y-5">
           <p className="text-sm text-slate-300 leading-relaxed">{pkg.desc}</p>
 
-          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-            <p className="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 mb-1">
-              Kimler İçin İdeal?
+          {/* 🏢 Kompakt Sektör Eşleşmesi ve Neden Uygun Kutusu */}
+          <div className="p-4 rounded-xl bg-[#111a2e] border border-slate-700/80 shadow-md">
+            <div className="flex items-center justify-between mb-2.5">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-cyan-400">
+                En Çok Tercih Eden Sektörler
+              </span>
+              <span className="text-[10px] text-slate-400 font-mono">Uyumlu Sektörler</span>
+            </div>
+            
+            {/* Sector Chips Grid */}
+            <div className="flex flex-wrap gap-1.5 mb-3">
+              {pkg.sectors.map((sec, i) => (
+                <span
+                  key={i}
+                  className="px-2.5 py-1 rounded-lg bg-slate-900/90 border border-slate-700/70 text-xs font-medium text-slate-200 shadow-sm"
+                >
+                  {sec}
+                </span>
+              ))}
+            </div>
+
+            <p className="text-xs text-slate-300 border-t border-slate-800/80 pt-2.5 leading-relaxed">
+              <strong className="text-white font-semibold">Neden Uygun?</strong> {pkg.idealFor}
             </p>
-            <p className="text-xs text-slate-300 leading-relaxed">{pkg.idealFor}</p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
@@ -465,49 +515,8 @@ export default function Packages() {
             ))}
           </div>
 
-          {/* 🎯 "Hangisini Seçmeliyim?" Decision Helper Mini-Guide */}
-          <div className="mt-12 p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
-            <div className="flex items-center gap-2 mb-4">
-              <HelpCircle className="w-4 h-4 text-cyan-400" />
-              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
-                Hangi Paketi Seçmelisiniz?
-              </h3>
-            </div>
-            <div className="grid sm:grid-cols-3 gap-3.5 text-xs">
-              <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800/60 flex flex-col justify-between">
-                <p className="text-slate-300 mb-2">
-                  &ldquo;Sadece Google&apos;da profesyonel görünen şık bir web sitesi istiyorum.&rdquo;
-                </p>
-                <div className="font-bold text-cyan-400 pt-2 border-t border-slate-800/60 flex items-center justify-between">
-                  <span>Başlangıç Paketi</span>
-                  <span className="font-mono text-slate-200">1.999 TL</span>
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 flex flex-col justify-between shadow-lg shadow-cyan-950/20">
-                <p className="text-slate-200 mb-2 font-medium">
-                  &ldquo;Google&apos;dan ve reklamlardan düzenli müşteri ve randevu kazanmak istiyorum.&rdquo;
-                </p>
-                <div className="font-bold text-cyan-300 pt-2 border-t border-cyan-500/20 flex items-center justify-between">
-                  <span>Büyüme Paketi ⭐</span>
-                  <span className="font-mono text-white">9.999 TL</span>
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800/60 flex flex-col justify-between">
-                <p className="text-slate-300 mb-2">
-                  &ldquo;Online ödeme almak, çok dilli satış ve operasyonel otomasyon istiyorum.&rdquo;
-                </p>
-                <div className="font-bold text-cyan-400 pt-2 border-t border-slate-800/60 flex items-center justify-between">
-                  <span>Satış &amp; Otomasyon</span>
-                  <span className="font-mono text-slate-200">19.999 TL</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* 🚨 Şeffaflık & Dahil Değildir Notu */}
-          <p className="text-[11px] text-slate-500 text-center mt-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[11px] text-slate-500 text-center mt-8 max-w-2xl mx-auto leading-relaxed">
             * Google &amp; Meta reklam harcama bütçesi ve aylık reklam yönetimi paketlere dahil değildir.
             Alan adı (Domain) tescili, reklam harcamaları ve üçüncü taraf özel lisans ücretleri ayrıca faturalandırılır.
           </p>
