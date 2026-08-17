@@ -62,6 +62,16 @@ export const metadata: Metadata = {
     description: "2 günde anahtar teslim web siteleri ve dijital reklam yönetimi.",
     images: ["https://novadigital.com.tr/images/logo-nova-digital.png"],
   },
+  icons: {
+    icon: [
+      { url: "/images/logo-nova-digital.png", sizes: "any" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/images/logo-nova-digital.png", sizes: "180x180" },
+    ],
+    shortcut: "/images/logo-nova-digital.png",
+  },
   robots: {
     index: true,
     follow: true,
