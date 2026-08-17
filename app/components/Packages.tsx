@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
   Check, Clock, ArrowRight, X, MessageSquare, Users, Zap,
-  Globe, BarChart3, CreditCard, Database, Headphones,
+  Globe, BarChart3, CreditCard, Database, Headphones, Sparkles, HelpCircle,
 } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import Balancer from "react-wrap-balancer";
@@ -20,70 +20,69 @@ interface PackageDetail {
   name: string;
   tagline: string;
   price: string;
-  oldPrice?: string;
   delivery: string;
   desc: string;
   cta: string;
   highlight: boolean;
   badge: string | null;
   summaryFeatures: { text: string; bold: boolean }[];
-  idealFor: string[];
+  idealFor: string;
   groups: FeatureGroup[];
   waText: string;
 }
 
 const packages: PackageDetail[] = [
   {
-    id: "standart",
-    name: "Standart",
-    tagline: "Kurumsal Web Sitesi",
+    id: "baslangic",
+    name: "Başlangıç",
+    tagline: "İşletmenizi Dijitale Taşıyın",
     price: "1.999",
-    oldPrice: "4.999",
-    delivery: "48 Saat",
-    desc: "Yerel işletmeler için 48 saatte yayına giren, Google ve WhatsApp uyumlu hazır web sitesi.",
-    cta: "Standart Paketi İncele",
+    delivery: "48 Saatte Yayında",
+    desc: "İşletmenizi Google'da görünür ve müşterileriniz için anında ulaşılabilir hale getirin.",
+    cta: "Başlangıç Paketini İncele",
     highlight: false,
-    badge: null,
+    badge: "Lansmana Özel",
     summaryFeatures: [
-      { text: "Mobil ve tablet uyumlu modern tasarım", bold: true },
-      { text: "Google Haritalar ve yerel arama kurulumu", bold: true },
-      { text: "WhatsApp ve doğrudan telefon arama hattı", bold: false },
-      { text: "SSL güvenlik sertifikası ve 15 gün destek", bold: false },
+      { text: "Mobil uyumlu profesyonel web sitesi", bold: true },
+      { text: "WhatsApp + tek tıkla doğrudan arama", bold: true },
+      { text: "Google işletme ve harita bağlantısı", bold: false },
+      { text: "Temel yerel SEO altyapısı", bold: false },
+      { text: "SSL güvenlik sertifikası + hızlı hosting", bold: false },
+      { text: "15 gün teknik destek", bold: false },
     ],
-    idealFor: ["Kafe ve Restoranlar", "Kuaför ve Güzellik Salonları", "Klima / Nakliyat / Temizlik", "Yerel Hizmet Firmaları"],
+    idealFor: "Yeni web sitesi isteyen, Google'da profesyonel görünmek isteyen küçük işletmeler.",
     groups: [
       {
         label: "Tasarım ve Altyapı",
         icon: Globe,
         items: [
-          "Mobil uyumlu yüksek dönüşümlü web sitesi",
-          "Markanıza özel renk paleti ve tipografi",
+          "Mobil uyumlu yüksek hızlı web sitesi",
+          "Markanıza özel kurumsal renk paleti ve tipografi",
           "SSL güvenlik sertifikası ve sunucu kurulumu",
-          "Alan adı (Domain) bağlantısı ve yayına alma",
+          "Alan adı (Domain) bağlantısı ve anahtar teslim yayın",
         ],
       },
       {
-        label: "Müşteri İletişimi",
+        label: "İletişim ve Harita",
         icon: Users,
         items: [
-          "WhatsApp butonu ile doğrudan mesaj hattı",
+          "WhatsApp butonu ile doğrudan mesajlaşma",
           "Tek tıkla telefon arama entegrasyonu",
-          "İletişim ve talep formu",
-          "Google Haritalar (İşletme Profili) kurulumu",
+          "Hızlı iletişim ve müşteri talep formu",
+          "Google İşletme Profili ve Haritalar bağlantısı",
         ],
       },
       {
-        label: "Google Uyumu ve Hız",
+        label: "Arama ve Hız",
         icon: Zap,
         items: [
-          "Yerel anahtar kelime optimizasyonu",
-          "Yüksek sayfa açılış hızı (PageSpeed 95+)",
-          "Temel Google başlık ve açıklama etiketleri",
-          "Mobil cihazlara özel hız optimizasyonu",
+          "Temel yerel anahtar kelime altyapısı",
+          "Google PageSpeed mobil hız optimizasyonu",
+          "Temel arama motoru başlık ve açıklama etiketleri",
         ],
       },
       {
-        label: "Teknik Destek & Şartlar",
+        label: "Destek ve Şartlar",
         icon: Headphones,
         items: [
           "15 gün ücretsiz teknik destek",
@@ -92,116 +91,123 @@ const packages: PackageDetail[] = [
         ],
       },
     ],
-    waText: "Merhaba, Standart Paket (1.999 TL) hakkında bilgi almak istiyorum.",
+    waText: "Merhaba, Başlangıç Paketi (1.999 TL) hakkında bilgi almak istiyorum.",
   },
   {
-    id: "kurumsal",
-    name: "Kurumsal",
-    tagline: "Web + Arama + Müşteri Akışı",
+    id: "buyume",
+    name: "Büyüme",
+    tagline: "Müşteri Toplama Sistemi Kurun",
     price: "9.999",
-    oldPrice: "14.999",
-    delivery: "3–5 Gün",
-    desc: "Klinik, otel ve hizmet firmaları için randevudan WhatsApp'a tam müşteri sistemi.",
-    cta: "Kurumsal Paketi İncele",
+    delivery: "3–5 İş Gününde Teslim",
+    desc: "Web sitenizi Google'dan ve reklamlardan düzenli müşteri toplayan aktif bir satış motoruna dönüştürün.",
+    cta: "Büyüme Paketini İncele",
     highlight: true,
     badge: "En Çok Tercih Edilen",
     summaryFeatures: [
-      { text: "Gelişmiş Google arama ve harita optimizasyonu", bold: true },
-      { text: "Online randevu ve keşif talep formu", bold: true },
-      { text: "Google ve Meta reklam dönüşüm takibi", bold: true },
-      { text: "30 gün VIP destek ve WhatsApp satış akışı", bold: false },
+      { text: "Profesyonel kurumsal web sitesi", bold: true },
+      { text: "Gelişmiş yerel SEO altyapısı", bold: true },
+      { text: "Google Haritalar optimizasyon kurulumu", bold: true },
+      { text: "Teklif / keşif / randevu talep formu", bold: false },
+      { text: "WhatsApp satış akışı entegrasyonu", bold: false },
+      { text: "Telefon + WhatsApp dönüşüm takibi", bold: false },
+      { text: "Google & Meta reklam ölçüm altyapısı", bold: false },
+      { text: "30 gün öncelikli teknik destek", bold: false },
     ],
-    idealFor: ["Klinik, Diş ve Estetik Merkezleri", "Otel ve Konaklama Tesisleri", "Hukuk ve Danışmanlık Büroları", "Tadilat ve Mimarlık Firmaları"],
+    idealFor: "Google'dan ve sosyal medya reklamlarından düzenli sıcak müşteri almak isteyen işletmeler.",
     groups: [
       {
-        label: "Tasarım ve Altyapı",
+        label: "Kurumsal Altyapı",
         icon: Globe,
         items: [
-          "10–15 sayfalık lüks kurumsal web sitesi",
-          "Özel arayüz tasarımı ve modern mikro animasyonlar",
-          "Yüksek hızlı sunucu ve güvenlik altyapısı",
-          "Kolay yönetim paneli ile anında içerik güncelleme",
+          "Çok sayfalı lüks kurumsal web sitesi",
+          "Özel arayüz tasarımı ve mikro animasyonlar",
+          "Yüksek hızlı sunucu ve güvenlik kalkanı",
+          "Kolay yönetim paneli ile metin/görsel güncelleme",
         ],
       },
       {
-        label: "Müşteri Kazanım Sistemi",
+        label: "Müşteri Kazanım Akışı",
         icon: Users,
         items: [
-          "Online randevu ve ücretsiz keşif talep formu",
-          "WhatsApp ile anlık müşteri bildirimi",
-          "Fiyat hesaplayıcı veya özel teklif modülü",
-          "Doğrudan arama ve mesaj butonları",
+          "Teklif, keşif ve online randevu formu",
+          "WhatsApp üzerinden anlık müşteri yönlendirme",
+          "Fiyat hesaplayıcı veya özel teklif motoru",
+          "Dönüşüm odaklı arama ve mesaj butonları",
         ],
       },
       {
-        label: "Arama Motoru ve Analiz",
+        label: "SEO & Reklam Ölçümü",
         icon: BarChart3,
         items: [
-          "Google Analytics 4 istatistik kurulumu",
-          "Meta (Instagram / Facebook) piksel entegrasyonu",
           "Google Haritalar gelişmiş optimizasyonu",
-          "Sayfa bazlı hedef anahtar kelime stratejisi",
-          "Yerel işletme yapısal veri etiketleri",
+          "Sayfa bazlı hedef yerel anahtar kelime mimarisi",
+          "Google Analytics 4 & Meta Pixel entegrasyonu",
+          "Telefon ve WhatsApp buton tıklama dönüşüm takibi",
+          "Yerel işletme yapısal veri (Schema.org) etiketleri",
         ],
       },
       {
         label: "Teknik Destek",
         icon: Headphones,
         items: [
-          "30 gün öncelikli VIP teknik destek",
+          "30 gün öncelikli teknik destek",
           "Tasarım onay garantisi ve revizyon hakları",
           "Aylık hız ve arama performansı kontrolü",
         ],
       },
     ],
-    waText: "Merhaba, Kurumsal Paket (9.999 TL) hakkında bilgi almak istiyorum.",
+    waText: "Merhaba, Büyüme Paketi (9.999 TL) hakkında bilgi almak istiyorum.",
   },
   {
-    id: "profesyonel",
-    name: "Profesyonel",
-    tagline: "Web + E-Ticaret + Otomasyon",
+    id: "satis-otomasyon",
+    name: "Satış & Otomasyon",
+    tagline: "Online Satış Altyapınızı Kurun",
     price: "19.999",
-    oldPrice: "39.999",
-    delivery: "7–12 Gün",
-    desc: "Sağlık turizmi ve e-ticaret için çok dilli, 3D güvenli ödemeli tam dijital operasyon.",
-    cta: "Profesyonel Paketi İncele",
+    delivery: "7–12 İş Gününde Teslim",
+    desc: "Web sitenizi 7/24 ödeme alan, sipariş ve talepleri yöneten tam bir dijital satış operasyonuna dönüştürün.",
+    cta: "Satış Paketini İncele",
     highlight: false,
     badge: null,
     summaryFeatures: [
-      { text: "3D güvenli sanal POS ve online ödeme", bold: true },
+      { text: "E-ticaret ve online satış altyapısı", bold: true },
+      { text: "Online ödeme / sanal POS entegrasyonu", bold: true },
       { text: "Çoklu dil desteği (Türkçe, İngilizce, Almanca)", bold: true },
-      { text: "Özel müşteri takip ve yönetim veritabanı", bold: false },
-      { text: "60 gün baş yazılımcı desteği ve garanti", bold: false },
+      { text: "Ürün ve hizmet yönetim altyapısı", bold: false },
+      { text: "Müşteri kayıt ve talep takip paneli", bold: false },
+      { text: "Sipariş ve talep yönetim sistemi", bold: false },
+      { text: "WhatsApp satış entegrasyonu", bold: false },
+      { text: "Google & Meta dönüşüm altyapısı", bold: false },
+      { text: "60 gün teknik destek + garanti", bold: false },
     ],
-    idealFor: ["Sağlık Turizmi ve Klinikler", "E-Ticaret Mağazaları", "Çok Şubeli Şirketler", "Otel Grupları ve Gayrimenkul"],
+    idealFor: "Online satış yapan, sağlık turizmi yürüten veya iş operasyonunu dijitalleştirmek isteyen şirketler.",
     groups: [
       {
         label: "Platform ve Altyapı",
         icon: Globe,
         items: [
-          "Sınırsız sayfa kapasiteli güçlü web platformu",
+          "Geniş ölçekli güçlü web ve e-ticaret platformu",
           "Çoklu dil desteği (Türkçe, İngilizce, Almanca, Rusça)",
-          "Yoğun ziyaretçi trafiğine dayanıklı sunucu altyapısı",
+          "Yoğun ziyaretçi trafiğine dayanıklı sunucu mimarisi",
           "Gelişmiş yönetici paneli ve yetkilendirme sistemi",
         ],
       },
       {
-        label: "Ödeme ve E-Ticaret",
+        label: "Ödeme ve Ticaret",
         icon: CreditCard,
         items: [
-          "İyzico ve PayTR 3D güvenli sanal POS altyapısı",
+          "İyzico ve PayTR sanal POS online ödeme altyapısı",
           "Yurt dışı kartlar için uluslararası ödeme desteği",
           "Otomatik fatura ve sipariş bilgilendirme",
           "Ürün ve hizmet kataloğu yönetim sistemi",
         ],
       },
       {
-        label: "Otomasyon ve Pazarlama",
+        label: "Otomasyon & Süreç",
         icon: Database,
         items: [
           "Özel müşteri ve talep takip paneli",
           "Otomatik PDF teklif hazırlama sistemi",
-          "WhatsApp bildirim entegrasyonu",
+          "WhatsApp sipariş ve randevu bildirimleri",
           "Google Ads ve Meta reklam altyapı kurulumu",
         ],
       },
@@ -209,14 +215,14 @@ const packages: PackageDetail[] = [
         label: "Teknik Destek ve Garanti",
         icon: Headphones,
         items: [
-          "60 gün baş yazılımcı doğrudan erişimi",
-          "Geliştirme süresince sınırsız revizyon hakkı",
+          "60 gün teknik destek + operasyonel garanti",
+          "Geliştirme süresince kapsamlı revizyon hakkı",
           "Aynı gün içinde öncelikli teknik yanıt garantisi",
           "Aylık teknik ve güvenlik kontrol raporu",
         ],
       },
     ],
-    waText: "Merhaba, Profesyonel Paket (19.999 TL) hakkında bilgi almak istiyorum.",
+    waText: "Merhaba, Satış & Otomasyon Paketi (19.999 TL) hakkında bilgi almak istiyorum.",
   },
 ];
 
@@ -273,11 +279,6 @@ function PackageModal({
               <span className="text-sm font-bold text-white">{pkg.tagline}</span>
             </div>
             <div className="flex items-baseline gap-1 mt-1">
-              {pkg.oldPrice && (
-                <span className="text-sm text-slate-500 line-through font-mono mr-1.5">
-                  {pkg.oldPrice} TL
-                </span>
-              )}
               <span className={`text-2xl font-extrabold font-mono ${pkg.highlight ? "text-cyan-400" : "text-white"}`}>
                 {pkg.price}
               </span>
@@ -300,20 +301,11 @@ function PackageModal({
         <div className="px-5 sm:px-6 py-5 space-y-6">
           <p className="text-sm text-slate-300 leading-relaxed">{pkg.desc}</p>
 
-          <div>
-            <p className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 mb-2.5">
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <p className="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 mb-1">
               Kimler İçin İdeal?
             </p>
-            <div className="flex flex-wrap gap-2">
-              {pkg.idealFor.map((s, i) => (
-                <span
-                  key={i}
-                  className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-slate-300"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
+            <p className="text-xs text-slate-300 leading-relaxed">{pkg.idealFor}</p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
@@ -403,7 +395,7 @@ export default function Packages() {
                     : "bg-gradient-to-b from-[#13203c] via-[#0e182e] to-[#091325] border border-slate-600/80 hover:border-cyan-400/80 shadow-[0_16px_45px_-10px_rgba(0,0,0,0.85)] hover:shadow-cyan-500/15 md:scale-[0.99]"
                 } ${isVisible ? `reveal-up in-view stagger-${idx + 1}` : "reveal-up"}`}
               >
-                {/* Clean Top Badge without Emojis or Clipping */}
+                {/* Clean Top Badge without Clipping */}
                 {pkg.badge && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap z-20">
                     <span className="px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-[10px] font-bold uppercase tracking-wider shadow-md shadow-cyan-500/25">
@@ -417,19 +409,16 @@ export default function Packages() {
                     <span className="text-[11px] font-mono font-extrabold tracking-[0.22em] text-cyan-400 uppercase">
                       {pkg.name}
                     </span>
-                    <span className="text-[10px] font-mono text-slate-500 bg-slate-900/60 px-2 py-0.5 rounded border border-slate-800">{pkg.id}</span>
+                    <span className="text-[10px] font-mono text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded border border-slate-800">
+                      {pkg.id}
+                    </span>
                   </div>
 
                   <h3 className="text-base sm:text-lg font-extrabold text-white mb-3 tracking-tight">
                     {pkg.tagline}
                   </h3>
 
-                  <div className="flex items-baseline gap-2 mb-2.5">
-                    {pkg.oldPrice && (
-                      <span className="text-base sm:text-lg text-slate-500 line-through font-mono font-medium">
-                        {pkg.oldPrice} TL
-                      </span>
-                    )}
+                  <div className="flex items-baseline gap-1.5 mb-2.5">
                     <span className={`text-3xl sm:text-4xl font-extrabold font-mono ${pkg.highlight ? "text-cyan-400" : "text-white"}`}>
                       {pkg.price}
                     </span>
@@ -438,10 +427,10 @@ export default function Packages() {
 
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/90 border border-slate-800 text-xs font-medium text-slate-300 mb-5">
                     <Clock className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>{pkg.delivery} Teslimat</span>
+                    <span>{pkg.delivery}</span>
                   </div>
 
-                  {/* 4 Concise Bullets */}
+                  {/* Features List */}
                   <ul className="space-y-3 mb-6 text-xs border-t border-slate-800/80 pt-4">
                     {pkg.summaryFeatures.map((f, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2.5">
@@ -475,6 +464,53 @@ export default function Packages() {
               </div>
             ))}
           </div>
+
+          {/* 🎯 "Hangisini Seçmeliyim?" Decision Helper Mini-Guide */}
+          <div className="mt-12 p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
+            <div className="flex items-center gap-2 mb-4">
+              <HelpCircle className="w-4 h-4 text-cyan-400" />
+              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
+                Hangi Paketi Seçmelisiniz?
+              </h3>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-3.5 text-xs">
+              <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800/60 flex flex-col justify-between">
+                <p className="text-slate-300 mb-2">
+                  &ldquo;Sadece Google&apos;da profesyonel görünen şık bir web sitesi istiyorum.&rdquo;
+                </p>
+                <div className="font-bold text-cyan-400 pt-2 border-t border-slate-800/60 flex items-center justify-between">
+                  <span>Başlangıç Paketi</span>
+                  <span className="font-mono text-slate-200">1.999 TL</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 flex flex-col justify-between shadow-lg shadow-cyan-950/20">
+                <p className="text-slate-200 mb-2 font-medium">
+                  &ldquo;Google&apos;dan ve reklamlardan düzenli müşteri ve randevu kazanmak istiyorum.&rdquo;
+                </p>
+                <div className="font-bold text-cyan-300 pt-2 border-t border-cyan-500/20 flex items-center justify-between">
+                  <span>Büyüme Paketi ⭐</span>
+                  <span className="font-mono text-white">9.999 TL</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800/60 flex flex-col justify-between">
+                <p className="text-slate-300 mb-2">
+                  &ldquo;Online ödeme almak, çok dilli satış ve operasyonel otomasyon istiyorum.&rdquo;
+                </p>
+                <div className="font-bold text-cyan-400 pt-2 border-t border-slate-800/60 flex items-center justify-between">
+                  <span>Satış &amp; Otomasyon</span>
+                  <span className="font-mono text-slate-200">19.999 TL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 🚨 Şeffaflık & Dahil Değildir Notu */}
+          <p className="text-[11px] text-slate-500 text-center mt-6 max-w-2xl mx-auto leading-relaxed">
+            * Google &amp; Meta reklam harcama bütçesi ve aylık reklam yönetimi paketlere dahil değildir.
+            Alan adı (Domain) tescili, reklam harcamaları ve üçüncü taraf özel lisans ücretleri ayrıca faturalandırılır.
+          </p>
         </div>
       </section>
 
