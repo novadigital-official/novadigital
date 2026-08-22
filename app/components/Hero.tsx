@@ -20,15 +20,6 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Direct-Response Benefit-Driven Copy */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Honest Delivery Speed Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-medium tracking-wide mb-5 backdrop-blur-md">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
-              <span>En Hızlı Pakette 48 Saatte Anahtar Teslim</span>
-            </div>
-
             {/* Benefit Display Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-[3.2rem] font-extrabold tracking-tight text-white leading-[1.14] mb-5 [text-wrap:balance]">
               İşletmenizin Dijital Gücünü ve{" "}
