@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Balancer from "react-wrap-balancer";
 import { ChevronDown } from "lucide-react";
 
 interface FAQItem {
@@ -44,12 +43,10 @@ export default function FAQ() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-2">
-            <Balancer>
-              Sıkça Sorulan <span className="text-shimmer">Sorular</span>
-            </Balancer>
+            Sıkça Sorulan <span className="text-shimmer">Sorular</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-400">
-            <Balancer>Süreç, ödeme ve teknik konular hakkında merak edilen tüm net cevaplar.</Balancer>
+            Süreç, ödeme ve teknik konular hakkında merak edilen tüm net cevaplar.
           </p>
         </div>
 

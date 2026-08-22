@@ -203,18 +203,21 @@ textarea:focus-visible {
   }
 }
 
-/* Breathing */
+/* Breathing - GPU composited */
 @keyframes breathing {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    transform: scale(1);
+    opacity: 1;
   }
-  70% {
-    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
   }
 }
 
 .animate-breathing {
-  animation: breathing 2.5s infinite;
+  animation: breathing 2.5s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 /* Hide Scrollbar */

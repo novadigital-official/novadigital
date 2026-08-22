@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Balancer from "react-wrap-balancer";
 import {
   Monitor,
   ShoppingBag,
@@ -112,12 +111,10 @@ export default function InteractiveSolutions() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-2">
-            <Balancer>
-              İşletmeniz İçin <span className="text-shimmer">Neler Yapıyoruz?</span>
-            </Balancer>
+            İşletmeniz İçin <span className="text-shimmer">Neler Yapıyoruz?</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-400">
-            <Balancer>İhtiyacınız olan sistemi seçin ve canlı stüdyo üzerinden inceleyin.</Balancer>
+            İhtiyacınız olan sistemi seçin ve canlı stüdyo üzerinden inceleyin.
           </p>
         </div>
 

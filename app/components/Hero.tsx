@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Balancer from "react-wrap-balancer";
 import {
   ArrowRight,
   Eye,

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Balancer from "react-wrap-balancer";
 import {
   Check,
   Clock,
@@ -19,14 +18,10 @@ export default function Packages() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-2">
-            <Balancer>
-              İşletmenize Uygun <span className="text-shimmer">Web Paketleri</span>
-            </Balancer>
+            İşletmenize Uygun <span className="text-shimmer">Web Paketleri</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-400">
-            <Balancer>
-              Gizli maliyet yok. İhtiyacınıza göre ölçeklenebilir 3 şeffaf paket.
-            </Balancer>
+            Gizli maliyet yok. İhtiyacınıza göre ölçeklenebilir 3 şeffaf paket.
           </p>
         </div>
 

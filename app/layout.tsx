@@ -3,8 +3,6 @@ import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Provider as BalancerProvider } from "react-wrap-balancer";
-import SmoothScroll from "./components/SmoothScroll";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -151,6 +149,31 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${jakarta.variable} ${jetbrains.variable}`}>
       <head>
+        <link
+          rel="preload"
+          href="/images/hero-reklam-visual.jpg"
+          as="image"
+          fetchPriority="high"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="bg-mesh-wave text-slate-300 antialiased selection:bg-blue-600 selection:text-white min-h-screen">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W9MKQLGP"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+
+        {/* All tracking scripts moved AFTER content, with lazyOnload */}
         <Script id="gtm-script" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -189,27 +212,6 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body className="bg-mesh-wave text-slate-300 antialiased selection:bg-blue-600 selection:text-white min-h-screen">
-        <BalancerProvider>
-          <SmoothScroll />
-          <noscript>
-            <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-W9MKQLGP"
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            />
-          </noscript>
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </BalancerProvider>
       </body>
     </html>
   );

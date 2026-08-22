@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import Balancer from "react-wrap-balancer";
 import { Phone, MessageSquare, Mail, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { LegalTab } from "./LegalModal";
 
@@ -50,12 +49,10 @@ export default function Contact({ onOpenLegal }: ContactProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-2">
-            <Balancer>
-              Projenizi Birlikte <span className="text-shimmer">Hayata Geçirelim</span>
-            </Balancer>
+            Projenizi Birlikte <span className="text-shimmer">Hayata Geçirelim</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-400">
-            <Balancer>WhatsApp'tan anında yazın veya formu doldurun. 15 dakika içinde size özel yol haritası sunalım.</Balancer>
+            WhatsApp'tan anında yazın veya formu doldurun. 15 dakika içinde size özel yol haritası sunalım.
           </p>
         </div>
 
