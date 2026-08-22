@@ -4,15 +4,15 @@ import { Phone } from "lucide-react";
 
 export default function FloatingWhatsApp() {
   return (
-    <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 flex flex-col items-center gap-3 pointer-events-auto">
+    <div className="fixed bottom-[10%] right-6 sm:right-8 z-50 flex flex-col items-center gap-4 pointer-events-auto">
       {/* Call Button - Positioned Above WhatsApp */}
       <a
         href="tel:05070871789"
         aria-label="Hemen Telefonla Ara"
         title="Hemen Ara: 0507 087 17 89"
-        className="flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-blue-600 text-white shadow-xl shadow-blue-600/40 hover:bg-blue-500 transition-all hover:scale-110 active:scale-95"
+        className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 text-white shadow-xl shadow-blue-600/40 hover:bg-blue-500 transition-all hover:scale-110 active:scale-95"
       >
-        <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+        <Phone className="w-6 h-6 sm:w-7 sm:h-7" />
       </a>
 
       {/* WhatsApp Button */}
