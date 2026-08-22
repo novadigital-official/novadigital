@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Provider as BalancerProvider } from "react-wrap-balancer";
+import SmoothScroll from "./components/SmoothScroll";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -61,16 +62,6 @@ export const metadata: Metadata = {
     title: "Nova Digital | Web Tasarım & Reklam Ajansı",
     description: "2 günde anahtar teslim web siteleri ve dijital reklam yönetimi.",
     images: ["https://novadigital.com.tr/images/logo-nova-digital.png"],
-  },
-  icons: {
-    icon: [
-      { url: "/images/logo-nova-digital.png", sizes: "any" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: [
-      { url: "/images/logo-nova-digital.png", sizes: "180x180" },
-    ],
-    shortcut: "/images/logo-nova-digital.png",
   },
   robots: {
     index: true,
@@ -204,6 +195,7 @@ export default function RootLayout({
       </head>
       <body className="bg-mesh-wave text-slate-300 antialiased selection:bg-blue-600 selection:text-white min-h-screen">
         <BalancerProvider>
+          <SmoothScroll />
           <noscript>
             <iframe
               src="https://www.googletagmanager.com/ns.html?id=GTM-W9MKQLGP"

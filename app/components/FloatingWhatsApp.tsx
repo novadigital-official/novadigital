@@ -7,7 +7,7 @@ export default function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp İletişim Hattı"
-      className="fixed bottom-9 right-5 sm:bottom-12 sm:right-7 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/40 transition-all hover:scale-110 active:scale-95 animate-breathing"
+      className="fixed bottom-24 right-6 sm:bottom-9 sm:right-9 z-50 flex items-center justify-center w-[3.75rem] h-[3.75rem] rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/40 transition-all hover:scale-110 active:scale-95 animate-breathing"
     >
       <svg
         className="w-8 h-8 fill-current"

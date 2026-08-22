@@ -2,204 +2,155 @@
 
 @layer base {
   :root {
-    --bg-dark: #090D18;
-    --bg-surface: #0E1526;
-    --bg-card: #121A30;
-    --bg-card-hover: #17223D;
+    --bg-dark: #07090E;
+    --bg-surface: #0D111A;
+    --bg-card: #111724;
+    --bg-card-hover: #161F30;
     --primary: #3B82F6;
     --primary-light: #60A5FA;
     --cyan: #06B6D4;
     --text-heading: #FFFFFF;
-    --text-body: #94A3B8;
-    --text-muted: #64748B;
+    --text-body: #A3AFC2;
+    --text-muted: #7E8C9F;
     --border-glass: rgba(255, 255, 255, 0.08);
-    --border-glow: rgba(59, 130, 246, 0.35);
+    --border-glow: rgba(59, 130, 246, 0.3);
     --radius-card: 1rem;
-    --shadow-glow-primary: 0 0 25px -5px rgba(59, 130, 246, 0.5);
-    --shadow-card-hover: 0 16px 40px -10px rgba(0, 0, 0, 0.85), 0 0 30px -5px rgba(59, 130, 246, 0.25);
+    --shadow-glow-primary: 0 0 25px -5px rgba(37, 99, 235, 0.5);
+    --shadow-card-hover: 0 16px 40px -10px rgba(0, 0, 0, 0.9), 0 0 30px -5px rgba(37, 99, 235, 0.3);
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #090D18;
+    background-color: var(--bg-dark);
     color: var(--text-body);
-    overflow-x: clip;
+    overflow-x: hidden;
+    max-width: 100vw;
     width: 100%;
-    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: #090D18;
+    background-color: var(--bg-dark);
     color: var(--text-body);
     font-family: var(--font-sans), sans-serif;
-    overflow-x: clip;
+    overflow-x: hidden;
+    max-width: 100vw;
     width: 100%;
     position: relative;
     -webkit-font-smoothing: antialiased;
-    touch-action: pan-y;
-    -webkit-overflow-scrolling: touch;
   }
 }
 
-/* ─── Background Gradient ─────────────────────────────── */
+/* 3D Aurora Mesh Wave Background */
 .bg-mesh-wave {
   position: relative;
-  background-color: #090D18;
-  background-image:
-    radial-gradient(at 20% 15%, rgba(37, 99, 235, 0.14) 0px, transparent 50%),
-    radial-gradient(at 80% 25%, rgba(6, 182, 212, 0.11) 0px, transparent 45%),
-    radial-gradient(at 50% 55%, rgba(30, 58, 138, 0.10) 0px, transparent 55%),
-    radial-gradient(at 25% 85%, rgba(14, 165, 233, 0.11) 0px, transparent 50%),
-    radial-gradient(at 75% 90%, rgba(37, 99, 235, 0.12) 0px, transparent 45%);
+  background-color: #07090E;
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(37, 99, 235, 0.18) 0px, transparent 50%),
+    radial-gradient(at 85% 25%, rgba(6, 182, 212, 0.15) 0px, transparent 45%),
+    radial-gradient(at 50% 60%, rgba(99, 102, 241, 0.12) 0px, transparent 55%),
+    radial-gradient(at 20% 85%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 90%, rgba(37, 99, 235, 0.14) 0px, transparent 45%);
   background-attachment: fixed;
 }
 
-/* ─── Aurora Ambient Cones ────────────────────────────── */
-@keyframes ambientDrift {
-  0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.30; }
-  50%       { transform: translate(18px, -12px) scale(1.06); opacity: 0.45; }
+/* 3D Animated Ambient Cones */
+@keyframes waveMotion {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(25px, -20px) scale(1.1);
+    opacity: 0.45;
+  }
 }
 
 .aurora-cone-1 {
   position: absolute;
-  width: 700px; max-width: 90vw; height: 480px;
+  width: 700px;
+  max-width: 90vw;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37,99,235,0.20) 0%, rgba(6,182,212,0.05) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 70%);
   filter: blur(80px);
   pointer-events: none;
-  animation: ambientDrift 14s ease-in-out infinite;
+  animation: waveMotion 12s ease-in-out infinite;
 }
 
 .aurora-cone-2 {
   position: absolute;
-  width: 600px; max-width: 90vw; height: 440px;
+  width: 600px;
+  max-width: 90vw;
+  height: 450px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(6,182,212,0.16) 0%, rgba(30,58,138,0.06) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
   filter: blur(90px);
   pointer-events: none;
-  animation: ambientDrift 18s ease-in-out infinite reverse;
+  animation: waveMotion 15s ease-in-out infinite reverse;
 }
 
-/* ─── Glass Card ──────────────────────────────────────── */
+/* Tactile Glass Card with Luxury Hover Glow */
 .glass-box {
-  background: rgba(14, 21, 38, 0.72);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(14, 19, 30, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
   border-radius: var(--radius-card);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  will-change: transform, box-shadow;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow, border-color;
   box-sizing: border-box;
 }
 
-/* Only lift on interactive (anchor/button) glass-boxes */
-a.glass-box:hover,
-button.glass-box:hover {
-  background: rgba(18, 27, 48, 0.88);
-  border-color: rgba(96, 165, 250, 0.40);
+.glass-box:hover {
+  background: rgba(18, 26, 44, 0.88);
+  border-color: rgba(96, 165, 250, 0.45);
   box-shadow: var(--shadow-card-hover);
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.01);
 }
 
-/* ─── Shimmer Text ────────────────────────────────────── */
+.glass-box:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* Shimmer Typography */
 .text-shimmer {
   background: linear-gradient(
     110deg,
-    #FFFFFF 0%, #FFFFFF 35%,
-    #93C5FD 50%, #38BDF8 60%,
-    #FFFFFF 80%, #FFFFFF 100%
+    #FFFFFF 0%,
+    #FFFFFF 40%,
+    #93C5FD 50%,
+    #38BDF8 60%,
+    #FFFFFF 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textShimmer 7s linear infinite;
+  animation: textShimmer 6s linear infinite;
 }
 
 @keyframes textShimmer {
-  to { background-position: 200% center; }
+  to {
+    background-position: 200% center;
+  }
 }
 
-/* ─── Primary Button ──────────────────────────────────── */
+/* Shimmer Button */
 .btn-shimmer {
   background: linear-gradient(135deg, #2563EB, #0284C7);
-  box-shadow: 0 0 22px -4px rgba(37, 99, 235, 0.50);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-glow-primary);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .btn-shimmer:hover {
-  box-shadow: 0 0 32px -2px rgba(56, 189, 248, 0.65);
-  transform: translateY(-1px) scale(1.015);
-}
-.btn-shimmer:active { transform: scale(0.97); }
-
-/* ─── Scroll Reveal Animations ────────────────────────── */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  box-shadow: 0 0 35px -2px rgba(56, 189, 248, 0.7);
+  transform: translateY(-1px) scale(1.02);
 }
 
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.96); }
-  to   { opacity: 1; transform: scale(1); }
+.btn-shimmer:active {
+  transform: scale(0.97);
 }
 
-@keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-16px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-.reveal-up {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal-up.in-view {
-  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.reveal-scale {
-  opacity: 1;
-  transform: scale(1);
-}
-.reveal-scale.in-view {
-  animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Stagger delays for child cards */
-.stagger-1 { animation-delay: 0ms !important; }
-.stagger-2 { animation-delay: 80ms !important; }
-.stagger-3 { animation-delay: 160ms !important; }
-.stagger-4 { animation-delay: 240ms !important; }
-.stagger-5 { animation-delay: 320ms !important; }
-
-/* ─── Subtle Gradient Border Pulse on Hero CTA ─────────── */
-@keyframes borderPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70%       { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
-}
-.animate-breathing {
-  animation: borderPulse 2.5s infinite;
-}
-
-/* ─── Metric Count Glow (ProvenResults) ─────────────────── */
-@keyframes countGlow {
-  0%   { text-shadow: none; }
-  50%  { text-shadow: 0 0 20px rgba(96, 165, 250, 0.6); }
-  100% { text-shadow: none; }
-}
-.metric-glow {
-  animation: countGlow 2s ease-in-out 0.6s 1 forwards;
-}
-
-/* ─── Process Timeline Connector ────────────────────────── */
-@keyframes lineGrow {
-  from { transform: scaleX(0); transform-origin: left; }
-  to   { transform: scaleX(1); transform-origin: left; }
-}
-.timeline-line.in-view {
-  animation: lineGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-  transform: scaleX(0);
-}
-
-/* ─── Focus & Accessibility ──────────────────────────────── */
+/* Accessibility & Focus-Visible States */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -209,31 +160,62 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
-/* ─── Mobile Optimizations ───────────────────────────────── */
+.btn-shimmer:focus-visible {
+  outline: 2px solid #93C5FD;
+  outline-offset: 2px;
+}
+
+/* Mobile Performance & Overflow Optimizations */
 @media (max-width: 768px) {
   .glass-box {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
-  .aurora-cone-1, .aurora-cone-2 {
-    filter: blur(45px);
+  .aurora-cone-1,
+  .aurora-cone-2 {
+    filter: blur(40px);
   }
-  a.glass-box:hover { transform: none; }
+  .glass-box:hover {
+    transform: none;
+  }
 }
 
-/* ─── Reduced Motion ─────────────────────────────────────── */
+/* Reduced Motion Support for Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+  *,
+  ::before,
+  ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal-up, .reveal-scale { opacity: 1; transform: none; }
+  .aurora-cone-1,
+  .aurora-cone-2,
+  .animate-breathing,
+  .text-shimmer {
+    animation: none !important;
+  }
 }
 
-/* ─── Scrollbar Hidden ───────────────────────────────────── */
-.no-scrollbar::-webkit-scrollbar { display: none; }
+/* Breathing */
+@keyframes breathing {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-breathing {
+  animation: breathing 2.5s infinite;
+}
+
+/* Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

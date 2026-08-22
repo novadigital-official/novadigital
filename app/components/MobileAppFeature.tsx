@@ -72,6 +72,7 @@ export default function MobileAppFeature() {
                     loop
                     muted
                     playsInline
+                    preload="none"
                     className="w-full h-full object-cover object-center"
                   />
                 </div>

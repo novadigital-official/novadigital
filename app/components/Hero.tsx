@@ -1,101 +1,95 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Clock, Smartphone, Star } from "lucide-react";
+import Link from "next/link";
+import Balancer from "react-wrap-balancer";
+import {
+  ArrowRight,
+  Eye,
+  CheckCircle2,
+  Zap,
+  ShieldCheck,
+  Award,
+} from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-16 md:pb-24 overflow-hidden bg-[#0a1628]">
-      {/* Subtle grid mesh & radial ambient glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right,rgba(56,189,248,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(56,189,248,0.04) 1px,transparent 1px)",
-          backgroundSize: "48px 48px",
-          maskImage:
-            "radial-gradient(ellipse 80% 60% at 50% 30%,#000 60%,transparent 100%)",
-        }}
-      />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+    <section className="relative pt-28 sm:pt-32 pb-12 overflow-hidden">
+      {/* Grid Alignment Mesh */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b10_1px,transparent_1px),linear-gradient(to_bottom,#1e293b10_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-
-          {/* ── LEFT COLUMN ── */}
-          <div className="lg:col-span-6 flex flex-col items-start">
-            
-            {/* Brand mono tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-cyan-400 text-xs font-mono font-bold tracking-wider uppercase mb-5">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              NOVA DIGITAL WEB AJANSI
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Direct-Response Benefit-Driven Copy */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            {/* Honest Delivery Speed Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-medium tracking-wide mb-5 backdrop-blur-md">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              <span>En Hızlı Pakette 48 Saatte Anahtar Teslim</span>
             </div>
 
-            {/* Clean Static Power Headline */}
-            <h1 className="text-[2.2rem] sm:text-5xl lg:text-[3.3rem] font-extrabold tracking-tight text-white leading-[1.12] mb-5">
-              İşletmenize{" "}
-              <span className="text-shimmer">müşteri getiren</span>{" "}
-              bir web sitesi hayal edin.
+            {/* Benefit Display Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.2rem] font-extrabold tracking-tight text-white leading-[1.14] mb-5">
+              <Balancer>
+                İşletmenizin Dijital Gücünü ve{" "}
+                <span className="text-shimmer">
+                  Müşteri Hacmini Büyütüyoruz.
+                </span>
+              </Balancer>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-7 max-w-lg">
-              Web sitenizi tasarlıyor, Google&apos;da üst sıralara taşıyor ve
-              reklam sisteminizi kuruyoruz. Türkiye genelindeki işletmeler için{" "}
-              <strong className="text-white font-semibold">
-                anahtar teslim dijital çözümler.
-              </strong>
+            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-xl mb-7">
+              <Balancer>
+                Google SEO uyumlu, mobil açılış hızı 0.4 saniye olan ve doğrudan telefonunuzu çaldıran modern web sistemleri tasarlıyoruz.
+              </Balancer>
             </p>
 
-            {/* Primary CTA Button */}
-            <a
-              href="https://wa.me/905070871789?text=Merhaba%2C%20%C3%BCcretsiz%20teklif%20almak%20istiyorum."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 shadow-lg shadow-blue-500/25 hover:shadow-cyan-500/35 active:scale-[0.96] transition-all mb-7"
-            >
-              <span>Ücretsiz Teklif Al</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
+            {/* Standardized Dual CTAs */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-8">
+              <Link
+                href="#iletisim"
+                className="btn-shimmer inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white shadow-xl transition-all"
+              >
+                <span>Ücretsiz Teklif Al</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="#portfoy"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
+              >
+                <Eye className="w-4 h-4 text-blue-400" />
+                <span>Canlı Demoları İncele</span>
+              </Link>
+            </div>
 
-            {/* Canlı Sayaç / Güven Bandı (Social Proof Grid) */}
-            <div className="w-full bg-slate-900/60 border border-slate-800/80 rounded-2xl p-3.5 sm:p-4 backdrop-blur-md">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center sm:text-left">
-                <div className="flex flex-col sm:border-r border-slate-800/60 sm:pr-3">
-                  <span className="text-base sm:text-lg font-extrabold font-mono text-white flex items-center justify-center sm:justify-start gap-1">
-                    <CheckCircle2 className="w-4 h-4 text-cyan-400" />
-                    10+
-                  </span>
-                  <span className="text-[11px] text-slate-400 font-medium">Canlı Demo</span>
-                </div>
-                <div className="flex flex-col sm:border-r border-slate-800/60 sm:pr-3">
-                  <span className="text-base sm:text-lg font-extrabold font-mono text-white flex items-center justify-center sm:justify-start gap-1">
-                    <Clock className="w-4 h-4 text-cyan-400" />
-                    48 Saat
-                  </span>
-                  <span className="text-[11px] text-slate-400 font-medium">Hızlı Teslim</span>
-                </div>
-                <div className="flex flex-col sm:border-r border-slate-800/60 sm:pr-3">
-                  <span className="text-base sm:text-lg font-extrabold font-mono text-white flex items-center justify-center sm:justify-start gap-1">
-                    <Smartphone className="w-4 h-4 text-cyan-400" />
-                    %100
-                  </span>
-                  <span className="text-[11px] text-slate-400 font-medium">Mobil & SEO</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-base sm:text-lg font-extrabold font-mono text-white flex items-center justify-center sm:justify-start gap-1">
-                    <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                    4.9 ★
-                  </span>
-                  <span className="text-[11px] text-slate-400 font-medium">Müşteri Skoru</span>
-                </div>
+            {/* 4 Trust Metrics */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 border-t border-white/10 w-full text-xs text-slate-400 font-medium">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <span>10+ Canlı Proje</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Zap className="w-4 h-4 text-blue-400 shrink-0" />
+                <span>48s Hızlı Teslim</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-4 h-4 text-blue-400 shrink-0" />
+                <span>PageSpeed 98+</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
+                <span>Onay Garantili</span>
               </div>
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN — Clean Original Video Mockup Frame ── */}
-          <div className="lg:col-span-6 flex justify-center w-full">
-            <div className="w-full max-w-md lg:max-w-none">
-              <div className="relative rounded-2xl overflow-hidden p-1.5 bg-gradient-to-b from-cyan-500/20 via-blue-500/10 to-transparent border border-slate-700/60 shadow-2xl shadow-black/80">
+          {/* Right Column: Symmetrical Video Frame */}
+          <div className="lg:col-span-5 flex justify-center w-full">
+            <div className="w-full max-w-sm sm:max-w-md lg:max-w-none relative">
+              <div className="relative rounded-2xl overflow-hidden p-1.5 bg-gradient-to-b from-blue-500/20 via-white/5 to-transparent border border-white/15 shadow-2xl shadow-black/80">
                 <div className="relative aspect-[16/10] bg-slate-950 rounded-xl overflow-hidden">
                   <video
                     src="/images/8937986-hd_1080_1920_30fps.mp4"
@@ -103,14 +97,14 @@ export default function Hero() {
                     loop
                     muted
                     playsInline
+                    preload="none"
                     className="w-full h-full object-cover object-center"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

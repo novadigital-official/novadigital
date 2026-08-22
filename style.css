@@ -1,0 +1,5775 @@
+/* ???????????????????????????????????????????????????????????????
+   NOVA DIGITAL ? A?IK TEMA (style.css)
+   ???????????????????????????????????????????????????????????????
+   Light theme. Mobile-first. Ultra responsive.
+   ??????????????????????????????????????????????????????????????? */
+
+@import url('./_design-system/tokens.css');
+@import url('./_design-system/base.css');
+@import url('./_design-system/components.css');
+@import url('./_design-system/animations.css');
+
+/* ??? A?IK TEMA OVERRIDE ??? */
+:root {
+    --color-primary: #2563EB;
+    --color-primary-light: #3B82F6;
+    --color-primary-dark: #1D4ED8;
+    --color-primary-glow: rgba(37, 99, 235, 0.12);
+
+    --color-accent: #0891B2;
+    --color-accent-light: #06B6D4;
+
+    --color-success: #059669;
+    --color-warning: #D97706;
+    --color-error: #DC2626;
+
+    /* ??? A?IK Arka Planlar ??? */
+    --bg-body: #FFFFFF;
+    --bg-surface: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #FFFFFF;
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --bg-input: #F1F5F9;
+
+    /* ??? Koyu Metin ??? */
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+
+    /* ??? Kenarl?k ??? */
+    --border-default: #E2E8F0;
+    --border-hover: rgba(37, 99, 235, 0.5);
+    --border-glass: #E2E8F0;
+
+    /* ??? G?lgeler (A??k tema) ??? */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 4px 20px rgba(37, 99, 235, 0.12);
+}
+
+/* Body açık tema */
+body {
+    background: var(--bg-body);
+    color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TÜM BÖLÜM ARKA PLAN VEKTÖRLERİ TAMAMEN KALDIRILDI
+   ═══════════════════════════════════════════════════════════ */
+.section-bg-vector {
+    display: none !important;
+}
+
+/* ??? UYUMU ?L?EKLEND?RME: T?M B?L?M BA?LIKLARI H?ZALAMASI ??? */
+.section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--space-12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-header .badge {
+    margin-bottom: var(--space-3) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.section-header h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-3);
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.section-header p {
+    font-size: clamp(0.95rem, 2vw, 1.125rem);
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: var(--leading-relaxed);
+}
+
+/* Card override ? a??k temada g?lge ile ayr?m */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: none;
+}
+.card:hover {
+    background: var(--bg-card);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    transform: translateY(-4px);
+}
+
+/* Btn override ? a??k tema */
+.btn-outline {
+    color: var(--text-primary);
+    border-color: var(--border-default);
+}
+.btn-outline:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: rgba(37, 99, 235, 0.05);
+}
+.btn-ghost:hover {
+    background: var(--bg-surface);
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   NAV
+   ??????????????????????????????????????????????????????????????? */
+
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-sticky);
+    padding: var(--space-3) 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-default);
+    transition: all var(--speed-normal) var(--ease-default);
+}
+.site-nav.scrolled {
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ??? LOGO (B?y?k & Okunabilir) ??? */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+}
+.nav-logo img {
+    height: 44px;
+    width: auto;
+    border-radius: var(--radius-sm);
+}
+.nav-logo-text {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-extrabold);
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+.nav-logo-text span {
+    color: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+    .nav-logo img {
+        height: 48px;
+    }
+    .nav-logo-text {
+        font-size: var(--text-2xl);
+    }
+}
+
+.nav-menu {
+    display: none;
+    align-items: center;
+    gap: var(--space-6);
+}
+.nav-menu a {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--text-secondary);
+    transition: color var(--speed-fast) var(--ease-default);
+    position: relative;
+    padding: var(--space-2) 0;
+}
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 1px;
+    transition: width var(--speed-normal) var(--ease-default);
+}
+.nav-menu a:hover { color: var(--text-primary); }
+.nav-menu a:hover::after { width: 100%; }
+
+.nav-cta { display: none; }
+
+@media (min-width: 768px) {
+    .nav-menu { display: flex; }
+}
+@media (min-width: 1024px) {
+    .nav-cta { display: inline-flex; }
+}
+
+/* ??? Hamburger ??? */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: var(--space-3);
+    cursor: pointer;
+    min-height: 48px;
+    min-width: 48px;
+    align-items: center;
+    justify-content: center;
+    z-index: calc(var(--z-modal) + 1);
+    border-radius: var(--radius-md);
+    transition: background var(--speed-fast) var(--ease-default);
+}
+.hamburger:hover {
+    background: var(--bg-surface);
+}
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all var(--speed-normal) var(--ease-default);
+    transform-origin: center;
+}
+.hamburger.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+@media (min-width: 768px) {
+    .hamburger { display: none; }
+}
+
+/* ??? Mobile Menu Drawer (Apple/Stripe Seviyesi Modern Tasar?m) ??? */
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: #FFFFFF;
+    z-index: var(--z-modal);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity var(--speed-normal) var(--ease-default),
+                transform var(--speed-normal) var(--ease-default);
+    overflow-y: auto;
+}
+.mobile-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 1px solid var(--border-default);
+    background: #FFFFFF;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.mobile-menu-close {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-default);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    font-size: var(--text-lg);
+    cursor: pointer;
+    transition: all var(--speed-fast) var(--ease-default);
+}
+.mobile-menu-close:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.mobile-menu-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--space-6);
+    gap: var(--space-6);
+}
+
+.mobile-menu-links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: var(--space-3);
+}
+
+.mobile-menu-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    text-decoration: none;
+    transition: all var(--speed-fast) var(--ease-default);
+    min-height: 56px;
+    box-shadow: var(--shadow-sm);
+}
+
+.menu-link-text {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+.menu-link-text i {
+    color: var(--color-primary);
+    font-size: var(--text-base);
+    width: 24px;
+    text-align: center;
+}
+
+.mobile-menu-links a i {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    transition: transform var(--speed-fast) var(--ease-default);
+}
+
+.mobile-menu-links a:hover,
+.mobile-menu-links a:active {
+    background: #EFF6FF;
+    border-color: #BFDBFE;
+    color: var(--color-primary-dark);
+}
+.mobile-menu-links a:hover i {
+    transform: translateX(4px);
+    color: var(--color-primary);
+}
+
+.mobile-menu-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--border-default);
+}
+
+.mobile-menu-cta {
+    width: 100%;
+    justify-content: center;
+    min-height: 52px;
+    font-size: var(--text-base);
+}
+
+.mobile-menu-quick-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+.mobile-menu-quick-info a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: var(--space-2) 0;
+}
+.mobile-menu-quick-info a i {
+    color: var(--color-primary);
+    width: 20px;
+    text-align: center;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   1. ARCHITECTURAL DOT MATRIX GRID (Linear/Vercel Style)
+   ═══════════════════════════════════════════════════════════ */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(37, 99, 235, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.85;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO — Açık, Ferah, İşlevsel
+   ═══════════════════════════════════════════════════════════ */
+
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 100px 0 var(--space-10);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 60%);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   2. AURORA MESH GLOW (Apple/Stripe Style Soft Ambient Glow)
+   ═══════════════════════════════════════════════════════════ */
+.aurora-mesh-glow {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 1200px;
+    height: 480px;
+    background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.12) 0%, rgba(6, 182, 212, 0.06) 45%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 50%;
+    will-change: transform;
+}
+
+/* Desktop-only subtle cursor aura */
+@media (min-width: 993px) {
+    .hero-mouse-spotlight {
+        position: absolute;
+        width: 380px;
+        height: 380px;
+        background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero {
+        min-height: 100dvh;
+        padding: 120px 0 var(--space-16);
+    }
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: var(--space-10);
+    }
+}
+
+.hero-content {
+    max-width: 100%;
+}
+
+.hero-trust-bar {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 12px 18px;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-default);
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .hero-trust-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-trust-bar {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hero-trust-bar span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-visual-card {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(37, 99, 235, 0.18), 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-default);
+    background: #FFFFFF;
+    transition: transform var(--speed-normal) var(--ease-default);
+}
+
+.hero-visual-card:hover {
+    transform: translateY(-6px);
+}
+
+.hero-visual-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 16 / 10;
+}
+
+.hero-floating-badge {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    z-index: 2;
+}
+
+.hero-floating-badge i {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.hero-floating-title {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    display: block;
+}
+
+.hero-floating-sub {
+    font-size: 11px;
+    color: var(--text-secondary);
+    display: block;
+}
+
+.hero-badge {
+    margin-bottom: var(--space-5);
+}
+
+.hero h1 {
+    font-size: clamp(1.75rem, 6vw, 3.75rem);
+    font-weight: var(--weight-extrabold);
+    line-height: 1.2;
+    margin-bottom: var(--space-5);
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-6);
+    max-width: 540px;
+    word-break: break-word;
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+}
+
+/* ??? H?zl? Eri?im Bar? (Quick Price Jump) ??? */
+.hero-quick-jump {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+.quick-jump-label {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: 100%;
+}
+@media (min-width: 480px) {
+    .quick-jump-label { width: auto; }
+}
+
+.quick-jump-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: var(--color-primary-dark);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all var(--speed-fast) var(--ease-default);
+}
+.quick-jump-chip:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    transform: translateY(-1px);
+}
+
+@media (min-width: 480px) {
+    .hero-cta-group {
+        flex-direction: row;
+        gap: var(--space-4);
+    }
+}
+
+/* Hero background glow ? a??k tema */
+.hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: -1;
+}
+.hero-glow-1 {
+    background: #BFDBFE;
+    top: -15%;
+    right: -10%;
+}
+.hero-glow-2 {
+    background: #A5F3FC;
+    bottom: -25%;
+    left: -15%;
+    opacity: 0.15;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   G?VEN ?ER?D?
+   ??????????????????????????????????????????????????????????????? */
+
+.trust-strip {
+    padding: var(--space-8) 0;
+    border-top: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+    background: var(--bg-surface);
+}
+
+.trust-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    text-align: center;
+}
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+}
+.trust-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    background: #EFF6FF;
+    color: var(--color-primary);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+}
+.trust-label {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+}
+.trust-sub {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+    .trust-items { grid-template-columns: repeat(4, 1fr); }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   H?ZMETLER (?r?nle?mi? Modern Tasar?m)
+   ??????????????????????????????????????????????????????????????? */
+
+.service-card {
+    padding: var(--space-7);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+@media (min-width: 768px) {
+    .service-card { padding: var(--space-8); }
+}
+
+.service-num {
+    position: absolute;
+    top: var(--space-5);
+    right: var(--space-6);
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-extrabold);
+    color: #E2E8F0;
+    line-height: 1;
+    transition: color var(--speed-normal) var(--ease-default);
+}
+
+.service-card:hover .service-num {
+    color: var(--color-primary-light);
+}
+
+.service-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    background: #EFF6FF;
+    color: var(--color-primary);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-4);
+    transition: all var(--speed-normal) var(--ease-default);
+}
+.service-card:hover .service-icon {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.05);
+}
+.service-card h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
+}
+.service-card p {
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   F?YATLANDIRMA ? 2026 AWARD-WINNING COMPACT MINIMALIST DESIGN
+   ??????????????????????????????????????????????????????????????? */
+
+/* ???????????????????????????????????????????????????????????????
+   F?YATLANDIRMA ? GEN??, FERAH & PREST?JL? PAKET KARTLARI
+   ??????????????????????????????????????????????????????????????? */
+
+.pricing-card {
+    padding: 1rem 1.15rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: visible;
+    background: #FFFFFF;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--speed-normal) var(--ease-default),
+                box-shadow var(--speed-normal) var(--ease-default),
+                transform var(--speed-normal) var(--ease-default);
+}
+
+.pricing-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    transform: translateY(-3px);
+}
+
+.pricing-card.featured {
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-sm);
+}
+
+.pricing-card.featured::before {
+    content: none;
+    display: none;
+}
+
+.pricing-name {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: var(--weight-extrabold);
+    color: var(--text-primary);
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.pricing-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    line-height: 1.35;
+    min-height: 0;
+}
+
+.pricing-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin: 4px 0 6px;
+}
+
+.pricing-amount strong {
+    font-family: var(--font-heading);
+    font-size: clamp(1.65rem, 2.6vw, 1.9rem);
+    font-weight: var(--weight-extrabold);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.pricing-amount span {
+    font-size: 0.85rem;
+    font-weight: var(--weight-bold);
+    color: #0F172A !important;
+}
+
+.pricing-teslim {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.68rem;
+    color: var(--color-primary-dark);
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    font-weight: var(--weight-semibold);
+    margin-bottom: 8px;
+    width: fit-content;
+}
+
+.pricing-features {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-default);
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: var(--weight-medium);
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.pricing-features li i {
+    color: var(--color-success);
+    margin-top: 2px;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+.pricing-card .btn {
+    width: 100%;
+    min-height: 42px;
+    font-size: 0.88rem;
+    font-weight: var(--weight-bold);
+    border-radius: var(--radius-lg);
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   NEDEN NOVA DIGITAL
+   ??????????????????????????????????????????????????????????????? */
+
+.reason-card {
+    padding: var(--space-6);
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-sm);
+}
+.reason-card:hover {
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+.reason-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: #EFF6FF;
+    color: var(--color-primary);
+    font-size: var(--text-lg);
+    margin: 0 auto var(--space-4);
+}
+.reason-card h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-2);
+}
+.reason-card p { font-size: var(--text-sm); }
+
+
+/* ???????????????????????????????????????????????????????????????
+   NASIL ?ALI?IYORUZ
+   ??????????????????????????????????????????????????????????????? */
+
+.process-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    counter-reset: step;
+}
+.process-step {
+    counter-increment: step;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--speed-normal) var(--ease-default);
+}
+.process-step:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); }
+
+.process-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: var(--weight-extrabold);
+    font-size: var(--text-sm);
+}
+.process-step h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-1);
+}
+.process-step p { font-size: var(--text-sm); }
+
+@media (min-width: 768px) {
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+    .process-steps { grid-template-columns: repeat(4, 1fr); }
+    .process-step {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   PORTF?Y
+   ??????????????????????????????????????????????????????????????? */
+
+.portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+    margin-bottom: var(--space-8);
+}
+.filter-btn {
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--speed-fast) var(--ease-default);
+    min-height: 40px;
+}
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.portfolio-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-default);
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* ??? Browser Window UI Mockup Header (macOS/Chrome Style) ??? */
+.browser-window-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2.5) var(--space-4);
+    background: #F1F5F9;
+    border-bottom: 1px solid #E2E8F0;
+    font-size: var(--text-xs);
+}
+
+.browser-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.dot-red { background: #FF5F56; }
+.dot-yellow { background: #FFBD2E; }
+.dot-green { background: #27C93F; }
+
+.browser-url {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    background: #FFFFFF;
+    padding: 2px 12px;
+    border-radius: var(--radius-full);
+    border: 1px solid #E2E8F0;
+    font-weight: var(--weight-medium);
+}
+
+.browser-ext-icon {
+    color: var(--color-primary);
+    font-size: 0.75rem;
+}
+
+.portfolio-type-tag {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--text-muted);
+}
+
+.portfolio-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--bg-surface);
+}
+
+.portfolio-thumb-wrap .portfolio-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--speed-slow) var(--ease-default);
+}
+
+.portfolio-card:hover .portfolio-thumb {
+    transform: scale(1.06);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(37, 99, 235, 0.85);
+    color: white;
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    opacity: 0;
+    transition: opacity var(--speed-normal) var(--ease-default);
+    backdrop-filter: blur(4px);
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay-soon {
+    background: rgba(15, 23, 42, 0.75);
+}
+
+.portfolio-info {
+    padding: var(--space-5);
+    background: var(--bg-card);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.portfolio-info h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-1);
+    color: var(--text-primary);
+}
+
+.portfolio-info p {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   REKLAM Y?NET?M?
+   ??????????????????????????????????????????????????????????????? */
+
+.ads-section {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+}
+
+.ads-flow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-10);
+}
+.ads-flow-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--text-secondary);
+    padding: var(--space-2) var(--space-4);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+}
+.ads-flow-item i { color: var(--color-primary); }
+.ads-flow-arrow {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    display: none;
+}
+@media (min-width: 640px) {
+    .ads-flow-arrow { display: inline; }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   MOB?L & ?ZEL YAZILIM
+   ??????????????????????????????????????????????????????????????? */
+
+.premium-section { text-align: center; }
+
+.premium-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    max-width: 700px;
+    margin: 0 auto var(--space-8);
+}
+.premium-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    text-align: left;
+    box-shadow: var(--shadow-sm);
+    min-height: 52px;
+}
+.premium-feature i {
+    color: var(--color-primary);
+    font-size: var(--text-base);
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .premium-features { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   SSS (FAQ)
+   ??????????????????????????????????????????????????????????????? */
+
+/* ???????????????????????????????????????????????????????????????
+   SSS (FAQ)
+   ??????????????????????????????????????????????????????????????? */
+
+.faq-list {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.faq-item {
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all var(--speed-fast) var(--ease-default);
+}
+.faq-item[open] {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5) var(--space-6);
+    font-family: var(--font-heading);
+    font-weight: var(--weight-bold);
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    cursor: pointer;
+    list-style: none;
+    min-height: 56px;
+    gap: var(--space-4);
+    transition: color var(--speed-fast) var(--ease-default);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+    content: '\002B';
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+    font-weight: bold;
+    transition: transform var(--speed-normal) var(--ease-default);
+    flex-shrink: 0;
+}
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+    color: var(--color-primary-dark);
+}
+
+.faq-answer {
+    padding: 0 var(--space-6) var(--space-6);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    border-top: 1px dashed var(--border-default);
+    margin-top: var(--space-2);
+    padding-top: var(--space-4);
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   ?LET???M ? Y?KSEK KONTRASTLI MODERN D?ZEN
+   ??????????????????????????????????????????????????????????????? */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: flex-start;
+}
+
+@media (min-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1.3fr;
+        gap: var(--space-10);
+    }
+}
+
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    transition: all var(--speed-fast) var(--ease-default);
+}
+
+.contact-info-item:hover {
+    border-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+}
+
+.contact-info-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: #EFF6FF;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.contact-info-text h4 {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+}
+
+.contact-info-text p,
+.contact-info-text a {
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.contact-info-text a:hover {
+    color: var(--color-primary);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-8);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+    .form-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+.form-label {
+    display: block;
+    color: var(--text-primary);
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    color: #0F172A;
+    min-height: 50px;
+    font-size: 16px;
+    border-radius: var(--radius-md);
+    transition: all var(--speed-fast) var(--ease-default);
+}
+
+.form-input:focus {
+    background: #FFFFFF;
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-input.invalid {
+    border-color: #EF4444 !important;
+    background: #FEF2F2 !important;
+    animation: shake-form 0.3s ease-in-out;
+}
+
+@keyframes shake-form {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+.form-input::placeholder {
+    color: #94A3B8;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   CTA BANNER
+   ??????????????????????????????????????????????????????????????? */
+
+.cta-banner {
+    text-align: center;
+    padding: var(--space-16) 0;
+    background: linear-gradient(135deg, #EFF6FF 0%, #F0FDFA 100%);
+    border-top: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+}
+.cta-banner h2 { margin-bottom: var(--space-4); }
+.cta-banner p {
+    margin-bottom: var(--space-8);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-banner .hero-cta-group {
+    justify-content: center;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   FOOTER
+   ??????????????????????????????????????????????????????????????? */
+
+.site-footer {
+    border-top: 1px solid var(--border-default);
+    padding: var(--space-12) 0 var(--space-8);
+    background: #F8FAFC;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-10);
+}
+
+.footer-brand .nav-logo-text {
+    font-size: var(--text-xl);
+}
+.footer-brand p {
+    font-size: var(--text-sm);
+    margin-top: var(--space-3);
+    max-width: 300px;
+    color: var(--text-secondary);
+}
+
+.footer-socials {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+.footer-socials a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-default);
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    transition: all var(--speed-fast) var(--ease-default);
+}
+.footer-socials a:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.footer-col h4 {
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: var(--text-xs);
+}
+.footer-col a {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    padding: var(--space-1) 0;
+    transition: color var(--speed-fast) var(--ease-default);
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+}
+.footer-col a:hover { color: var(--color-primary); }
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--border-default);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+    .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   WHATSAPP FAB ? Daha b?y?k mobilde
+   ??????????????????????????????????????????????????????????????? */
+
+.whatsapp-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: #25D366;
+    color: white;
+    font-size: 26px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    z-index: var(--z-sticky);
+    transition: all var(--speed-normal) var(--ease-default);
+    text-decoration: none;
+}
+.whatsapp-fab:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   ULTRA MOB?L OPT?M?ZASYON ? K???k ekranlar
+   ??????????????????????????????????????????????????????????????? */
+
+/* 320px ? En k???k cihaz */
+@media (max-width: 359px) {
+    :root {
+        --container-padding: var(--space-4);
+    }
+    .hero h1 { font-size: 1.6rem; }
+    .hero-subtitle { font-size: 0.9rem; }
+    .pricing-amount strong { font-size: 1.5rem; }
+    .pricing-card { padding: var(--space-5); }
+    .section-header h2 { font-size: 1.35rem; }
+    .btn-lg {
+        padding: var(--space-3) var(--space-6);
+        font-size: var(--text-sm);
+        min-height: 48px;
+    }
+}
+
+/* 360-414px ? Orta mobil */
+@media (min-width: 360px) and (max-width: 479px) {
+    .hero h1 { font-size: 1.85rem; }
+    .section-header h2 { font-size: 1.5rem; }
+}
+
+/* T?m mobil ? Dokunma hedefleri */
+@media (max-width: 767px) {
+    .section {
+        padding: var(--space-12) 0;
+    }
+    .section-header {
+        margin-bottom: var(--space-8);
+    }
+    .hero-cta-group .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 52px;
+        font-size: var(--text-base);
+    }
+    .grid-3 {
+        gap: var(--space-4);
+    }
+    .trust-items {
+        gap: var(--space-3);
+    }
+    .filter-btn {
+        min-height: 44px;
+        padding: var(--space-2) var(--space-4);
+    }
+    .cta-banner {
+        padding: var(--space-12) 0;
+    }
+    .cta-banner .hero-cta-group {
+        flex-direction: column;
+    }
+    .cta-banner .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero { min-height: auto; padding-top: 140px; padding-bottom: var(--space-16); }
+}
+
+/* ??? Badge a??k tema ??? */
+.badge-primary {
+    background: #EFF6FF;
+    color: var(--color-primary);
+    border: 1px solid #BFDBFE;
+}
+.badge-success {
+    background: #ECFDF5;
+    color: var(--color-success);
+    border: 1px solid #A7F3D0;
+}
+
+/* ??? Text Gradient a??k tema ??? */
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ??? Section header a??k tema ??? */
+.section-header h2 {
+    color: var(--text-primary);
+}
+.section-header p {
+    color: var(--text-secondary);
+}
+
+/* ???????????????????????????????????????????????????????????????
+   PRELOADER (Modern Bekleme Ekran?)
+   ??????????????????????????????????????????????????????????????? */
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-toast);
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: center;
+}
+.preloader-logo {
+    animation: pulse-subtle 2s infinite;
+}
+.preloader-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-extrabold);
+    color: var(--text-primary);
+}
+.preloader-title span { color: var(--color-primary); }
+
+.preloader-bar {
+    width: 140px;
+    height: 3px;
+    background: #E2E8F0;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: var(--space-2);
+}
+.preloader-progress {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    animation: preloader-slide 1.2s ease-in-out infinite;
+    transform-origin: left;
+}
+
+@keyframes preloader-slide {
+    0% { transform: scaleX(0); }
+    50% { transform: scaleX(0.7); }
+    100% { transform: scaleX(1); }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   REV?ZYON: KOMPAKT PORTF?Y KARTLARI VE SIKI?MAYAN TEKL?F FORMU
+   ??????????????????????????????????????????????????????????????? */
+
+/* 1. PORTF?Y KARTLARI ? KOMPAKT WIDESCREEN RASYOSU & BROWSER MOCKUP */
+.portfolio-card {
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden !important;
+    border: 1px solid var(--border-default) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s ease !important;
+}
+
+.portfolio-card:hover {
+    border-color: #93C5FD !important;
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.08) !important;
+    transform: translateY(-3px) !important;
+}
+
+.browser-window-bar {
+    padding: 6px 12px !important;
+    background: #F1F5F9 !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+}
+
+.browser-dots .dot {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+.browser-url {
+    font-size: 0.7rem !important;
+    padding: 1px 10px !important;
+}
+
+.portfolio-thumb-wrap {
+    aspect-ratio: 16 / 9 !important;
+}
+
+.portfolio-info {
+    padding: 14px 18px !important;
+    background: #FFFFFF !important;
+}
+
+.portfolio-info h3 {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 2px !important;
+}
+
+.portfolio-info p {
+    font-size: 0.82rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.4 !important;
+}
+
+/* 2. TEKL?F AL / ?LET???M FORMU ? KOMPAKT, SIKI?MAYAN M?N?MAL D?ZEN */
+.contact-form {
+    padding: 26px 30px !important;
+    gap: 16px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+@media (max-width: 640px) {
+    .contact-form {
+        padding: 18px 20px !important;
+    }
+}
+
+.form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 0 !important;
+}
+
+.form-label {
+    font-size: 0.84rem !important;
+    font-weight: 700 !important;
+    color: #1E293B !important;
+    margin-bottom: 5px !important;
+    line-height: 1.2 !important;
+}
+
+.form-input {
+    min-height: 46px !important;
+    padding: 10px 14px !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    border: 1px solid #CBD5E1 !important;
+    background: #F8FAFC !important;
+    border-radius: var(--radius-md) !important;
+}
+
+textarea.form-input {
+    min-height: 96px !important;
+    resize: vertical !important;
+}
+
+.form-input:focus {
+    background: #FFFFFF !important;
+    border-color: #2563EB !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+}
+
+.contact-info-list {
+    gap: 12px !important;
+}
+
+.contact-info-item {
+    padding: 12px 16px !important;
+    gap: 14px !important;
+    border-radius: var(--radius-md) !important;
+}
+
+.contact-info-icon {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.1rem !important;
+}
+
+.contact-info-text h4 {
+    font-size: 0.72rem !important;
+    margin-bottom: 1px !important;
+}
+
+.contact-info-text p,
+.contact-info-text a {
+    font-size: 0.95rem !important;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   HORIZONAL PORTFOLIO CAROUSEL & SEKT?REL B?Y?ME KATMANI
+   ??????????????????????????????????????????????????????????????? */
+
+/* 1. HORIZONTAL CAROUSEL HEADER & NAVIGATION BUTTONS */
+.portfolio-header-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+    .portfolio-header-wrap {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
+.carousel-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.carousel-nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all var(--speed-fast) var(--ease-default);
+}
+
+.carousel-nav-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+}
+
+/* 2. HORIZONTAL SCROLL SNAP TRACK */
+.portfolio-carousel-viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.portfolio-carousel-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 4px 20px;
+    scrollbar-width: none; /* Firefox */
+}
+
+.portfolio-carousel-track::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.portfolio-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+    .portfolio-slide {
+        flex: 0 0 calc(50% - 12px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .portfolio-slide {
+        flex: 0 0 calc(45% - 12px);
+    }
+}
+
+.portfolio-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-2);
+}
+
+.carousel-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: var(--space-6);
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #CBD5E1;
+    cursor: pointer;
+    transition: all var(--speed-fast) var(--ease-default);
+}
+
+.carousel-dot.active {
+    width: 24px;
+    border-radius: 12px;
+    background: var(--color-primary);
+}
+
+/* 3. SEKT?REL ??Z?MLER (LANDING CARDS) */
+.sectoral-section {
+    background: #F8FAFC;
+    border-top: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+}
+
+.sector-card {
+    padding: var(--space-6);
+    background: #FFFFFF;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--speed-normal) var(--ease-default);
+}
+
+.sector-card:hover {
+    border-color: var(--color-primary-light);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.08);
+}
+
+.sector-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: #EFF6FF;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: var(--space-4);
+}
+
+.sector-card h3 {
+    font-size: var(--text-base);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+}
+
+.sector-card p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-5);
+    flex: 1;
+    line-height: 1.45;
+}
+
+.sector-link {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 4. BLOG & SEO KATMANI */
+.blog-card {
+    padding: var(--space-6);
+    background: #FFFFFF;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-date {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+}
+
+.blog-card h3 {
+    font-size: var(--text-base);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+}
+
+.blog-card p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-5);
+    line-height: 1.45;
+    flex: 1;
+}
+
+.blog-link {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    color: var(--color-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   REV?ZYON: FARE ?LE S?R?KLEME & MASA?ST?NDE YAN YANA PAKET KARTLARI
+   ??????????????????????????????????????????????????????????????? */
+
+/* 1. FARE ?LE S?R?KLEME (MOUSE DRAG CURSOR) */
+.portfolio-carousel-track {
+    cursor: grab !important;
+    user-select: none !important;
+}
+
+.portfolio-carousel-track.dragging {
+    cursor: grabbing !important;
+    scroll-snap-type: none !important; /* Drag an?nda snap yumu?at?l?r */
+}
+
+/* 2. MASA?ST?NDE YAN YANA M?N?MAL PAKET KARTLARI (DESKTOP SIDE-BY-SIDE) */
+@media (min-width: 992px) {
+    #paketler .grid-3 {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 18px !important;
+        align-items: stretch !important;
+    }
+
+    #paketler .pricing-card {
+        padding: 1rem 1.1rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+    }
+
+    #paketler .pricing-amount strong {
+        font-size: 1.85rem !important;
+    }
+
+    #paketler .pricing-features {
+        margin-bottom: 10px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    #paketler .grid-3 {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   ACCESSIBILITY & TACTILE FEEDBACK (WCAG 2.1 AA COMPLIANCE)
+   ??????????????????????????????????????????????????????????????? */
+
+/* Focus-Visible Outline for Keyboard Navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-primary) !important;
+    outline-offset: 3px !important;
+}
+
+/* Tactile Active Tap/Click Feedback */
+.btn:active,
+.carousel-nav-btn:active,
+.filter-btn:active,
+.card:active {
+    transform: scale(0.98) !important;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   REV?ZYON: PORTF?Y KART SALLANMA / OYNAMA D?ZELTMES? (ZERO JITTER)
+   ??????????????????????????????????????????????????????????????? */
+
+/* Track sabit kal?r, dokunmadan veya s?r?klemeden asla oynamaz */
+.portfolio-carousel-track {
+    display: flex !important;
+    gap: 24px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 12px 4px 20px !important;
+    scrollbar-width: none !important;
+    cursor: grab !important;
+    user-select: none !important;
+}
+
+.portfolio-carousel-track::-webkit-scrollbar {
+    display: none !important;
+}
+
+.portfolio-slide {
+    flex: 0 0 100% !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+}
+
+@media (min-width: 640px) {
+    .portfolio-slide {
+        flex: 0 0 calc(50% - 12px) !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .portfolio-slide {
+        flex: 0 0 calc(45% - 12px) !important;
+    }
+}
+
+/* S?r?kleme an?nda snap iptal edilerek ak?c?l?k sa?lan?r */
+.portfolio-carousel-track.dragging {
+    cursor: grabbing !important;
+    scroll-snap-type: none !important;
+    scroll-behavior: auto !important;
+}
+
+/* Kart hover esnas?nda transform kald?r?ld? -> Titreme ve kendi kendine oynama riski %100 engellendi */
+.portfolio-slide .portfolio-card {
+    transform: none !important;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+    border: 1px solid var(--border-default) !important;
+    background: #FFFFFF !important;
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.portfolio-slide .portfolio-card:hover {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    transform: none !important; /* Dikey kayma kald?r?ld?, layout titremesi ??z?ld? */
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   PREVENT BLUE SELECTION HIGHLIGHT & ZERO TEXT OVERFLOW
+   ??????????????????????????????????????????????????????????????? */
+
+/* Mavi Ekran Se?im Vurgusunu Engelle (Prevent Blue Highlight) */
+.portfolio-carousel-track,
+.portfolio-card,
+.portfolio-card *,
+.portfolio-thumb-wrap,
+.portfolio-thumb,
+.browser-window-bar {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+}
+
+/* S?f?r Ta?ma ve Kusursuz Tipografi G?venli?i (Zero Text Overflow) */
+h1, h2, h3, h4, h5, h6, p, span, a, label, button, .badge, .form-input {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    hyphens: manual !important;
+    max-width: 100% !important;
+}
+
+/* Yarat?c?l?k Harikas? Mikro ?nce Detaylar */
+.portfolio-card {
+    border: 1px solid #E2E8F0 !important;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%) !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04) !important;
+}
+
+.portfolio-thumb-wrap {
+    border-bottom: 1px solid #F1F5F9 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mavi parlamayan modern hafif border efekti */
+.portfolio-card:hover {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1) !important;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   REV?ZYON: MAV? KAPLAMA VE SAYFA A?A?I SI?RAMA TEM?ZL???
+   ??????????????????????????????????????????????????????????????? */
+
+/* Mavi kaplama katman?n? tamamen kald?r */
+.portfolio-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* G?rsel zemin temizli?i ve yumu?ak resim zoom efekti */
+.portfolio-thumb-wrap {
+    background: #F8FAFC !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.portfolio-card:hover .portfolio-thumb {
+    transform: scale(1.03) !important;
+}
+
+/* Kart hover durumunda sadece ?ok hafif border ve g?lge y?kselmesi (s?f?r mavi kaplama) */
+.portfolio-card {
+    border: 1px solid #E2E8F0 !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03) !important;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+    transform: none !important;
+}
+
+.portfolio-card:hover {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08) !important;
+    transform: none !important;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   2026 MOB?L UX & PERFORMANS REV?ZYONU (ULTRA FERAH & AKICI)
+   ??????????????????????????????????????????????????????????????? */
+
+/* 1. H?ZMETLER?M?Z MOB?L FERAH H?YERAR?? */
+@media (max-width: 767px) {
+    #hizmetler .grid-3 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+
+    .service-card {
+        padding: 24px 20px !important;
+        border-radius: 16px !important;
+        position: relative !important;
+        background: #FFFFFF !important;
+        border: 1px solid var(--border-default) !important;
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03) !important;
+    }
+
+    .service-num {
+        font-size: 1.1rem !important;
+        font-weight: 800 !important;
+        color: #94A3B8 !important;
+        top: 20px !important;
+        right: 20px !important;
+        position: absolute !important;
+    }
+
+    .service-icon {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1.2rem !important;
+        border-radius: 12px !important;
+        margin-bottom: 16px !important;
+        background: #EFF6FF !important;
+        color: #2563EB !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .service-card h3 {
+        font-size: 1.15rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 8px !important;
+        color: #0F172A !important;
+    }
+
+    .service-card p {
+        font-size: 0.9rem !important;
+        line-height: 1.55 !important;
+        color: #475569 !important;
+    }
+}
+
+/* 2. MOB?LDE YA? G?B? AKAN DOKUNMAT?K PORTF?Y SWIPE */
+@media (max-width: 767px) {
+    .portfolio-carousel-viewport {
+        overflow: visible !important;
+        margin: 0 -16px !important;
+        padding: 0 16px !important;
+    }
+
+    .portfolio-carousel-track {
+        display: flex !important;
+        gap: 16px !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-behavior: smooth !important;
+        padding: 8px 4px 20px !important;
+        touch-action: pan-x pan-y !important; /* Yatay swipe + dikey sayfa/demo scroll */
+    }
+
+    .portfolio-slide {
+        flex: 0 0 85vw !important;
+        max-width: 320px !important;
+        scroll-snap-align: center !important;
+    }
+
+    .portfolio-card {
+        border-radius: 16px !important;
+    }
+
+    .browser-window-bar {
+        padding: 10px 14px !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   CONVERSION PSYCHOLOGY LAYER & PROCESS STYLING
+   ??????????????????????????????????????????????????????????????? */
+
+/* Capacity Psychology Badge */
+.badge-capacity {
+    background: #FEF3C7 !important;
+    color: #92400E !important;
+    border: 1px solid #FDE68A !important;
+    font-weight: 700 !important;
+}
+
+/* 3-Step Process Section */
+.process-section {
+    background: #F8FAFC;
+    border-top: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+}
+
+.process-card {
+    padding: 32px 28px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.process-step-num {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #E2E8F0;
+    letter-spacing: -0.05em;
+}
+
+.process-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: #EFF6FF;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 20px;
+}
+
+.process-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.process-card p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.process-tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   BLOG MODAL OKUYUCU (INTERACTIVE ARTICLE READER) STYLES
+   ??????????????????????????????????????????????????????????????? */
+
+.open-blog-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.blog-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.blog-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.blog-modal-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 680px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 36px 32px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.blog-modal-backdrop.active .blog-modal-card {
+    transform: translateY(0);
+}
+
+.blog-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #F1F5F9;
+    border: none;
+    font-size: 1.5rem;
+    color: #64748B;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.blog-modal-close:hover {
+    background: #E2E8F0;
+    color: #0F172A;
+}
+
+.blog-article-content h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.blog-article-content .article-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #EFF6FF;
+    color: #2563EB;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.blog-article-content p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #475569;
+    margin-bottom: 16px;
+}
+
+.blog-article-content ul {
+    margin: 16px 0 24px 20px;
+}
+
+.blog-article-content li {
+    font-size: 0.92rem;
+    color: #334155;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.blog-article-cta {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   REV?ZYON: PORTF?Y KART MET?N ?ST ?STE B?NME & KOMPAKT YAZI D?ZELTMES?
+   ??????????????????????????????????????????????????????????????? */
+
+.portfolio-info {
+    padding: 18px 20px !important;
+}
+
+.portfolio-meta {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+    justify-content: flex-start !important;
+    margin-bottom: 10px !important;
+    width: 100% !important;
+}
+
+.portfolio-meta .badge {
+    margin: 0 !important;
+    font-size: 0.72rem !important;
+    padding: 3px 10px !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.portfolio-type-tag {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #64748B !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+}
+
+.portfolio-info h3 {
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 6px !important;
+    color: #0F172A !important;
+}
+
+.portfolio-info p {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    color: #475569 !important;
+}
+
+/* Section Header Kompakt Ba?l?k D?zeni */
+.section-header h2 {
+    font-size: clamp(1.4rem, 5vw, 2.25rem) !important;
+    line-height: 1.3 !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+@media (max-width: 640px) {
+    .portfolio-info {
+        padding: 14px 16px !important;
+    }
+    .portfolio-meta {
+        gap: 6px 10px !important;
+        margin-bottom: 8px !important;
+    }
+    .portfolio-type-tag {
+        font-size: 0.7rem !important;
+    }
+    .portfolio-info h3 {
+        font-size: 1.05rem !important;
+    }
+    .portfolio-info p {
+        font-size: 0.82rem !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   FINAL BUSINESS GROWTH & PRICING PSYCHOLOGY CSS
+   ??????????????????????????????????????????????????????????????? */
+
+/* Pricing Badge Popular & Sales Emphasis */
+.pricing-badge-popular {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 5px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    white-space: nowrap;
+}
+
+/* Solution-Framed Sector Cards */
+.sector-card h3 {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    color: #0F172A !important;
+    margin-bottom: 8px !important;
+    line-height: 1.35 !important;
+}
+
+.sector-card p {
+    font-size: 0.88rem !important;
+    color: #475569 !important;
+    line-height: 1.55 !important;
+    margin-bottom: 16px !important;
+}
+
+/* Fix Pricing Card Badge Overflow Alignment */
+.pricing-card.featured {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.pricing-badge-popular {
+    position: absolute !important;
+    top: -14px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 10 !important;
+    white-space: nowrap !important;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   HERO & HEADER OPTIMIZATION REVISION CSS
+   ??????????????????????????????????????????????????????????????? */
+
+.site-nav {
+    height: 76px !important;
+    backdrop-filter: blur(16px) !important;
+    background: rgba(5, 11, 20, 0.88) !important;
+}
+
+.hero {
+    min-height: calc(100vh - 76px) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 40px 0 !important;
+}
+
+.hero-grid {
+    display: grid !important;
+    grid-template-columns: 55% 45% !important;
+    align-items: center !important;
+    gap: 40px !important;
+    width: 100% !important;
+}
+
+.hero-visual {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.hero-visual-card {
+    max-width: 560px !important;
+    transform: none !important;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 991px) {
+    .hero-grid {
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+    }
+    .hero-content {
+        order: 1 !important;
+    }
+    .hero-visual {
+        order: 2 !important;
+        margin-top: 30px !important;
+    }
+    .hero-cta-group {
+        justify-content: center !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   NAVBAR COLOR & HERO TOP OVERLAP FIX
+   ??????????????????????????????????????????????????????????????? */
+
+.site-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 76px !important;
+    z-index: 1000 !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+}
+
+.nav-menu a {
+    color: #334155 !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+}
+
+.nav-menu a:hover {
+    color: #2563EB !important;
+}
+
+.nav-logo-text {
+    color: #0F172A !important;
+    font-weight: 800 !important;
+}
+
+.nav-logo-text span {
+    color: #2563EB !important;
+}
+
+.hero {
+    padding-top: 120px !important; /* Eliminates any text sticking under navbar */
+    min-height: calc(100vh - 76px) !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   STRIPE / VERCEL / APPLE 2026 PREMIUM DESIGN SYSTEM REFACTOR
+   ??????????????????????????????????????????????????????????????? */
+
+:root {
+    --space-section: 130px; /* Apple-level breathable section spacing */
+    --radius-premium: 24px;
+    --shadow-premium: 0 20px 60px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 30px 80px rgba(37, 99, 235, 0.12);
+    --color-accent: #2563EB;
+}
+
+/* SECTION SPACING & BREATHABILITY */
+.section {
+    padding: var(--space-section) 0 !important;
+}
+
+/* CARD PREMIUM ELEVATION */
+.card {
+    border-radius: var(--radius-premium) !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: var(--shadow-premium) !important;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: var(--shadow-hover) !important;
+    border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+/* GLASS NAVBAR */
+.site-nav {
+    height: 76px !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.7) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* PREMIUM BUTTON WITH ACCENT GLOW */
+.btn-primary {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
+    color: #FFFFFF !important;
+    border-radius: 14px !important;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.28) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 16px 40px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* HERO GRID 1fr 0.9fr ALIGNMENT */
+.hero {
+    min-height: calc(100vh - 76px) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+}
+
+.hero-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 0.9fr !important;
+    align-items: center !important;
+    gap: 48px !important;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.15 !important;
+}
+
+/* CAROUSEL CARDS 340px WIDTH */
+.portfolio-slide {
+    flex: 0 0 360px !important;
+    max-width: 360px !important;
+}
+
+/* MICRO INTERACTION ANIMATION */
+.reveal {
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   INTERACTIVE EXPERIENCE & SECTOR PILLS CSS
+   ??????????????????????????????????????????????????????????????? */
+
+.sector-pill {
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    color: #475569;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sector-pill.active, .sector-pill:hover {
+    background: #2563EB;
+    color: #FFFFFF;
+    border-color: #2563EB;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   NOVA DIGITAL ? APPLE & VERCEL PREMIUM DESIGN SYSTEM 2026
+   ??????????????????????????????????????????????????????????????? */
+
+:root {
+    --bg-main: #FFFFFF;
+    --bg-surface: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --color-primary: #2563EB;
+    --color-primary-dark: #1D4ED8;
+    --border-default: rgba(226, 232, 240, 0.8);
+    --border-hover: rgba(37, 99, 235, 0.35);
+    --radius-premium: 24px;
+    --shadow-subtle: 0 10px 40px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 24px 60px rgba(37, 99, 235, 0.12);
+}
+
+body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* APPLE-STYLE CLEAN BREATHABLE SECTION PADDING */
+.section {
+    padding: 130px 0 !important;
+    background: #FFFFFF !important;
+}
+
+/* MODERN CARD MICRO-INTERACTION (NO CHEAP Y-TRANSLATION) */
+.card {
+    border-radius: var(--radius-premium) !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border-default) !important;
+    box-shadow: var(--shadow-subtle) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+.card:hover {
+    border-color: var(--border-hover) !important;
+    box-shadow: var(--shadow-hover) !important;
+    transform: scale(1.01) !important;
+}
+
+/* HERO PRODUCT MOCKUP CONTAINER */
+.hero-visual-card {
+    position: relative !important;
+    border-radius: 24px !important;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%) !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
+    box-shadow: 0 30px 90px rgba(15, 23, 42, 0.12), 0 10px 30px rgba(37, 99, 235, 0.08) !important;
+    overflow: hidden !important;
+}
+
+/* HIGH-CONVERSION CTA BUTTONS */
+.btn-primary {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
+    color: #FFFFFF !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.3) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 18px 48px rgba(37, 99, 235, 0.45) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* PORTFOLIO SHOWCASE AS INTERACTIVE PRODUCT DEMO CARDS */
+.portfolio-card {
+    background: #FFFFFF !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
+    overflow: hidden !important;
+}
+
+.browser-window-bar {
+    background: #F8FAFC !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    padding: 10px 16px !important;
+}
+
+
+/* ???????????????????????????????????????????????????????????????
+   NOVA DIGITAL ? 100% PERFECT MOBILE HERO RESPONSIVE FIX
+   ??????????????????????????????????????????????????????????????? */
+
+/* DESKTOP LAYOUT (992px AND UP) */
+@media (min-width: 992px) {
+    .hero {
+        min-height: calc(100vh - 76px) !important;
+        padding-top: 120px !important;
+        padding-bottom: 80px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .hero-grid {
+        display: grid !important;
+        grid-template-columns: 1.1fr 0.9fr !important;
+        align-items: center !important;
+        gap: 48px !important;
+        text-align: left !important;
+    }
+    .hero-content {
+        text-align: left !important;
+    }
+    .hero-badge {
+        display: flex !important;
+        justify-content: flex-start !important;
+    }
+    .hero-cta-group {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        gap: 16px !important;
+    }
+    .hero h1 {
+        font-size: clamp(2.5rem, 4.5vw, 3.8rem) !important;
+        text-align: left !important;
+        line-height: 1.15 !important;
+    }
+    .hero-subtitle {
+        text-align: left !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* MOBILE & TABLET LAYOUT (MAX 991px) */
+@media (max-width: 991px) {
+    .hero {
+        min-height: auto !important;
+        padding-top: 100px !important;
+        padding-bottom: 50px !important;
+        display: block !important;
+    }
+    .hero-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 32px !important;
+    }
+    .hero-content {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .hero-badge {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin-bottom: 16px !important;
+    }
+    .hero-badge .badge {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        white-space: normal !important;
+        word-break: normal !important;
+        font-size: 0.8rem !important;
+        padding: 6px 14px !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+    }
+    .hero h1 {
+        font-size: clamp(1.75rem, 6.5vw, 2.3rem) !important;
+        font-weight: 800 !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.02em !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin-bottom: 16px !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+        text-wrap: balance !important;
+    }
+    .hero-subtitle {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        text-align: center !important;
+        max-width: 520px !important;
+        margin: 0 auto 24px auto !important;
+        color: #475569 !important;
+    }
+    .hero-cta-group {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 360px !important;
+        gap: 12px !important;
+        margin: 0 auto !important;
+    }
+    .hero-cta-group .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 14px 20px !important;
+        font-size: 0.95rem !important;
+    }
+    .hero-visual {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 10px !important;
+    }
+    .hero-visual-card {
+        width: 100% !important;
+        max-width: 500px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15) !important;
+    }
+    .hero-visual-img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        aspect-ratio: 16 / 10 !important;
+        object-fit: cover !important;
+        border-radius: 20px !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   NOVA DIGITAL ? FINAL PRODUCTION DESIGN & CONTRAST ENGINE
+   ??????????????????????????????????????????????????????????? */
+
+/* Section Spacing & Standard Layout Boundaries */
+.section {
+    padding: 96px 0 !important;
+    position: relative;
+}
+
+/* 1-BY-1 STRICT ALTERNATING SECTION BACKGROUNDS (A-B-A-B-A-B-A-B) */
+#hizmetler { background-color: #FFFFFF !important; color: #0F172A !important; }
+#paketler  { background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%) !important; color: #0F172A !important; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; }
+#portfoy   { background-color: #FFFFFF !important; color: #0F172A !important; }
+#neden-nova{ background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%) !important; color: #0F172A !important; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; }
+#surec     { background-color: #FFFFFF !important; color: #0F172A !important; }
+#sss       { background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%) !important; color: #0F172A !important; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; }
+#blog      { background-color: #FFFFFF !important; color: #0F172A !important; }
+#iletisim  { background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%) !important; color: #0F172A !important; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; }
+
+/* 100% CRYSTAL-CLEAR HIGH-CONTRAST GRADIENT TEXT */
+.text-gradient,
+#paketler .text-gradient,
+#blog .text-gradient,
+#hizmetler .text-gradient,
+#surec .text-gradient {
+    background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 50%, #6D28D9 100%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Floating Card Elevation & Border Micro-Interactions */
+.section .card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03) !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.section .card:hover {
+    transform: translateY(-6px) !important;
+    border-color: #3B82F6 !important;
+    box-shadow: 0 20px 35px -5px rgba(37, 99, 235, 0.12), 0 8px 15px -3px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Typography Color Lock for Pure Light Theme Contrast */
+.section-header h2,
+.section h3,
+.pricing-name,
+.pricing-price,
+.pricing-features li {
+    color: #0F172A !important;
+}
+
+.section-header p,
+.section p,
+.pricing-subtitle,
+.pricing-teslim {
+    color: #475569 !important;
+}
+
+/* Accessibility & Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .text-gradient { animation: none !important; }
+    .section .card { transition: none !important; transform: none !important; }
+}
+
+/* ???????????????????????????????????????????????????????????
+   SIGNATURE INTERACTIONS ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+/* 1. Hero Blur-To-Focus Title Entrance Animation */
+@keyframes heroBlurFocus {
+    0% {
+        opacity: 0;
+        filter: blur(12px);
+        transform: translateY(16px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0) scale(1);
+    }
+}
+
+.hero-title-blur-focus {
+    animation: heroBlurFocus 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. Magnetic Button Smooth Hardware Acceleration */
+.btn-primary, .btn-lg {
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 3. Portfolio Card Hover Zoom & Expand Detail Polish */
+.portfolio-card {
+    overflow: hidden;
+}
+
+.portfolio-card .portfolio-thumb {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover .portfolio-thumb {
+    transform: scale(1.05);
+}
+
+.portfolio-card .portfolio-info h3 {
+    transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover .portfolio-info h3 {
+    color: var(--color-primary, #2563EB);
+}
+
+/* 4. Scroll Reveal Variations (Left Slide & Scale Entrance) */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.93);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.active,
+.reveal-scale.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+/* 5. Mobile & Reduced Motion Safety Overrides */
+@media (max-width: 768px) {
+    .btn-primary, .btn-lg {
+        transform: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-title-blur-focus {
+        animation: none;
+        opacity: 1;
+        filter: none;
+        transform: none;
+    }
+    .reveal-left, .reveal-scale {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+    .portfolio-card .portfolio-thumb {
+        transition: none;
+        transform: none;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   CREATIVE LAYER ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+/* 1. Scroll Progress Bar at top of viewport */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary, #2563EB), var(--color-accent, #0891B2));
+    z-index: 10000;
+    width: 0%;
+    transition: width 0.1s linear;
+    pointer-events: none;
+}
+
+/* 2. Hero Interactive Mesh Gradient Background */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-mesh-bg {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    opacity: 0.4;
+    background: radial-gradient(circle at 50% 50%, var(--color-primary-glow, rgba(37, 99, 235, 0.12)), transparent 60%);
+    z-index: 0;
+    transition: transform 0.2s ease-out;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* 3. Editorial Typography Enhancements for H1 & H2 */
+h1, h2 {
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+}
+
+/* 4. Reduced Motion & Mobile Overrides */
+@media (max-width: 768px) {
+    .hero-mesh-bg {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-progress-bar {
+        display: none;
+    }
+    .hero-mesh-bg {
+        transition: none;
+        transform: none !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   CREATIVE IDENTITY LAYER ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+/* 2. Tipografik G?ven ?eridi (Hero Trust Metric Strip) */
+.hero-trust-strip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color, #E2E8F0);
+    border-radius: var(--radius-full, 9999px);
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03);
+}
+
+.trust-strip-item {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.trust-strip-num {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-primary, #2563EB);
+}
+
+.trust-strip-plus {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primary, #2563EB);
+}
+
+.trust-strip-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary, #475569);
+    margin-left: 6px;
+}
+
+.trust-strip-divider {
+    width: 1px;
+    height: 16px;
+    background-color: var(--border-color, #E2E8F0);
+}
+
+/* 3. Ambient Mesh Background Glows */
+.ambient-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-primary-glow, rgba(37, 99, 235, 0.15)), transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.05;
+}
+
+/* 4. Form Micro-Success Animation State */
+.form-success-state {
+    text-align: center;
+    padding: 48px 24px;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.form-success-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: #DCFCE7;
+    color: #166534;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    border: 1px solid #BBF7D0;
+}
+
+/* 5. Mobile & Accessibility Overrides */
+@media (max-width: 768px) {
+    .hero-trust-strip {
+        flex-direction: column;
+        gap: 12px;
+        border-radius: var(--radius-lg, 12px);
+    }
+    .trust-strip-divider {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    }
+
+
+/* ???????????????????????????????????????????????????????????
+   AURORA MESH & TRUST COUNTER LAYER ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+/* 1. Nefes Alan 25-Saniye CSS Aurora Mesh Glow Animation */
+@keyframes auroraPulse {
+    0% {
+        transform: translate3d(-10%, -10%, 0) scale(1);
+        opacity: 0.05;
+    }
+    50% {
+        transform: translate3d(10%, 15%, 0) scale(1.15);
+        opacity: 0.08;
+    }
+    100% {
+        transform: translate3d(-10%, -10%, 0) scale(1);
+        opacity: 0.05;
+    }
+}
+
+.aurora-mesh-glow {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle at 30% 30%, var(--color-primary-glow, rgba(37, 99, 235, 0.18)), transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(8, 145, 178, 0.12), transparent 60%);
+    filter: blur(120px);
+    animation: auroraPulse 25s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* 2. Stat Number Live Counter Styling */
+.stat-number {
+    font-weight: 800;
+    color: var(--color-primary, #2563EB);
+}
+
+/* 3. Accessibility & Mobile Optimization Overrides */
+@media (max-width: 768px) {
+    .aurora-mesh-glow {
+        animation: none;
+        opacity: 0.04;
+        filter: blur(80px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aurora-mesh-glow {
+        animation: none;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   EMERGENCY MOBILE UI & OVERFLOW PERFECTION LAYER ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+@media (max-width: 768px) {
+    /* 1. Universal Zero Horizontal Overflow Safety */
+    html, body {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Text Overlay & Line Height Fix for Mobile Headings */
+    h1 {
+        font-size: clamp(1.75rem, 7vw, 2.35rem) !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.02em !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        margin-bottom: 14px !important;
+    }
+
+    h2 {
+        font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
+        line-height: 1.3 !important;
+        letter-spacing: -0.015em !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        margin-bottom: 12px !important;
+    }
+
+    h3 {
+        font-size: clamp(1.15rem, 4.5vw, 1.35rem) !important;
+        line-height: 1.35 !important;
+    }
+
+    .section-header {
+        margin-bottom: 28px !important;
+    }
+
+    .section-header p {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 3. Compact & Ak??kan Pricing Package Cards for Mobile */
+    .pricing-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .pricing-card {
+        padding: 24px 18px !important;
+        border-radius: 16px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+    }
+
+    /* Highlight Popular Package Visually on Mobile */
+    .pricing-card.popular,
+    .pricing-card.featured {
+        border: 2px solid var(--color-primary, #2563EB) !important;
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15) !important;
+    }
+
+    .pricing-features {
+        margin: 16px 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .pricing-features li {
+        font-size: 0.88rem !important;
+        line-height: 1.45 !important;
+        margin-bottom: 8px !important;
+    }
+
+    .pricing-price {
+        font-size: 2rem !important;
+        margin: 8px 0 !important;
+    }
+
+    /* 4. Section Spacing Compactness on Mobile */
+    .section {
+        padding: 56px 0 !important;
+    }
+
+    /* 5. Trust Strip Items Compact Alignment */
+    .trust-items {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .trust-item {
+        padding: 12px 16px !important;
+        box-sizing: border-box !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   PERFECT MOBILE LINE-HEIGHT & COMPACT FLUID SPACING ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+@media (max-width: 768px) {
+    /* 1. Perfect Mobile Line-Height & Zero Text Intersection */
+    .hero-content h1,
+    h1 {
+        font-size: clamp(1.65rem, 6.5vw, 2.1rem) !important;
+        line-height: 1.42 !important;
+        letter-spacing: -0.01em !important;
+        margin-top: 12px !important;
+        margin-bottom: 16px !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .section-header h2,
+    h2 {
+        font-size: clamp(1.35rem, 5.2vw, 1.75rem) !important;
+        line-height: 1.4 !important;
+        letter-spacing: -0.01em !important;
+        margin-bottom: 12px !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    h3 {
+        font-size: clamp(1.1rem, 4vw, 1.3rem) !important;
+        line-height: 1.4 !important;
+    }
+
+    .hero-badge {
+        margin-bottom: 12px !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 2. Compact Block Spacing & Fluid Seamless Layout */
+    .hero {
+        padding: 32px 0 20px 0 !important;
+    }
+
+    .section {
+        padding: 44px 0 !important;
+    }
+
+    .section-header {
+        margin-bottom: 24px !important;
+    }
+
+    .trust-strip {
+        padding: 16px 0 !important;
+    }
+
+    .grid {
+        gap: 16px !important;
+    }
+
+    .pricing-grid {
+        gap: 16px !important;
+    }
+
+    .pricing-card {
+        padding: 20px 16px !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   UNIVERSAL MOBILE HEADING LINE-HEIGHT & BADGE SPACING FIX ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+@media (max-width: 768px) {
+    /* 1. Universal Line-Height & Margin Lock for ALL H1, H2, H3 Across All Sections */
+    h1, h2, h3, h4,
+    .section-header h2,
+    .process-card h3,
+    .blog-card h3,
+    .pricing-card h3,
+    .faq-question h3 {
+        line-height: 1.45 !important;
+        letter-spacing: -0.01em !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        margin-top: 8px !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* 2. Fix Blue Badge / Title Overlap in Middle Sections (#paketler, #portfoy, #surec, #blog, #iletisim) */
+    .section-header .badge,
+    .section-header span.badge {
+        margin-bottom: 14px !important;
+        display: inline-flex !important;
+        line-height: 1.3 !important;
+    }
+
+    .section-header p {
+        margin-top: 10px !important;
+        line-height: 1.55 !important;
+        font-size: 0.95rem !important;
+    }
+
+    /* 3. Process Section ("3 Ad?mda...") & Blog Section Lower Glitch Fix */
+    .process-step-num {
+        margin-bottom: 8px !important;
+        line-height: 1 !important;
+    }
+
+    .process-card, .blog-card, .pricing-card {
+        padding: 22px 18px !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   FINAL MOBILE UI & BADGE MARGIN OPTIMIZATION ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+@media (max-width: 768px) {
+    /* 1. Mavi Etiket (Badge) & Ba?l?k Ayr?m? ? Kesin Dikey Bo?luk */
+    .badge,
+    .hero-badge,
+    .section-header .badge,
+    .section-header span.badge,
+    .portfolio-meta .badge {
+        display: inline-block !important;
+        margin-top: 0 !important;
+        margin-bottom: 12px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* 2. Hero & G?ven ?eridi Dikey Bo?luk Dengesi */
+    .hero {
+        padding-top: 24px !important;
+        padding-bottom: 16px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .trust-strip {
+        padding: 16px 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .section {
+        padding: 48px 0 !important;
+    }
+
+    .section-header {
+        margin-bottom: 24px !important;
+    }
+
+    /* 3. Sat?r Y?ksekli?i (line-height: 1.35) & Harf ?ak??mas? ?nleme */
+    .hero-content h1,
+    h1 {
+        margin-top: 8px !important;
+        margin-bottom: 14px !important;
+        line-height: 1.35 !important;
+    }
+
+    .section-header h2,
+    h2 {
+        margin-top: 8px !important;
+        margin-bottom: 12px !important;
+        line-height: 1.35 !important;
+    }
+
+    h3, .pricing-card h3, .process-card h3, .blog-card h3 {
+        line-height: 1.35 !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   EXACT MOBILE TYPOGRAPHY & CONTAINER OVERFLOW FIX ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+@media (max-width: 768px) {
+    /* 1. Metin ?ak??malar? ??in Kesin Sat?r Y?ksekli?i */
+    h1, h2, h3,
+    .hero-title,
+    .section-title,
+    .section-header h2,
+    .hero-content h1 {
+        line-height: 1.25 !important;
+        margin-bottom: 12px !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    /* 2. Kategori Etiketleri (Badge/Subtitle) Dikey Bo?luk */
+    .badge,
+    .hero-badge,
+    .section-header .badge,
+    .section-header span.badge,
+    .portfolio-meta .badge {
+        display: inline-block !important;
+        margin-top: 0 !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* 3. Container Geni?li?i & Kenar Ta??mas? ?nleme */
+    .container,
+    .wrapper,
+    .hero-container,
+    .pricing-grid,
+    .card,
+    .section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+    }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   FINAL MOBILE TYPOGRAPHY & SECTION PADDING DIRECTIVES ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+@media only screen and (max-width: 768px) {
+  h1, h2, h3, .hero-title, .section-title, .section-header h2 {
+    line-height: 1.3 !important;
+    letter-spacing: -0.02em !important;
+    word-break: break-word !important;
+  }
+
+  .sub-title, .badge-text, .badge, .hero-badge, .section-header .badge {
+    margin-bottom: 8px !important;
+    display: inline-block !important;
+  }
+
+  section, .section {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   MOB?L BA?LIK ?AKI?MA D?ZELTMES? ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+@media only screen and (max-width: 768px) {
+  h1, h2, h3, .hero-title, .section-title, .hero-content h1, .section-header h2 {
+    line-height: 1.35 !important;
+    letter-spacing: normal !important;
+  }
+  .badge-text, .sub-title, .badge, .hero-badge, .section-header .badge {
+    margin-bottom: 10px !important;
+    display: inline-block !important;
+  }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   MOB?L BA?LIK ?AKI?MASI & FLEX SPACING TAM D?ZELTME ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+@media only screen and (max-width: 768px) {
+  .section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important; /* Etiket, ba?l?k ve paragraf? birbirinden ay?r?r */
+  }
+  
+  h1, h2, h3, .hero-title, .section-title, .section-header h2, .hero-content h1 {
+    line-height: 1.4 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    letter-spacing: normal !important;
+  }
+
+  .badge, .badge-text, .sub-title, .hero-badge, .section-header .badge {
+    display: inline-flex !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+
+/* ???????????????????????????????????????????????????????????
+   NAVBAR HERO OVERLAP FIX & CENTERED PRICING CARDS ? 2026-08-06
+   ??????????????????????????????????????????????????????????? */
+
+@media (max-width: 768px) {
+    /* 1. Navbar & Hero Title Overlap Fix (Sufficient Top Padding for Fixed Nav) */
+    .hero {
+        padding-top: 104px !important;
+        padding-bottom: 24px !important;
+        margin-top: 0 !important;
+    }
+
+    .hero-content {
+        margin-top: 0 !important;
+    }
+
+    .hero-badge {
+        margin-bottom: 14px !important;
+        display: inline-block !important;
+    }
+
+    .hero-content h1 {
+        line-height: 1.35 !important;
+        margin-top: 6px !important;
+        margin-bottom: 14px !important;
+    }
+
+    /* 2. Sleek & Effective Mobile Pricing Cards with Centered Numbers */
+    .pricing-card {
+        padding: 24px 20px !important;
+        text-align: center !important;
+        border-radius: 20px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        margin-bottom: 16px !important;
+    }
+
+    .pricing-name {
+        text-align: center !important;
+        font-size: 1.25rem !important;
+        margin-bottom: 4px !important;
+    }
+
+    .pricing-desc {
+        text-align: center !important;
+        font-size: 0.88rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .pricing-amount {
+        display: flex !important;
+        align-items: baseline !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        margin: 12px 0 !important;
+        text-align: center !important;
+    }
+
+    .pricing-amount strong {
+        font-size: 2.35rem !important;
+        font-weight: 800 !important;
+        color: var(--color-primary, #2563EB) !important;
+        line-height: 1 !important;
+    }
+
+    .pricing-amount span {
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        color: var(--text-secondary, #475569) !important;
+    }
+
+    .pricing-teslim {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        margin-bottom: 16px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .pricing-features {
+        text-align: left !important;
+        margin: 16px 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .pricing-features li {
+        font-size: 0.88rem !important;
+        line-height: 1.45 !important;
+        margin-bottom: 8px !important;
+    }
+
+    .pricing-card .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        margin-top: 12px !important;
+    }
+}
+
+/* ===============================================================
+   PAKET KARTLARI ? kompakt, e?it yap?; Premium yaln?zca renk
+   =============================================================== */
+
+.pricing-grid {
+    align-items: stretch;
+}
+
+.pricing-subtitle {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #2563EB;
+    margin: 0 0 4px;
+    letter-spacing: 0.01em;
+}
+
+.pricing-desc {
+    min-height: 2.6em;
+}
+
+/* Kimler i?in? ? bask?n metin tetikleyici */
+.pricing-audience {
+    position: relative;
+    margin: 0 0 10px;
+    padding: 0;
+    background: none;
+    border: none;
+    z-index: 5;
+}
+
+.pricing-audience-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    color: #1D4ED8;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(29, 78, 216, 0.35);
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.pricing-audience-btn:hover,
+.pricing-audience-btn:focus-visible {
+    color: #1E40AF;
+    text-decoration-color: #1E40AF;
+}
+
+.pricing-audience-btn[aria-expanded="true"] {
+    color: #1E3A8A;
+    text-decoration-color: #1E3A8A;
+}
+
+.pricing-audience-panel {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 6px);
+    width: min(100%, 260px);
+    z-index: 20;
+    padding: 10px 12px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+.pricing-audience-panel[hidden] {
+    display: none !important;
+}
+
+.pricing-audience-list {
+    margin: 0 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    color: #475569 !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+}
+
+/* Ortak kart g?r?n?m? ? pop?ler yaln?zca rozet ile ayr?l?r */
+.section .card.pricing-card--starter,
+.section .card.pricing-card--popular,
+.pricing-card--starter,
+.pricing-card--popular {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+    transform: none !important;
+    overflow: visible !important;
+}
+
+.section .card.pricing-card--popular:hover,
+.section .card.pricing-card--starter:hover,
+.pricing-card--popular:hover,
+.pricing-card--starter:hover {
+    border-color: #93C5FD !important;
+    box-shadow: 0 12px 28px -6px rgba(37, 99, 235, 0.12) !important;
+    transform: translateY(-3px) !important;
+}
+
+.pricing-badge-popular {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: #2563EB;
+    color: #FFFFFF;
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+/* Premium ? ayn? yap?, koyu renk varyant? + okunakl? kontrast */
+.section .card.pricing-card--premium,
+.pricing-card--premium,
+#paketler .pricing-card--premium {
+    background: #FFFFFF !important;
+    border: 1px solid #1E293B !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.18) !important;
+    color: #F1F5F9 !important;
+    transform: none !important;
+    overflow: visible !important;
+    z-index: 2;
+}
+
+.pricing-card--premium::after {
+    display: none;
+}
+
+.section .card.pricing-card--premium:hover,
+.pricing-card--premium:hover,
+#paketler .pricing-card--premium:hover {
+    border-color: #334155 !important;
+    box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.35) !important;
+    transform: translateY(-3px) !important;
+}
+
+.pricing-badge-premium {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 6px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #DBEAFE;
+    background: rgba(37, 99, 235, 0.28);
+    border: 1px solid rgba(147, 197, 253, 0.35);
+}
+
+#paketler .pricing-card--premium .pricing-name,
+#paketler .pricing-card--premium h3 {
+    color: #F8FAFC !important;
+}
+
+#paketler .pricing-card--premium .pricing-subtitle {
+    color: #93C5FD !important;
+}
+
+#paketler .pricing-card--premium .pricing-desc,
+#paketler .pricing-card--premium p.pricing-desc {
+    color: #CBD5E1 !important;
+}
+
+#paketler .pricing-card--premium .pricing-amount strong {
+    color: #FFFFFF !important;
+}
+
+#paketler .pricing-card--premium .pricing-amount span {
+    color: #93C5FD !important;
+}
+
+#paketler .pricing-card--premium .pricing-teslim {
+    background: rgba(37, 99, 235, 0.22) !important;
+    border-color: rgba(147, 197, 253, 0.4) !important;
+    color: #DBEAFE !important;
+}
+
+#paketler .pricing-card--premium .pricing-features {
+    border-top-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+#paketler .pricing-card--premium .pricing-features li {
+    color: #E2E8F0 !important;
+}
+
+#paketler .pricing-card--premium .pricing-features li i {
+    color: #34D399 !important;
+}
+
+#paketler .pricing-card--premium .pricing-audience-btn {
+    color: #93C5FD !important;
+    text-decoration-color: rgba(147, 197, 253, 0.55) !important;
+}
+
+#paketler .pricing-card--premium .pricing-audience-btn:hover,
+#paketler .pricing-card--premium .pricing-audience-btn:focus-visible,
+#paketler .pricing-card--premium .pricing-audience-btn[aria-expanded="true"] {
+    color: #BFDBFE !important;
+    text-decoration-color: #BFDBFE !important;
+}
+
+#paketler .pricing-card--premium .pricing-audience-panel {
+    background: #1E293B;
+    border-color: #334155;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+#paketler .pricing-card--premium .pricing-audience-list {
+    color: #E2E8F0 !important;
+}
+
+.btn-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0F172A !important;
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: none;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-premium:hover {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    transform: translateY(-1px);
+}
+
+.pricing-card .btn,
+.pricing-card .btn-premium {
+    margin-top: auto;
+}
+
+.pricing-trust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 24px;
+    margin-top: 28px;
+    padding-top: 4px;
+}
+
+.pricing-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.pricing-trust-item i {
+    color: #2563EB;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 991px) {
+    #paketler .pricing-grid.grid-3,
+    .pricing-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* mobile order removed ? keep 1-2-3 */
+
+    .pricing-trust {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-top: 22px;
+    }
+
+    .pricing-audience-panel {
+        width: min(100%, 100%);
+    }
+}
+
+/* ===============================================================
+   FINAL PACKAGES LOCK ? same fill, compact, order 1-2-3
+   =============================================================== */
+#paketler .pricing-grid {
+  align-items: stretch;
+}
+#paketler .pricing-card,
+#paketler .section .card.pricing-card,
+#paketler .card.pricing-card--starter,
+#paketler .card.pricing-card--popular,
+#paketler .card.pricing-card--premium,
+#paketler .pricing-card--starter,
+#paketler .pricing-card--popular,
+#paketler .pricing-card--premium {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.06) !important;
+  color: #0F172A !important;
+  transform: none !important;
+  overflow: visible !important;
+  padding: 1rem 1.1rem !important;
+  height: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+}
+#paketler .pricing-card:hover,
+#paketler .card.pricing-card--starter:hover,
+#paketler .card.pricing-card--popular:hover,
+#paketler .card.pricing-card--premium:hover {
+  border-color: #93C5FD !important;
+  box-shadow: 0 10px 24px -6px rgba(37, 99, 235, 0.12) !important;
+  transform: translateY(-2px) !important;
+}
+#paketler .pricing-card--premium::after { display: none !important; content: none !important; }
+#paketler .pricing-card--popular {
+  border-color: #2563EB !important;
+  box-shadow: 0 6px 20px -4px rgba(37, 99, 235, 0.14) !important;
+}
+#paketler .pricing-card--premium {
+  border-color: #64748B !important;
+}
+#paketler .pricing-name,
+#paketler .pricing-card--premium .pricing-name,
+#paketler .pricing-card--premium h3 {
+  color: #0F172A !important;
+  font-size: 1.05rem !important;
+  margin: 0 0 2px !important;
+  line-height: 1.2 !important;
+}
+#paketler .pricing-subtitle,
+#paketler .pricing-card--premium .pricing-subtitle {
+  color: #2563EB !important;
+  font-size: 0.72rem !important;
+  margin: 0 0 2px !important;
+}
+#paketler .pricing-desc,
+#paketler .pricing-card--premium .pricing-desc,
+#paketler .pricing-card--premium p.pricing-desc {
+  color: #475569 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.35 !important;
+  margin: 0 0 6px !important;
+  min-height: 0 !important;
+}
+#paketler .pricing-amount { margin: 4px 0 6px !important; }
+#paketler .pricing-amount strong,
+#paketler .pricing-card--premium .pricing-amount strong {
+  color: #0F172A !important;
+  font-size: 1.75rem !important;
+}
+#paketler .pricing-amount span,
+#paketler .pricing-card--premium .pricing-amount span {
+  color: #2563EB !important;
+  font-size: 0.85rem !important;
+}
+#paketler .pricing-teslim,
+#paketler .pricing-card--premium .pricing-teslim {
+  background: #EFF6FF !important;
+  border: 1px solid #BFDBFE !important;
+  color: #1D4ED8 !important;
+  font-size: 0.68rem !important;
+  padding: 3px 8px !important;
+  margin-bottom: 8px !important;
+}
+#paketler .pricing-features {
+  gap: 4px !important;
+  margin-bottom: 10px !important;
+  padding-top: 8px !important;
+  border-top: 1px solid #E2E8F0 !important;
+  flex: 1;
+}
+#paketler .pricing-features li,
+#paketler .pricing-card--premium .pricing-features li {
+  color: #0F172A !important;
+  font-size: 0.75rem !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+#paketler .pricing-features li i,
+#paketler .pricing-card--premium .pricing-features li i {
+  color: #16A34A !important;
+}
+#paketler .pricing-audience {
+  position: relative;
+  margin: 0 0 6px !important;
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+  z-index: 5;
+}
+#paketler .pricing-audience-btn,
+#paketler .pricing-card--premium .pricing-audience-btn {
+  font-family: var(--font-body) !important;
+  font-size: 0.8rem !important;
+  font-weight: 800 !important;
+  font-style: italic !important;
+  color: #1D4ED8 !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1.5px !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: rgba(29, 78, 216, 0.35) !important;
+}
+#paketler .pricing-audience-btn:hover,
+#paketler .pricing-card--premium .pricing-audience-btn:hover {
+  color: #1E40AF !important;
+}
+#paketler .pricing-audience-panel {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  width: min(100%, 260px);
+  z-index: 30;
+  padding: 10px 12px;
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+#paketler .pricing-audience-panel[hidden] { display: none !important; }
+#paketler .pricing-audience-list,
+#paketler .pricing-card--premium .pricing-audience-list {
+  margin: 0 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.4 !important;
+  color: #475569 !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+}
+#paketler .pricing-badge-premium {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1E40AF !important;
+  background: #EFF6FF !important;
+  border: 1px solid #BFDBFE !important;
+}
+#paketler .btn-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 42px;
+  margin-top: auto;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  background: #0F172A !important;
+  border: 1px solid #0F172A !important;
+  text-decoration: none;
+}
+#paketler .btn-premium:hover {
+  background: #1E293B !important;
+  color: #FFFFFF !important;
+}
+#paketler .pricing-card .btn,
+#paketler .pricing-card .btn-premium {
+  margin-top: auto;
+  min-height: 42px;
+  font-size: 0.88rem;
+}
+#paketler .pricing-card--starter,
+#paketler .pricing-card--popular,
+#paketler .pricing-card--premium {
+  order: unset !important;
+}
+@media (max-width: 991px) {
+  #paketler .pricing-grid.grid-3,
+  #paketler .pricing-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  #paketler .pricing-card,
+  #paketler .pricing-card--starter,
+  #paketler .pricing-card--popular,
+  #paketler .pricing-card--premium {
+    order: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    padding: 1.25rem !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+  #paketler .pricing-name,
+  #paketler .pricing-desc,
+  #paketler .pricing-amount {
+    text-align: left !important;
+  }
+  #paketler .pricing-amount {
+    justify-content: flex-start !important;
+    margin: 4px 0 6px !important;
+  }
+  #paketler .pricing-amount strong {
+    font-size: 1.7rem !important;
+    color: #0F172A !important;
+  }
+  #paketler .pricing-features {
+    margin: 8px 0 10px !important;
+  }
+  #paketler .pricing-features li {
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* ─── HERO EMBEDDED SEAMLESS VIDEO CARD (ZERO MARGINS, SOFT SHADOW) ─── */
+.hero-embedded-video-card {
+    width: 100% !important;
+    max-width: 520px !important;
+    height: 340px !important;
+    margin: 0 auto !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: 0 20px 48px rgba(15, 23, 42, 0.14) !important;
+    position: relative !important;
+}
+
+.hero-embedded-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 20px !important;
+    border: none !important;
+}
+
+@media (max-width: 768px) {
+    /* Mobilde video kartı ve tüm kartlar 1:1 tam container genişliğine (%100) kilitlenir */
+    .hero-embedded-video-card,
+    .premium-video-wrap .hero-embedded-video-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        height: 250px !important;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   2026 LUXURY VECTOR BACKGROUNDS & SLEEK CARD PROPORTIONS
+   ═══════════════════════════════════════════════════════════ */
+
+/* Sleek wide card proportions & HSL borders */
+.pricing-card,
+.reason-card,
+.service-card,
+.process-card {
+    border-radius: 18px !important;
+    padding: 20px 20px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(37, 99, 235, 0.04) !important;
+}
+
+/* 1. Paket Kartı Arka Planları (Temiz, Flu/Bulanık Renk Katmanları Kaldırıldı) */
+.pricing-card--starter,
+.pricing-card--popular,
+.pricing-card--premium {
+    background-image: none !important;
+    background-color: #FFFFFF !important;
+}
+
+.pricing-card--popular::before,
+.pricing-card--premium::before {
+    display: none !important;
+}
+
+/* Feature list grid in pricing cards */
+.pricing-features {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 5px 10px !important;
+}
+
+/* Hover elevation with subtle border glow */
+.pricing-card:hover,
+.reason-card:hover,
+.service-card:hover,
+.process-card:hover {
+    transform: translateY(-3px) !important;
+    border-color: rgba(37, 99, 235, 0.35) !important;
+    box-shadow: 0 16px 36px -8px rgba(37, 99, 235, 0.14), 0 0 0 1px rgba(37, 99, 235, 0.12) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ULTRA-WIDE & COMPACT MOBILE CARD SCALING SYSTEM
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM MOBILE SAAS PRICING & CARD SCALING SYSTEM (320px-430px)
+   ═══════════════════════════════════════════════════════════ */
+
+@media only screen and (max-width: 768px) {
+    /* 1. Precise Mobile Container Padding (calc(100% - 32px) Width) */
+    .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+    }
+
+    /* 2. All Cards Match Video Card Rhythm (100% width up to 440px) */
+    .card,
+    .reason-card,
+    .service-card,
+    .process-card,
+    .portfolio-card,
+    .contact-form {
+        padding: 18px 18px !important;
+        border-radius: 20px !important;
+        width: 100% !important;
+        max-width: 440px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+        margin-bottom: 16px !important;
+        box-shadow: 0 10px 28px -6px rgba(15, 23, 42, 0.08) !important;
+    }
+
+    /* 3. Modern Mobile SaaS Pricing Cards */
+    #paketler .pricing-card,
+    #paketler .pricing-card--starter,
+    #paketler .pricing-card--popular,
+    #paketler .pricing-card--premium,
+    .pricing-card {
+        width: 100% !important;
+        max-width: 440px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 18px !important;
+        padding: 20px 20px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 12px 30px -6px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.9) !important;
+        box-sizing: border-box !important;
+        text-align: left !important;
+    }
+
+    /* Premium / Popular Card Stands Out */
+    #paketler .pricing-card--popular {
+        border-color: rgba(37, 99, 235, 0.4) !important;
+        box-shadow: 0 16px 36px -6px rgba(37, 99, 235, 0.16), 0 0 0 2px rgba(37, 99, 235, 0.25) !important;
+    }
+
+    #paketler .pricing-card--premium {
+        border-color: rgba(16, 185, 129, 0.4) !important;
+        box-shadow: 0 16px 36px -6px rgba(16, 185, 129, 0.16), 0 0 0 2px rgba(16, 185, 129, 0.25) !important;
+    }
+
+    /* 4. Optimized Mobile Typography & Content Spacing */
+    .pricing-name {
+        font-size: 1.3rem !important;
+        font-weight: 800 !important;
+        color: #0F172A !important;
+        margin-bottom: 2px !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .pricing-subtitle {
+        font-size: 0.78rem !important;
+        color: #64748B !important;
+        margin-bottom: 6px !important;
+        font-weight: 500 !important;
+    }
+
+    .pricing-desc {
+        font-size: 0.84rem !important;
+        margin-bottom: 8px !important;
+        line-height: 1.4 !important;
+        color: #334155 !important;
+    }
+
+    .pricing-amount {
+        margin: 6px 0 8px !important;
+        justify-content: flex-start !important;
+    }
+
+    .pricing-amount strong {
+        font-size: 2.1rem !important;
+        font-weight: 900 !important;
+        color: #0F172A !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    .pricing-amount span {
+        font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        color: #64748B !important;
+        margin-left: 4px !important;
+    }
+
+    .pricing-teslim {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        font-size: 0.78rem !important;
+        font-weight: 600 !important;
+        padding: 4px 10px !important;
+        border-radius: 8px !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Generous Mobile Feature List Spacing */
+    .pricing-features {
+        margin: 12px 0 16px !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #F1F5F9 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    .pricing-features li {
+        font-size: 0.86rem !important;
+        line-height: 1.45 !important;
+        color: #1E293B !important;
+        display: flex !important;
+        align-items: center !important;
+        margin-bottom: 0 !important;
+    }
+
+    .pricing-features li i {
+        font-size: 0.95rem !important;
+        color: #16A34A !important;
+        margin-right: 10px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .pricing-card .btn,
+    .pricing-card .btn-premium {
+        min-height: 44px !important;
+        padding: 10px 16px !important;
+        font-size: 0.92rem !important;
+        font-weight: 700 !important;
+        margin-top: 12px !important;
+        border-radius: 12px !important;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FULL CONTRAST & %30 LARGER PACKAGE VECTOR ILLUSTRATIONS
+   ═══════════════════════════════════════════════════════════ */
+/* Paket Kartı Vektörleri (%30 Büyütülmüş: 98px x 98px, Tam Kontrast %100 Orijinal Canlılık) */
+.card-bg-vector {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    width: 98px !important;
+    height: 98px !important;
+    object-fit: contain !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    filter: none !important;
+}
+
+.pricing-card--popular .card-bg-vector,
+.pricing-card--premium .card-bg-vector {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+/* Hover İletişimi: Sabit & Tam Kontrast */
+.pricing-card:hover .card-bg-vector {
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* 2. Genel Sayfa Arka Plan Vektörleri (Yavaş Süzülen, Görünür Kenar Boşluğu Vektörleri) */
+@keyframes vectorFloat2D {
+    0%, 100% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    25% {
+        transform: translate(10px, -8px) rotate(3deg);
+    }
+    50% {
+        transform: translate(-8px, -14px) rotate(-3deg);
+    }
+    75% {
+        transform: translate(-10px, 6px) rotate(2deg);
+    }
+}
+
+.section-bg-vector {
+    position: absolute !important;
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain !important;
+    opacity: 0.50 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    animation: vectorFloat2D 22s ease-in-out infinite !important;
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.15)) !important;
+}
+
+.section-bg-vector--left {
+    left: 1.5% !important;
+    top: 6% !important;
+}
+
+.section-bg-vector--right {
+    right: 1.5% !important;
+    top: 6% !important;
+    animation-delay: -5s !important;
+}
+
+.section-bg-vector--center {
+    right: 3% !important;
+    bottom: 8% !important;
+    animation-delay: -9s !important;
+}
+
+.section-bg-vector--center-left {
+    left: 2% !important;
+    top: 22% !important;
+    animation-delay: -4s !important;
+}
+
+.section-bg-vector--center-right {
+    right: 2% !important;
+    top: 22% !important;
+    animation-delay: -11s !important;
+}
+
+.section-bg-vector--inter-1 {
+    left: 1.5% !important;
+    bottom: 4% !important;
+    animation-delay: -7s !important;
+}
+
+.section-bg-vector--inter-2 {
+    right: 2% !important;
+    top: 2% !important;
+    animation-delay: -13s !important;
+}
+
+.section-bg-vector--inter-3 {
+    right: 1.5% !important;
+    bottom: 4% !important;
+    animation-delay: -3s !important;
+}
+
+/* Mobil Uyumlu Ölçekleme & Mobilde Sadece Paket Kartı Vektörlerini Tutma */
+@media (max-width: 768px) {
+    #paketler .pricing-trust {
+        display: none !important;
+    }
+
+    /* Mobilde sayfa arka plan vektörleri gizlenir (sıfır dikkat dağınıklığı) */
+    .section-bg-vector {
+        display: none !important;
+    }
+
+    /* Sadece paket kartlarının sağ üst köşesindeki 3D vektörler kalır */
+    .card-bg-vector {
+        display: block !important;
+        width: 55px !important;
+        height: 55px !important;
+        top: 8px !important;
+        right: 8px !important;
+        opacity: 1 !important;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ULTRA-COMPACT MOBILE FOOTER & SECTION LENGTH OPTIMIZATION
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    /* 1. Tighten Mobile Section Vertical Spacing */
+    section, .section {
+        padding-top: 22px !important;
+        padding-bottom: 22px !important;
+    }
+
+    .section-header {
+        margin-bottom: 14px !important;
+        gap: 6px !important;
+    }
+
+    .section-header h2 {
+        font-size: 1.4rem !important;
+        margin-bottom: 4px !important;
+    }
+
+    .section-header p {
+        font-size: 0.82rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* 2. Spacious Mobile Contact Info List (Zero Text Squeezing) */
+    .contact-info-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .contact-info-item {
+        padding: 12px 14px !important;
+        border-radius: 14px !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .contact-info-icon {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 0.95rem !important;
+        flex-shrink: 0 !important;
+    }
+
+    .contact-info-text h4 {
+        font-size: 0.75rem !important;
+        margin-bottom: 2px !important;
+    }
+
+    .contact-info-text a,
+    .contact-info-text p {
+        font-size: 0.84rem !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .contact-form {
+        padding: 16px 14px !important;
+        border-radius: 16px !important;
+    }
+
+    .contact-form .form-group {
+        margin-bottom: 10px !important;
+    }
+
+    .contact-form .form-input {
+        padding: 8px 12px !important;
+        font-size: 0.82rem !important;
+    }
+
+    /* 3. Compact 2-Column Inline Mobile Footer Grid (Cuts Height by 50%) */
+    .site-footer {
+        padding-top: 28px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .footer-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px 12px !important;
+    }
+
+    .footer-brand {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+/* Hover İletişimi: Sabit & Tam Kontrast */
+.pricing-card:hover .card-bg-vector {
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* 2. Genel Sayfa Arka Plan Vektörleri (Yavaş Süzülen, Görünür Kenar Boşluğu Vektörleri) */
+@keyframes vectorFloat2D {
+    0%, 100% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    25% {
+        transform: translate(10px, -8px) rotate(3deg);
+    }
+    50% {
+        transform: translate(-8px, -14px) rotate(-3deg);
+    }
+    75% {
+        transform: translate(-10px, 6px) rotate(2deg);
+    }
+}
+
+.section-bg-vector {
+    position: absolute !important;
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain !important;
+    opacity: 0.50 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    animation: vectorFloat2D 22s ease-in-out infinite !important;
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.15)) !important;
+}
+
+.section-bg-vector--left {
+    left: 1.5% !important;
+    top: 6% !important;
+}
+
+.section-bg-vector--right {
+    right: 1.5% !important;
+    top: 6% !important;
+    animation-delay: -5s !important;
+}
+
+.section-bg-vector--center {
+    right: 3% !important;
+    bottom: 8% !important;
+    animation-delay: -9s !important;
+}
+
+.section-bg-vector--center-left {
+    left: 2% !important;
+    top: 22% !important;
+    animation-delay: -4s !important;
+}
+
+.section-bg-vector--center-right {
+    right: 2% !important;
+    top: 22% !important;
+    animation-delay: -11s !important;
+}
+
+.section-bg-vector--inter-1 {
+    left: 1.5% !important;
+    bottom: 4% !important;
+    animation-delay: -7s !important;
+}
+
+.section-bg-vector--inter-2 {
+    right: 2% !important;
+    top: 2% !important;
+    animation-delay: -13s !important;
+}
+
+.section-bg-vector--inter-3 {
+    right: 1.5% !important;
+    bottom: 4% !important;
+    animation-delay: -3s !important;
+}
+
+/* Mobil Uyumlu Ölçekleme & Mobilde Sadece Paket Kartı Vektörlerini Tutma */
+@media (max-width: 768px) {
+    #paketler .pricing-trust {
+        display: none !important;
+    }
+
+    /* Mobilde sayfa arka plan vektörleri gizlenir (sıfır dikkat dağınıklığı) */
+    .section-bg-vector {
+        display: none !important;
+    }
+
+    /* Sadece paket kartlarının sağ üst köşesindeki 3D vektörler kalır */
+    .card-bg-vector {
+        display: block !important;
+        width: 55px !important;
+        height: 55px !important;
+        top: 8px !important;
+        right: 8px !important;
+        opacity: 1 !important;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ULTRA-COMPACT MOBILE FOOTER & SECTION LENGTH OPTIMIZATION
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    /* 1. Tighten Mobile Section Vertical Spacing */
+    section, .section {
+        padding-top: 22px !important;
+        padding-bottom: 22px !important;
+    }
+
+    .section-header {
+        margin-bottom: 14px !important;
+        gap: 6px !important;
+    }
+
+    .section-header h2 {
+        font-size: 1.4rem !important;
+        margin-bottom: 4px !important;
+    }
+
+    .section-header p {
+        font-size: 0.82rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* 2. Spacious Mobile Contact Info List (Zero Text Squeezing) */
+    .contact-info-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .contact-info-item {
+        padding: 12px 14px !important;
+        border-radius: 14px !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .contact-info-icon {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 0.95rem !important;
+        flex-shrink: 0 !important;
+    }
+
+    .contact-info-text h4 {
+        font-size: 0.75rem !important;
+        margin-bottom: 2px !important;
+    }
+
+    .contact-info-text a,
+    .contact-info-text p {
+        font-size: 0.84rem !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .contact-form {
+        padding: 16px 14px !important;
+        border-radius: 16px !important;
+    }
+
+    .contact-form .form-group {
+        margin-bottom: 10px !important;
+    }
+
+    .contact-form .form-input {
+        padding: 8px 12px !important;
+        font-size: 0.82rem !important;
+    }
+
+    /* 3. Compact 2-Column Inline Mobile Footer Grid (Cuts Height by 50%) */
+    .site-footer {
+        padding-top: 28px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .footer-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px 12px !important;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1 !important;
+        margin-bottom: 8px !important;
+        text-align: left !important;
+    }
+
+    .footer-brand p {
+        font-size: 0.8rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .footer-col h4 {
+        font-size: 0.85rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    .footer-col a {
+        font-size: 0.78rem !important;
+        margin-bottom: 4px !important;
+    }
+
+    .footer-bottom {
+        margin-top: 20px !important;
+        padding-top: 14px !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+        font-size: 0.72rem !important;
+    }
+}
+
+/* Side by side Social Icon Buttons with a sweet gap */
+.contact-social-icons {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-top: 4px !important;
+}
+
+.contact-social-icons .social-icon-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+        color: #2563EB !important;
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12) !important;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   100% SYMMETRICAL PORTFOLIO META BADGES LAYOUT
+   ═══════════════════════════════════════════════════════════ */
+.portfolio-meta {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+}
+
+.portfolio-meta .badge,
+.portfolio-meta .portfolio-type-tag {
+    font-size: 0.74rem !important;
+    padding: 4px 10px !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+.filter-btn {
+    background: transparent;
+    border: none;
+    padding: 6px 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #64748B;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+        overflow-x: auto;
+        padding: 4px 6px;
+        margin-top: 8px;
+        margin-bottom: 4px;
+        scrollbar-width: none;
+    }
+
+    .portfolio-filter-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        padding: 5px 8px;
+        font-size: 0.72rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STRICT 100% EQUAL DIMENSIONS FOR PORTFOLIO CARDS
+   ═══════════════════════════════════════════════════════════ */
+.portfolio-carousel-track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 16px !important;
+    scrollbar-width: none !important;
+}
+
+.portfolio-carousel-track::-webkit-scrollbar {
+    display: none !important;
+}
+
+.portfolio-slide {
+    flex: 0 0 360px !important;
+    width: 360px !important;
+    min-width: 360px !important;
+    max-width: 360px !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+}
+
+.portfolio-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    height: 480px !important;
+    box-sizing: border-box !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+}
+
+.browser-window-bar {
+    height: 38px !important;
+    flex-shrink: 0 !important;
+}
+
+.portfolio-thumb-wrap {
+    width: 100% !important;
+    height: 200px !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    background: #0F172A !important;
+}
+
+.portfolio-thumb {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+}
+
+.portfolio-info {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    justify-content: space-between !important;
+    padding: 18px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.portfolio-info h3 {
+    font-size: 1.1rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.portfolio-info p {
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
+    color: #64748B !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 768px) {
+    .portfolio-slide {
+        flex: 0 0 85vw !important;
+        width: 85vw !important;
+        min-width: 280px !important;
+        max-width: 360px !important;
+    }
+
+    .portfolio-card {
+        height: 460px !important;
+    }
+
+    .portfolio-thumb-wrap {
+        height: 180px !important;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MODERN GLASSMORPHIC FILTER PILLS & STRICT HIDING RULES
+   ═══════════════════════════════════════════════════════════ */
+.portfolio-filter-bar {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: #F8FAFC !important;
+    padding: 4px 6px !important;
+    border-radius: 30px !important;
+    border: 1.5px solid #E2E8F0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+.filter-btn {
+    background: transparent !important;
+    border: 1.5px solid transparent !important;
+    padding: 6px 16px !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    color: #64748B !important;
+    border-radius: 20px !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    white-space: nowrap !important;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none !important;
+}
+
+.filter-btn:hover {
+    color: #2563EB !important;
+    background: #EFF6FF !important;
+    border-color: #BFDBFE !important;
+}
+
+.filter-btn:focus,
+.filter-btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.filter-btn.active {
+    background: #EFF6FF !important;
+    color: #1D4ED8 !important;
+    border: 1.5px solid #2563EB !important;
+    font-weight: 800 !important;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.18) !important;
+}
+
+.portfolio-slide.hidden-slide {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ULTRA MODERN DEEP NAVY & ELECTRIC SAPPHIRE GLOBAL OVERRIDE
+   ═══════════════════════════════════════════════════════════ */
+:root {
+    --color-primary: #1E40AF !important;
+    --color-primary-light: #2563EB !important;
+    --color-primary-dark: #0F172A !important;
+    --color-primary-glow: rgba(30, 64, 175, 0.22) !important;
+    --border-hover: rgba(30, 64, 175, 0.5) !important;
+}
+
+/* 1. High-Contrast Deep Navy to Electric Sapphire Text Gradients */
+.text-gradient,
+#paketler .text-gradient,
+#blog .text-gradient,
+#hizmetler .text-gradient,
+#surec .text-gradient,
+#neden-nova .text-gradient,
+#nasil-calisiyoruz .text-gradient,
+#mobil-yazilim .text-gradient,
+#sss .text-gradient,
+#hero .text-gradient,
+h1 .text-gradient,
+h2 .text-gradient,
+h3 .text-gradient,
+.nav-logo-text span,
+.section-header h2 span {
+    background: linear-gradient(135deg, #0F172A 0%, #1E40AF 60%, #2563EB 100%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* 2. Deep Navy Buttons & Primary CTAs */
+.btn-primary,
+.nav-cta,
+#heroCta,
+.btn-premium,
+.mobile-menu-cta {
+    background: linear-gradient(135deg, #1E40AF 0%, #2563EB 100%) !important;
+    border-color: #1E40AF !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 18px rgba(30, 64, 175, 0.35) !important;
+}
+
+.btn-primary:hover,
+.nav-cta:hover,
+#heroCta:hover,
+.btn-premium:hover {
+    background: linear-gradient(135deg, #0F172A 0%, #1E40AF 100%) !important;
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.45) !important;
+}
+
+/* 3. Deep Navy Badges & Capacity Tags */
+.badge-primary,
+.badge,
+.section-header .badge {
+    background: #EFF6FF !important;
+    color: #1E40AF !important;
+    border-color: #BFDBFE !important;
+}
+
+/* 4. Deep Navy Icons & Numbers */
+.service-icon,
+.reason-icon,
+.process-num,
+.blog-link,
+.faq-item summary::after,
+.contact-info-icon,
+.mobile-menu-links a i {
+    color: #1E40AF !important;
+}
+
+/* 5. Modern Filter Bar & Active Pills */
+.portfolio-filter-bar {
+    background: #F8FAFC !important;
+    border-color: #E2E8F0 !important;
+}
+
+.filter-btn {
+    color: #475569 !important;
+}
+
+.filter-btn:hover {
+    color: #1E40AF !important;
+    background: #EFF6FF !important;
+    border-color: #BFDBFE !important;
+}
+
+.filter-btn.active {
+    background: #EFF6FF !important;
+    color: #1E40AF !important;
+    border: 1.5px solid #1E40AF !important;
+    box-shadow: 0 3px 10px rgba(30, 64, 175, 0.22) !important;
+}
+
+/* 6. Pricing Cards & Delivery Tags */
+.pricing-card.featured,
+.pricing-card--popular {
+    border: 2px solid #1E40AF !important;
+    box-shadow: 0 8px 30px rgba(30, 64, 175, 0.18) !important;
+}
+
+.pricing-badge-popular {
+    background: #1E40AF !important;
+    color: #FFFFFF !important;
+}
+
+.pricing-badge-premium {
+    background: #0F172A !important;
+    color: #FFFFFF !important;
+}
+
+.pricing-teslim {
+    background: #EFF6FF !important;
+    color: #1E40AF !important;
+    border-color: #BFDBFE !important;
+}
+
+/* 7. Process Step Number Circles (Compact, White Text) */
+.process-num {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #1E40AF, #2563EB) !important;
+    color: #FFFFFF !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 0.95rem !important;
+    box-shadow: 0 4px 14px rgba(30, 64, 175, 0.3) !important;
+}
+
+/* 8. Social Media Icons Spacing */
+.contact-social-icons,
+.footer-socials {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+/* 9. Vector Images Layering Behind Text */
+.pricing-card {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.pricing-card > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.card-bg-vector {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    width: 72px !important;
+    height: 72px !important;
+    opacity: 0.07 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
+/* 11. Pixel-Perfect Equal Height for Contact Info and Form Box */
+@media (min-width: 992px) {
+    .contact-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1.25fr !important;
+        align-items: stretch !important;
+        gap: 32px !important;
+    }
+
+    .contact-info-list {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 100% !important;
+        margin-bottom: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .contact-info-item {
+        flex: 1 1 auto !important;
+        display: flex !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        margin-bottom: 0 !important;
+        padding: 16px 20px !important;
+    }
+
+    .contact-form {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
