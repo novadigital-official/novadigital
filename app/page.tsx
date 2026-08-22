@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Preloader from "./components/Preloader";
+import AmbientAurora from "./components/AmbientAurora";
+import ScrollProgressBar from "./components/ScrollProgressBar";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ProvenResults from "./components/ProvenResults";
-import SectionDivider from "./components/SectionDivider";
-import Portfolio from "./components/Portfolio";
+import WhyNova from "./components/WhyNova";
 import InteractiveSolutions from "./components/InteractiveSolutions";
+import Portfolio from "./components/Portfolio";
 import Packages from "./components/Packages";
 import Process from "./components/Process";
 import FAQ from "./components/FAQ";
@@ -28,39 +31,48 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative overflow-x-hidden w-full max-w-full">
-      {/* Fixed Ambient 3D Aurora Cones */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 w-full max-w-full">
-        <div className="aurora-cone-1 -top-[10%] -left-[10%]" />
-        <div className="aurora-cone-2 -bottom-[10%] -right-[10%]" />
-      </div>
+      {/* 🚀 1. Açılış Logosu (Preloader) */}
+      <Preloader />
+
+      {/* 📏 2. Ekran Tepesinde İnce İlerleme Çizgisi */}
+      <ScrollProgressBar />
+
+      {/* 🌌 3. Yaşayan Arka Plan: Kayan Canlı Aurora Dalgaları + İlk 4 Saniye Sahne Işığı */}
+      <AmbientAurora />
 
       <Navbar />
+
+      {/* 1. Hero */}
       <Hero />
+
+      {/* 2. Proof metrics */}
       <ProvenResults />
 
-      <SectionDivider />
-      <Portfolio />
+      {/* 3. Neden NovaDigital? */}
+      <WhyNova />
 
-      <SectionDivider />
-      <InteractiveSolutions />
-
-      <SectionDivider />
+      {/* 4. Packages — fiyatlar erkenden gösterilir */}
       <Packages />
 
-      <SectionDivider />
+      {/* 5. Interactive Solutions */}
+      <InteractiveSolutions />
+
+      {/* 6. Portfolio — canlı demolar */}
+      <Portfolio />
+
+      {/* 7. Process */}
       <Process />
 
-      <SectionDivider />
+      {/* 8. FAQ */}
       <FAQ />
 
-      <SectionDivider />
+      {/* 9. Contact */}
       <Contact onOpenLegal={handleOpenLegal} />
 
       <Footer onOpenLegal={handleOpenLegal} />
       <FloatingWhatsApp />
       <MobileStickyCTA />
 
-      {/* Global Legal & KVKK Modal */}
       <LegalModal
         isOpen={legalModalOpen}
         activeTab={legalTab}
@@ -68,7 +80,6 @@ export default function Home() {
         onTabChange={setLegalTab}
       />
 
-      {/* Lightweight Cookie Consent Toast */}
       <CookieBanner onOpenLegal={() => handleOpenLegal("cerez")} />
     </main>
   );

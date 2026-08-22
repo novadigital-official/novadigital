@@ -4,7 +4,8 @@ import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import Balancer from "react-wrap-balancer";
-import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 interface Project {
   title: string;
@@ -18,6 +19,8 @@ interface Project {
 
 export default function Portfolio() {
   const [filter, setFilter] = useState<"all" | "standart" | "kurumsal" | "profesyonel">("all");
+  const { ref, isVisible } = useScrollReveal();
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     dragFree: false,
@@ -145,20 +148,26 @@ export default function Portfolio() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section id="portfoy" className="py-12 sm:py-14 relative bg-transparent">
+    <section id="portfoy" className="py-16 md:py-24 relative bg-[#0f172a] overflow-hidden">
+      {/* Ambient Blue Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-blue-600/10 blur-[130px] rounded-full pointer-events-none" />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header & Integrated Controls Row */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div ref={ref} className={`flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 ${isVisible ? "reveal-up in-view" : "reveal-up"}`}>
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
               <Balancer>
                 Sektörünüze Özel <span className="text-shimmer">Canlı Demolar</span>
               </Balancer>
             </h2>
+            <p className="text-xs sm:text-sm text-slate-400 mt-2 max-w-xl">
+              Hazır şablon değil; her sektöre özel tasarlanmış ve canlıda çalışan gerçek sistemler.
+            </p>
           </div>
 
           {/* Integrated Compact Filter Bar + Arrow Navigation */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold overflow-x-auto no-scrollbar w-full sm:w-auto">
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-900/90 border border-slate-800 text-xs font-semibold overflow-x-auto no-scrollbar w-full sm:w-auto shrink-0 shadow-lg">
             <button
               onClick={() => setFilter("all")}
               className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap shrink-0 ${
@@ -201,7 +210,7 @@ export default function Portfolio() {
             </button>
 
             {/* Compact Arrows right beside filter tabs */}
-            <div className="flex items-center gap-1 pl-1 ml-auto sm:ml-1 border-l border-white/10 shrink-0">
+            <div className="flex items-center gap-1 pl-1 ml-auto sm:ml-1 border-l border-slate-800 shrink-0">
               <button
                 onClick={scrollPrev}
                 disabled={prevBtnDisabled}
@@ -222,7 +231,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Embla Responsive Controlled Snapping */}
+        {/* Embla Carousel — Clean, Modern Visual Cards */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex gap-5 py-2">
             {filtered.map((item, idx) => (
@@ -231,47 +240,50 @@ export default function Portfolio() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex-[0_0_86%] sm:flex-[0_0_320px] md:flex-[0_0_340px] glass-box overflow-hidden flex flex-col justify-between"
+                className="group flex-[0_0_88%] sm:flex-[0_0_330px] md:flex-[0_0_350px] bg-[#121c32]/90 rounded-2xl overflow-hidden flex flex-col justify-between border border-slate-700/60 hover:border-cyan-500/50 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300 transform hover:-translate-y-1"
               >
-                {/* Thumbnail */}
-                <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden border-b border-white/5">
+                {/* Screenshot Area */}
+                <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden border-b border-slate-800/80">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 86vw, 340px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    sizes="(max-width: 768px) 88vw, 350px"
                   />
-                  <div className="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10px] font-bold text-white border border-white/10 shadow-md flex items-center gap-1">
-                    <span>Test Et</span>
-                    <ExternalLink className="w-2.5 h-2.5 text-blue-400" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c1324]/80 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity" />
+                  
+                  {/* Subtle top badge on image */}
+                  <div className="absolute top-3 right-3 p-2 rounded-xl bg-slate-950/80 border border-slate-700/80 text-slate-400 group-hover:text-cyan-400 group-hover:border-cyan-500/40 backdrop-blur-md transition-all shadow-lg">
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </div>
                 </div>
 
-                {/* Info */}
-                <div className="p-4 flex flex-col justify-between flex-1">
+                {/* Card Body */}
+                <div className="p-4 sm:p-5 flex flex-col justify-between flex-1">
                   <div>
-                    <div className="flex items-center justify-between gap-1.5 mb-2">
-                      <span className="text-[11px] font-medium text-slate-400">
+                    {/* Pill Badges */}
+                    <div className="flex items-center justify-between gap-1.5 mb-2.5 flex-wrap">
+                      <span className="bg-blue-500/10 text-cyan-400 border border-blue-500/20 text-[11px] px-2.5 py-0.5 rounded-full font-medium">
                         {item.tag}
                       </span>
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-white/5 text-blue-300 border border-white/10">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-white/5 text-slate-300 border border-white/10">
                         {item.badge}
                       </span>
                     </div>
 
-                    <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-1 mb-1">
+                    <h3 className="text-sm sm:text-base font-extrabold text-white tracking-tight group-hover:text-cyan-300 transition-colors line-clamp-1 mb-1.5">
                       {item.title}
                     </h3>
 
-                    <p className="text-xs text-slate-400 leading-snug line-clamp-2">
+                    <p className="text-xs text-slate-400 leading-relaxed line-clamp-2">
                       {item.desc}
                     </p>
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-white/5 flex items-center justify-between text-xs font-semibold text-blue-400">
+                  <div className="pt-3.5 mt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-cyan-400 group-hover:text-cyan-300">
                     <span>Canlı Demoyu İncele</span>
-                    <span className="transform group-hover:translate-x-1 transition-transform">↗</span>
+                    <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                   </div>
                 </div>
               </a>

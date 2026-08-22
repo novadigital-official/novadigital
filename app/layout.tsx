@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Provider as BalancerProvider } from "react-wrap-balancer";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -169,9 +170,11 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {children}
-        <Analytics />
-        <SpeedInsights />
+        <BalancerProvider>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+        </BalancerProvider>
 
         {/* All tracking scripts moved AFTER content, with lazyOnload */}
         <Script id="gtm-script" strategy="lazyOnload">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Balancer from "react-wrap-balancer";
 import {
   Sparkles,
   Send,
@@ -45,10 +46,14 @@ export default function AuditWizard() {
             <span>Ücretsiz Dijital Denetim</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-2">
-            Web Sitenizi & Rakiplerinizi <span className="text-shimmer">60 Saniyede Analiz Edelim</span>
+            <Balancer>
+              Web Sitenizi & Rakiplerinizi <span className="text-shimmer">60 Saniyede Analiz Edelim</span>
+            </Balancer>
           </h2>
           <p className="text-xs sm:text-sm text-slate-400">
-            Müşteri kaybettiren 15 teknik ve tasarımsal hatayı ücretsiz tespit edelim, özel yol haritanızı WhatsApp'tan iletelim.
+            <Balancer>
+              Müşteri kaybettiren 15 teknik ve tasarımsal hatayı ücretsiz tespit edelim, özel yol haritanızı WhatsApp'tan iletelim.
+            </Balancer>
           </p>
         </div>
 
