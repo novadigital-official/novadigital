@@ -31,20 +31,16 @@ export default function Hero() {
             </div>
 
             {/* Benefit Display Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-[3.2rem] font-extrabold tracking-tight text-white leading-[1.14] mb-5">
-              <Balancer>
-                İşletmenizin Dijital Gücünü ve{" "}
-                <span className="text-shimmer">
-                  Müşteri Hacmini Büyütüyoruz.
-                </span>
-              </Balancer>
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.2rem] font-extrabold tracking-tight text-white leading-[1.14] mb-5 [text-wrap:balance]">
+              İşletmenizin Dijital Gücünü ve{" "}
+              <span className="text-shimmer">
+                Müşteri Hacmini Büyütüyoruz.
+              </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-xl mb-7">
-              <Balancer>
-                Google SEO uyumlu, mobil açılış hızı 0.4 saniye olan ve doğrudan telefonunuzu çaldıran modern web sistemleri tasarlıyoruz.
-              </Balancer>
+            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-xl mb-7 [text-wrap:balance]">
+              Google SEO uyumlu, mobil açılış hızı 0.4 saniye olan ve doğrudan telefonunuzu çaldıran modern web sistemleri tasarlıyoruz.
             </p>
 
             {/* Standardized Dual CTAs */}
@@ -93,6 +89,7 @@ export default function Hero() {
                 <div className="relative aspect-[16/10] bg-slate-950 rounded-xl overflow-hidden">
                   <video
                     src="/images/8937986-hd_1080_1920_30fps.mp4"
+                    poster="/images/hero-reklam-visual.jpg"
                     autoPlay
                     loop
                     muted
