@@ -33,6 +33,15 @@ export default function Portfolio() {
 
   const projects: Project[] = [
     {
+      title: "Nova Organizasyon & Turizm Yönetimi",
+      category: "profesyonel",
+      tag: "Turizm & Organizasyon",
+      badge: "Profesyonel Paket",
+      image: "/images/nova-organizasyon-preview.png",
+      desc: "5 yıldızlı oteller için departman yönetimi, kurumsal teklif sihirbazı ve çok dilli operasyon platformu.",
+      url: "https://www.novaorganizasyon7.com.tr",
+    },
+    {
       title: "Antalya DHI Saç Ekimi & Sağlık",
       category: "profesyonel",
       tag: "Sağlık & Medikal",
