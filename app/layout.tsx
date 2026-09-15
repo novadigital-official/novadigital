@@ -21,9 +21,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nova Digital | Antalya Web Tasarım, E-Ticaret & Dijital Ajans",
+  title: "Nova Global Bilişim | Antalya Web Tasarım, Yazılım & Dijital Ajans",
   description:
-    "Nova Digital — 2 günde teslim dönüşüm odaklı kurumsal web siteleri, e-ticaret sistemleri, Google Ads & Meta reklam yönetimi ve mobil yazılım ajansı. Antalya ve Türkiye geneli.",
+    "Nova Global Bilişim — 2 günde teslim dönüşüm odaklı kurumsal web siteleri, e-ticaret sistemleri, B2B yazılım çözümleri ve reklam yönetimi ajansı. Antalya ve Türkiye geneli.",
   keywords: [
     "antalya web tasarım",
     "antalya dijital ajans",
@@ -32,11 +32,12 @@ export const metadata: Metadata = {
     "google ads yönetimi",
     "meta ads reklam",
     "mobil uygulama geliştirme",
-    "nova digital",
+    "nova global bilişim",
+    "nova bilişim",
   ],
-  authors: [{ name: "Nova Digital" }],
-  creator: "Nova Digital",
-  publisher: "Nova Digital",
+  authors: [{ name: "Nova Global Bilişim" }],
+  creator: "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
+  publisher: "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
   metadataBase: new URL("https://novadigital.com.tr"),
   alternates: {
     canonical: "https://novadigital.com.tr",
@@ -44,24 +45,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://novadigital.com.tr",
-    title: "Nova Digital | Antalya Web Tasarım & Dijital Ajans",
+    title: "Nova Global Bilişim | Antalya Web Tasarım & Dijital Ajans",
     description:
       "Web siteniz sadece görünmesin, işletmenize müşteri getirsin. 2 günde anahtar teslim, SEO uyumlu dijital çözümler.",
-    siteName: "Nova Digital",
+    siteName: "Nova Global Bilişim",
     locale: "tr_TR",
     images: [
       {
         url: "https://novadigital.com.tr/images/logo-nova-digital.png",
         width: 1200,
         height: 630,
-        alt: "Nova Digital",
+        alt: "Nova Global Bilişim",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nova Digital | Web Tasarım & Reklam Ajansı",
-    description: "2 günde anahtar teslim web siteleri ve dijital reklam yönetimi.",
+    title: "Nova Global Bilişim | Web Tasarım & Yazılım Ajansı",
+    description: "2 günde anahtar teslim web siteleri ve kurumsal yazılım çözümleri.",
     images: ["https://novadigital.com.tr/images/logo-nova-digital.png"],
   },
   robots: {
@@ -90,7 +91,8 @@ const jsonLd = {
     {
       "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": "https://novadigital.com.tr/#localbusiness",
-      name: "Nova Digital Yazılım & Dijital Pazarlama",
+      name: "Nova Global Bilişim Yazılım & Danışmanlık",
+      legalName: "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
       image: "https://novadigital.com.tr/images/logo-nova-digital.png",
       url: "https://novadigital.com.tr/",
       telephone: "+905070871789",
@@ -135,7 +137,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": "https://novadigital.com.tr/#website",
       url: "https://novadigital.com.tr/",
-      name: "Nova Digital",
+      name: "Nova Global Bilişim",
       publisher: { "@id": "https://novadigital.com.tr/#localbusiness" },
       inLanguage: "tr-TR",
     },

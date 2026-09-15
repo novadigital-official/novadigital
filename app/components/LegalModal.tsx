@@ -82,11 +82,11 @@ export default function LegalModal({
                 6698 Sayılı KVKK Kapsamında Kişisel Verilerin Korunması Aydınlatma Metni
               </h4>
               <p>
-                <strong>Veri Sorumlusu:</strong> Nova Digital Web Tasarım & Yazılım Stüdyosu (Antalya / Türkiye) —{" "}
+                <strong>Veri Sorumlusu:</strong> NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ (Antalya / Türkiye) —{" "}
                 <span className="text-blue-400">info@novadigital.com.tr</span>
               </p>
               <p>
-                Nova Digital olarak 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, veri sorumlusu sıfatıyla, ziyaretçilerimizin ve müşterilerimizin kişisel verilerini yasal mevzuata tam uyumlu olarak işlemekteyiz.
+                NOVA GLOBAL BİLİŞİM olarak 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, veri sorumlusu sıfatıyla, ziyaretçilerimizin ve müşterilerimizin kişisel verilerini yasal mevzuata tam uyumlu olarak işlemekteyiz.
               </p>
               <div className="space-y-2">
                 <h5 className="font-bold text-white">1. İşlenen Kişisel Veriler</h5>

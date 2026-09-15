@@ -49,7 +49,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="font-extrabold text-sm sm:text-base tracking-tight text-white font-mono group-hover:text-cyan-400 transition-colors leading-tight">
-                NOVA DIGITAL
+                NOVA GLOBAL BİLİŞİM
               </span>
               <span className="text-[10px] text-cyan-400/80 font-medium tracking-wide">
                 Web Tasarım & Yazılım

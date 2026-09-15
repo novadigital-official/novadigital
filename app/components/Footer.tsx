@@ -37,10 +37,10 @@ export default function Footer({ onOpenLegal }: FooterProps) {
             </div>
             <div className="flex flex-col leading-tight">
               <span className="font-extrabold text-sm tracking-tight text-white font-mono">
-                NOVA DIGITAL
+                NOVA GLOBAL BİLİŞİM
               </span>
               <span className="text-[10px] text-slate-500 font-medium">
-                Web Tasarım & Dijital Ajans
+                Web Tasarım & Yazılım Çözümleri
               </span>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function Footer({ onOpenLegal }: FooterProps) {
 
         {/* Copyright */}
         <div className="mt-5 pt-4 border-t border-white/5 text-[10px] text-slate-600 text-center">
-          © 2026 Nova Digital Web Tasarım & Yazılım Stüdyosu. Tüm hakları saklıdır.
+          © 2026 NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ. Tüm hakları saklıdır.
         </div>
       </div>
     </footer>

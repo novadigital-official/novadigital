@@ -40,7 +40,7 @@ export default function WhyNova() {
         {/* Header */}
         <div ref={ref} className={`mb-12 text-center max-w-2xl mx-auto ${isVisible ? "reveal-up in-view" : "reveal-up"}`}>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
-            Neden <span className="text-shimmer">Nova Digital?</span>
+            Neden <span className="text-shimmer">Nova Global Bilişim?</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-2">
             Teknik bilgi ile ticari satışı birleştiren modern dijital iş ortağınız.
@@ -84,7 +84,7 @@ export default function WhyNova() {
           isVisible ? "reveal-up in-view stagger-5" : "reveal-up"
         }`}>
           <p className="text-xs sm:text-sm font-semibold text-slate-200">
-            <span className="text-cyan-400 font-mono">NovaDigital</span> — İşletmeler için dijital müşteri edinme sistemleri.{" "}
+            <span className="text-cyan-400 font-mono">Nova Global Bilişim</span> — İşletmeler için dijital müşteri edinme sistemleri.{" "}
             <span className="text-slate-400 font-normal">Web sitesi + Google + Meta + dönüşüm + otomasyon.</span>
           </p>
         </div>
