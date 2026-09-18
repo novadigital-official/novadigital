@@ -157,6 +157,13 @@ const jsonLd = {
           "url": "https://antalyacatiges.com.tr",
           "telephone": "+905070871789",
           "description": "Antalya otel ve fabrika endüstriyel güneş enerjisi kurulumu."
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "Nova Organizasyon",
+          "url": "https://www.novaorganizasyon7.com.tr",
+          "telephone": "+905070871789",
+          "description": "Antalya 5 yıldızlı oteller için profesyonel departman işletimi ve saha koordinasyonu."
         }
       ]
     },

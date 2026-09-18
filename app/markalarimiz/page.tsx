@@ -75,6 +75,13 @@ const jsonLd = {
           "url": "https://antalyadaklimaservisi.com.tr",
           "description": "Antalya acil klima teknik servisi, ilaçlı yıkama bakımı ve gaz dolumu.",
           "telephone": "+905070871789"
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "NOVA ORGANİZASYON",
+          "url": "https://www.novaorganizasyon7.com.tr",
+          "description": "5 yıldızlı oteller ve tesisler için profesyonel departman işletimi, saha koordinasyonu ve danışmanlık.",
+          "telephone": "+905070871789"
         }
       ]
     },
@@ -184,6 +191,24 @@ const BRANDS = [
       "Orijinal R32 & R410 Gaz Dolum Garantisi",
       "30 Dakikada Hızlı Adrese Müdahale",
       "1 Yıl Yazılı Kurumsal Servis Garantisi"
+    ]
+  },
+  {
+    id: "organizasyon",
+    badge: "Turizm & Tesis Yönetimi",
+    name: "NOVA ORGANİZASYON",
+    tagline: "Otel Departman İşletimi & Saha Operasyonu",
+    description:
+      "Antalya'daki 5 yıldızlı oteller, resort tesisler ve sanayi işletmeleri için profesyonel departman işletimi, saha koordinasyonu ve kurumsal danışmanlık sağlar.",
+    href: "https://www.novaorganizasyon7.com.tr",
+    external: true,
+    color: "from-rose-500/20 to-pink-500/10 border-rose-500/30",
+    badgeColor: "bg-rose-500/10 text-rose-400 border-rose-500/20",
+    features: [
+      "5 Yıldızlı Otel Departman İşletim Modeli",
+      "Saha Denetimi, Oryantasyon & Koordinasyon",
+      "Yabancı Personel İdari Süreç Danışmanlığı",
+      "Tesis Sezonluk ve Yıllık Operasyon Yönetimi"
     ]
   }
 ];
