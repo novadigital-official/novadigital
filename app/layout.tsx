@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Provider as BalancerProvider } from "react-wrap-balancer";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -89,59 +88,120 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://novadigital.com.tr/#organization",
+      "name": "NOVA GLOBAL",
+      "legalName": "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
+      "url": "https://novadigital.com.tr",
+      "logo": "https://novadigital.com.tr/images/logo-nova-digital.png",
+      "telephone": "+905070871789",
+      "email": "info@novadigital.com.tr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kültür Mah. 3856 Sokak",
+        "addressLocality": "Kepez",
+        "addressRegion": "Antalya",
+        "postalCode": "07090",
+        "addressCountry": "TR"
+      },
+      "sameAs": [
+        "https://instagram.com/novadigitalllll",
+        "https://threads.net/@novadigitalllll"
+      ],
+      "knowsAbout": [
+        "Web Tasarım",
+        "Kurumsal Yazılım",
+        "E-Ticaret",
+        "Mobil Uygulama Geliştirme",
+        "Dijital Pazarlama",
+        "Google Ads",
+        "Antalya Dijital Ajans"
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Antalya" },
+        { "@type": "Country", "name": "Türkiye" }
+      ]
+    },
+    {
       "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": "https://novadigital.com.tr/#localbusiness",
-      name: "Nova Global Bilişim Yazılım & Danışmanlık",
-      legalName: "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
-      image: "https://novadigital.com.tr/images/logo-nova-digital.png",
-      url: "https://novadigital.com.tr/",
-      telephone: "+905070871789",
-      email: "info@novadigital.com.tr",
-      priceRange: "₺₺",
-      address: {
+      "name": "Nova Global Bilişim Yazılım & Danışmanlık",
+      "legalName": "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
+      "image": "https://novadigital.com.tr/images/logo-nova-digital.png",
+      "url": "https://novadigital.com.tr/",
+      "telephone": "+905070871789",
+      "email": "info@novadigital.com.tr",
+      "priceRange": "₺₺",
+      "address": {
         "@type": "PostalAddress",
-        streetAddress: "Kültür Mah. 3856 Sokak",
-        addressLocality: "Kepez",
-        addressRegion: "Antalya",
-        postalCode: "07090",
-        addressCountry: "TR",
+        "streetAddress": "Kültür Mah. 3856 Sokak",
+        "addressLocality": "Kepez",
+        "addressRegion": "Antalya",
+        "postalCode": "07090",
+        "addressCountry": "TR"
       },
-      geo: {
+      "geo": {
         "@type": "GeoCoordinates",
-        latitude: 36.9081,
-        longitude: 30.6558,
+        "latitude": 36.9081,
+        "longitude": 30.6558
       },
-      openingHoursSpecification: {
+      "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
-        opens: "09:00",
-        closes: "20:00",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "20:00"
       },
-      sameAs: [
+      "sameAs": [
         "https://instagram.com/novadigitalllll",
-        "https://threads.net/@novadigitalllll",
+        "https://threads.net/@novadigitalllll"
       ],
-      areaServed: [
-        { "@type": "City", name: "Antalya" },
-        { "@type": "Country", name: "Türkiye" },
+      "areaServed": [
+        { "@type": "City", "name": "Antalya" },
+        { "@type": "Country", "name": "Türkiye" }
       ],
+      "parentOrganization": { "@id": "https://novadigital.com.tr/#organization" }
     },
     {
       "@type": "WebSite",
       "@id": "https://novadigital.com.tr/#website",
-      url: "https://novadigital.com.tr/",
-      name: "Nova Global Bilişim",
-      publisher: { "@id": "https://novadigital.com.tr/#localbusiness" },
-      inLanguage: "tr-TR",
+      "url": "https://novadigital.com.tr/",
+      "name": "Nova Global Bilişim",
+      "publisher": { "@id": "https://novadigital.com.tr/#organization" },
+      "inLanguage": "tr-TR"
     },
-  ],
+    {
+      "@type": "Service",
+      "name": "Kurumsal Web Sitesi Tasarımı",
+      "description": "Antalya ve Türkiye'deki işletmeler için 48 saatte anahtar teslim, hızlı açılan ve dönüşüm odaklı kurumsal web siteleri.",
+      "provider": { "@id": "https://novadigital.com.tr/#localbusiness" },
+      "areaServed": "Antalya, Türkiye",
+      "serviceType": "Web Tasarım ve Geliştirme"
+    },
+    {
+      "@type": "Service",
+      "name": "E-Ticaret Sistemi Kurulumu",
+      "description": "Ürün yönetimi, ödeme entegrasyonu ve mobil uyumlu e-ticaret altyapısı. Antalya işletmelerine özel.",
+      "provider": { "@id": "https://novadigital.com.tr/#localbusiness" },
+      "areaServed": "Antalya, Türkiye",
+      "serviceType": "E-Ticaret Yazılımı"
+    },
+    {
+      "@type": "Service",
+      "name": "Mobil Uygulama Geliştirme",
+      "description": "iOS ve Android için kurumsal mobil uygulamalar. Hızlı prototipleme ve anahtar teslim teslim.",
+      "provider": { "@id": "https://novadigital.com.tr/#localbusiness" },
+      "areaServed": "Türkiye",
+      "serviceType": "Mobil Yazılım Geliştirme"
+    },
+    {
+      "@type": "Service",
+      "name": "Google Ads ve Meta Reklam Yönetimi",
+      "description": "Google Ads, Meta (Facebook/Instagram) reklam kampanya kurulumu ve optimize yönetimi.",
+      "provider": { "@id": "https://novadigital.com.tr/#localbusiness" },
+      "areaServed": "Türkiye",
+      "serviceType": "Dijital Reklamcılık"
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -172,11 +232,9 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <BalancerProvider>
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </BalancerProvider>
+        {children}
+        <Analytics />
+        <SpeedInsights />
 
         {/* All tracking scripts moved AFTER content, with lazyOnload */}
         <Script id="gtm-script" strategy="lazyOnload">
