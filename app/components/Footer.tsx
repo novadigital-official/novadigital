@@ -50,7 +50,7 @@ export default function Footer({ onOpenLegal }: FooterProps) {
             {navLinks.map((link, idx) => (
               <Link
                 key={idx}
-                href={link.href}
+                href={link.href.startsWith("#") ? `/${link.href}` : link.href}
                 className="hover:text-white transition-colors whitespace-nowrap"
               >
                 {link.name}
@@ -83,8 +83,22 @@ export default function Footer({ onOpenLegal }: FooterProps) {
           </div>
         </div>
 
+        {/* Service Pages Internal Linking Cluster */}
+        <div className="mt-4 pt-3 border-t border-white/5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-slate-400">
+          <span className="text-slate-500 font-semibold text-[10px] uppercase tracking-wider">Hizmetlerimiz:</span>
+          <Link href="/antalya-web-tasarim" className="hover:text-cyan-400 transition-colors">Antalya Web Tasarım</Link>
+          <span className="text-slate-700">·</span>
+          <Link href="/google-ads-yonetimi" className="hover:text-cyan-400 transition-colors">Google Ads Yönetimi</Link>
+          <span className="text-slate-700">·</span>
+          <Link href="/e-ticaret-yazilimi" className="hover:text-cyan-400 transition-colors">E-Ticaret Yazılımı</Link>
+          <span className="text-slate-700">·</span>
+          <Link href="/mobil-uygulama" className="hover:text-cyan-400 transition-colors">Mobil Uygulama</Link>
+          <span className="text-slate-700">·</span>
+          <Link href="/meta-reklam-yonetimi" className="hover:text-cyan-400 transition-colors">Meta Reklam Yönetimi</Link>
+        </div>
+
         {/* Copyright */}
-        <div className="mt-5 pt-4 border-t border-white/5 text-[10px] text-slate-600 text-center">
+        <div className="mt-4 pt-3 border-t border-white/5 text-[10px] text-slate-600 text-center">
           © 2026 NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ. Tüm hakları saklıdır.
         </div>
       </div>

@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://novadigital.com.tr";
 
   // NOT: Anchor URL'ler (#iletisim, #hizmetler vb.) sitemap URL'si DEĞİLDİR.
-  // lastModified: Gerçek içerik güncelleme tarihleri kullanılır.
+  // Yalnızca arama motorlarının dizine eklemesi gereken gerçek ticari sayfalar.
   return [
     {
       url: baseUrl,
@@ -23,6 +23,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: "2026-09-18",
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/e-ticaret-yazilimi`,
+      lastModified: "2026-09-18",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/mobil-uygulama`,
+      lastModified: "2026-09-18",
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/meta-reklam-yonetimi`,
+      lastModified: "2026-09-18",
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
   ];
 }
