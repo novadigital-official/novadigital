@@ -91,7 +91,6 @@ const jsonLd = {
       "@type": "Organization",
       "@id": "https://novadigital.com.tr/#organization",
       "name": "NOVA GLOBAL",
-      "alternateName": ["NOVA GRUP", "NOVA GROUP", "NOVA GLOBAL GROUP", "NOVA GRUP BİLİŞİM"],
       "legalName": "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
       "url": "https://novadigital.com.tr",
       "logo": "https://novadigital.com.tr/images/logo-nova-digital.png",

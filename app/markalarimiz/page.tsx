@@ -26,7 +26,6 @@ const jsonLd = {
       "@type": "Organization",
       "@id": "https://novadigital.com.tr/#organization",
       "name": "NOVA GLOBAL",
-      "alternateName": ["NOVA GRUP", "NOVA GROUP", "NOVA GLOBAL GROUP"],
       "legalName": "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
       "url": "https://novadigital.com.tr",
       "logo": "https://novadigital.com.tr/images/logo-nova-digital.png",
@@ -244,7 +243,7 @@ export default function MarkalarimizPage() {
           </h1>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             NOVA GLOBAL, Antalya merkezli çok sektörlü bir hizmet ve teknoloji organizasyonudur.
-            Faaliyetlerini farklı uzmanlık alanlarında geliştirdiği bağımsız operasyon markalarıyla yürütür.
+            Faaliyetlerini farklı uzmanlık alanlarında faaliyet gösteren hizmet markalarıyla yürütür.
           </p>
         </section>
 
@@ -260,7 +259,6 @@ export default function MarkalarimizPage() {
                   <span className={`text-[11px] font-bold px-3 py-1 rounded-full border ${b.badgeColor} uppercase tracking-wider`}>
                     {b.badge}
                   </span>
-                  <span className="text-[10px] text-slate-500 font-mono">NOVA GROUP</span>
                 </div>
 
                 <h2 className="text-2xl font-black text-white tracking-tight mb-2">
