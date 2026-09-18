@@ -91,6 +91,7 @@ const jsonLd = {
       "@type": "Organization",
       "@id": "https://novadigital.com.tr/#organization",
       "name": "NOVA GLOBAL",
+      "alternateName": ["NOVA GRUP", "NOVA GROUP", "NOVA GLOBAL GROUP", "NOVA GRUP BİLİŞİM"],
       "legalName": "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
       "url": "https://novadigital.com.tr",
       "logo": "https://novadigital.com.tr/images/logo-nova-digital.png",
@@ -120,6 +121,43 @@ const jsonLd = {
       "areaServed": [
         { "@type": "City", "name": "Antalya" },
         { "@type": "Country", "name": "Türkiye" }
+      ],
+      "subOrganization": [
+        {
+          "@type": "LocalBusiness",
+          "name": "Nova Epoksi Zemin Çözümleri",
+          "url": "https://antalyaepoksizemin.com.tr",
+          "telephone": "+905070871789",
+          "description": "Antalya OSB ve fabrika endüstriyel epoksi zemin sistemleri."
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "Nova Tadilat & Renovasyon",
+          "url": "https://antalyadatadilat.com.tr",
+          "telephone": "+905070871789",
+          "description": "Antalya anahtar teslim villa ve daire tadilatı, mimari renovasyon."
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "Nova Nakliyat",
+          "url": "https://antalyadanakliyat.com.tr",
+          "telephone": "+905070871789",
+          "description": "Antalya asansörlü evden eve ve kurumsal nakliyat hizmetleri."
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "Nova Klima Servisi",
+          "url": "https://antalyadaklimaservisi.com.tr",
+          "telephone": "+905070871789",
+          "description": "Antalya acil klima bakım, ilaçlı yıkama ve teknik servis hizmetleri."
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "Nova Enerji Çatı GES",
+          "url": "https://antalyacatiges.com.tr",
+          "telephone": "+905070871789",
+          "description": "Antalya otel ve fabrika endüstriyel güneş enerjisi kurulumu."
+        }
       ]
     },
     {

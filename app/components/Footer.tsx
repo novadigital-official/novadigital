@@ -58,8 +58,15 @@ export default function Footer({ onOpenLegal }: FooterProps) {
             ))}
           </nav>
 
-          {/* Legal links */}
+          {/* Legal & Corporate links */}
           <div className="flex items-center gap-3 text-[11px] text-slate-500 shrink-0">
+            <Link
+              href="/markalarimiz"
+              className="text-cyan-400/80 hover:text-cyan-300 font-semibold transition"
+            >
+              Markalarımız
+            </Link>
+            <span className="text-slate-700">·</span>
             <button
               onClick={() => onOpenLegal && onOpenLegal("kvkk")}
               className="hover:text-slate-200 transition"
@@ -99,7 +106,7 @@ export default function Footer({ onOpenLegal }: FooterProps) {
 
         {/* Copyright */}
         <div className="mt-4 pt-3 border-t border-white/5 text-[10px] text-slate-600 text-center">
-          © 2026 NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ. Tüm hakları saklıdır.
+          © 2026 Nova Digital. NOVA GLOBAL bünyesinde. NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ. Tüm hakları saklıdır.
         </div>
       </div>
     </footer>
