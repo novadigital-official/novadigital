@@ -8,6 +8,7 @@ import { MessageSquare, Phone, Mail, MapPin, CheckCircle2, AlertCircle, ShieldCh
 import Balancer from "react-wrap-balancer";
 
 import type { LegalTab } from "./LegalModal";
+import { useAnalytics } from "../hooks/useAnalytics";
 
 const formSchema = z.object({
   name: z.string().min(2, "İsim en az 2 karakter olmalıdır"),
@@ -27,6 +28,7 @@ interface ContactProps {
 
 export default function Contact({ onOpenLegal }: ContactProps) {
   const [submitted, setSubmitted] = useState(false);
+  const { trackFormSubmit, trackWhatsApp } = useAnalytics();
 
   const {
     register,
@@ -43,11 +45,25 @@ export default function Contact({ onOpenLegal }: ContactProps) {
   });
 
   const onSubmit = (data: ContactFormData) => {
+    // GA4: Form gönderimi — lead attribution için kritik
+    trackFormSubmit({
+      site: "nova-digital",
+      source: "contact-form",
+      service_selected: data.service,
+    });
+    // GA4: WhatsApp açılışı (form sonrası)
+    trackWhatsApp({
+      site: "nova-digital",
+      source: "contact-form",
+      service: data.service,
+    });
+
     const msg = `Merhaba Nova Digital,\nİsim: ${data.name}\nTelefon: ${data.phone}\nİlgilenilen Hizmet: ${data.service}\nNot: ${data.notes || "Belirtilmedi"}`;
     const encoded = encodeURIComponent(msg);
     window.open(`https://wa.me/905070871789?text=${encoded}`, "_blank");
     setSubmitted(true);
   };
+
 
   return (
     <section id="iletisim" className="py-16 md:py-24 relative bg-[#0f172a] overflow-hidden">

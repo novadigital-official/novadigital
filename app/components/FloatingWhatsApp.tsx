@@ -1,15 +1,19 @@
 "use client";
 
 import { Phone } from "lucide-react";
+import { useAnalytics } from "../hooks/useAnalytics";
 
 export default function FloatingWhatsApp() {
+  const { trackTel, trackWhatsApp } = useAnalytics();
+
   return (
     <div className="fixed bottom-[10%] right-6 sm:right-8 z-50 flex flex-col items-center gap-4 pointer-events-auto">
-      {/* Call Button - Positioned Above WhatsApp */}
+      {/* Call Button */}
       <a
         href="tel:05070871789"
         aria-label="Hemen Telefonla Ara"
         title="Hemen Ara: 0507 087 17 89"
+        onClick={() => trackTel({ site: "nova-digital", source: "floating-bar" })}
         className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 text-white shadow-xl shadow-blue-600/40 hover:bg-blue-500 transition-all hover:scale-110 active:scale-95"
       >
         <Phone className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -22,6 +26,7 @@ export default function FloatingWhatsApp() {
         rel="noopener noreferrer"
         aria-label="WhatsApp İletişim Hattı"
         title="WhatsApp ile İletişime Geç"
+        onClick={() => trackWhatsApp({ site: "nova-digital", source: "floating-bar" })}
         className="flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/40 hover:bg-[#22bf5b] transition-all hover:scale-110 active:scale-95 animate-breathing"
       >
         <svg
