@@ -459,8 +459,8 @@ export default function Packages() {
                     <span className="text-[11px] font-mono font-extrabold tracking-[0.22em] text-cyan-400 uppercase">
                       {pkg.name}
                     </span>
-                    <span className="text-[10px] font-mono text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded border border-slate-800">
-                      {pkg.id}
+                    <span className="text-[10px] font-mono text-cyan-300/80 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-800/40">
+                      Kurumsal Paket
                     </span>
                   </div>
 
