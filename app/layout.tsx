@@ -78,10 +78,6 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "geo.region": "TR-07",
-    "geo.placename": "Antalya",
-    "geo.position": "36.8848;30.7056",
-    ICBM: "36.8848, 30.7056",
     "google-site-verification": "ksJLIBROnT_hba5bZMxV-sHA63Afc5RRF2J-gqphWuA",
   },
 };
