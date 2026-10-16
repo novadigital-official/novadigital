@@ -25,14 +25,16 @@ export const metadata: Metadata = {
     "Nova Global Bilişim — 2 günde teslim dönüşüm odaklı kurumsal web siteleri, e-ticaret sistemleri, B2B yazılım çözümleri ve reklam yönetimi ajansı. Antalya ve Türkiye geneli.",
   keywords: [
     "antalya web tasarım",
+    "antalya otel web sitesi yaptırma",
+    "antalya butik pansiyon rezervasyon sistemi",
+    "antalya klinik web sitesi",
     "antalya dijital ajans",
-    "kurumsal web sitesi",
-    "e-ticaret paketleri",
-    "google ads yönetimi",
-    "meta ads reklam",
-    "mobil uygulama geliştirme",
+    "kurumsal web sitesi 2 günde teslim",
+    "e-ticaret paketleri antalya",
+    "google ads yönetimi antalya",
+    "meta ads reklam yönetimi",
+    "antalya işletme web sitesi fiyatı",
     "nova global bilişim",
-    "nova bilişim",
   ],
   authors: [{ name: "Nova Global Bilişim" }],
   creator: "NOVA GLOBAL BİLİŞİM TURİZM ORGANİZASYON DANIŞMANLIK VE LİMİTED ŞİRKETİ",
@@ -262,6 +264,11 @@ export default function RootLayout({
           as="image"
           fetchPriority="high"
         />
+        {/* GEO META — Antalya yerel sıralama */}
+        <meta name="geo.region" content="TR-07" />
+        <meta name="geo.placename" content="Antalya" />
+        <meta name="geo.position" content="36.9081;30.6558" />
+        <meta name="ICBM" content="36.9081, 30.6558" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
